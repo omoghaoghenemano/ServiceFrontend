@@ -15,14 +15,19 @@ export default function Navbar() {
             <Link  className={classes.link}  ><Typography variant='body1'>Houses/Rent</Typography></Link>
             <Link className={classes.link} > <Typography  variant='body1'>Best Sellers</Typography></Link>
             
-            <ListItemText >Help <KeyboardArrowDown
+            <Link onClick={()=>{
+                setOpen(true)
+            }} className={classes.link}>Help  <KeyboardArrowDown
                   sx={{
-                 
+                  mr:3,
+                  top:"31.1%",
+                  position:"absolute",
+                  
                     opacity: 2,
                     transform: open ? 'rotate(-180deg)' : 'rotate(0)',
                     transition: '0.2s',
                   }}
-                /></ListItemText>
+                /></Link>
         
             </div>
         </AppBar>
