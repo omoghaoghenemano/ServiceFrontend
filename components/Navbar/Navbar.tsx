@@ -5,8 +5,11 @@ import useStyles from './styles'
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
 export default function Navbar() {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
     const classes = useStyles()
+    const handleClick = () => {
+        setOpen(!open);
+      };
   return (
     <div>
         <AppBar className={classes.root}  >
@@ -15,9 +18,7 @@ export default function Navbar() {
             <Link  className={classes.link}  ><Typography variant='body1'>Houses/Rent</Typography></Link>
             <Link className={classes.link} > <Typography  variant='body1'>Best Sellers</Typography></Link>
             
-            <Link onClick={()=>{
-                setOpen(true)
-            }} className={classes.link}>Help  <KeyboardArrowDown
+            <Link onClick={handleClick} className={classes.link}>Help  <KeyboardArrowDown
                   sx={{
                   mr:3,
                   top:"31.1%",
