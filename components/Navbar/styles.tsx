@@ -1,12 +1,14 @@
-import { makeStyles } from '@mui/styles';
-export default makeStyles(theme => ({
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles({
   root: {
-    maxWidth: "500px",
-    width: "100%",
-
-
+    background: "#b41870",
+    padding: 18,
+    marginTop: 3,
   },
-  navbar : {
-      background:"#b41870",
-  }
-}))
+  link: {
+    marginLeft: "10%",
+    textDecoration: "none",
+    color: "#fff",
+  },
+});
+export default useStyles;

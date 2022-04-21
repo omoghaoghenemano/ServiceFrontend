@@ -1,3 +1,11 @@
 .navbar{
    background-color: $nav-color;
+  &__container {
+      display: flex;
+      
+
+   }
+   &__moveleft{
+       margin-left: 10%;
+   }
 }
