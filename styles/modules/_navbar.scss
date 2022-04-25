@@ -2,8 +2,16 @@
    background-color: $nav-color;
   &__container {
       display: flex;
+      justify-content: center;
+      justify-items: center;
       
 
+   }
+   &__childcontainer{
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
    }
    &__moveleft{
        margin-left: 10%;

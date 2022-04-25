@@ -1,37 +1,80 @@
-import React,{useState} from 'react'
-import { AppBar,Typography,Link,Box, ListItemText  } from '@mui/material'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import useStyles from './styles'
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-
+import React, { useState } from "react";
+import {
+  AppBar,
+  Typography,
+  Link,
+  Box,
+  ListItemText,
+  Button,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import {
+  StyledAppBar,
+  StyledButton,
+  StyledSearchSubmitButton,
+  StyledTextField,
+} from "./styles";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import SearchIcon from "@mui/icons-material/Search";
+import PersonIcon from "@mui/icons-material/Person";
+import HelpIcon from "@mui/icons-material/Help";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 export default function Navbar() {
-    const [open, setOpen] = useState(true)
-    const classes = useStyles()
-    const handleClick = () => {
-        setOpen(!open);
-      };
+  const [open, setOpen] = useState(true);
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     <div>
-        <AppBar className={classes.root}  >
-            <div className='navbar__container'>
-               <Link className={classes.link}  > <Typography variant='body1'>Trending</Typography></Link>
-            <Link  className={classes.link}  ><Typography variant='body1'>Houses/Rent</Typography></Link>
-            <Link className={classes.link} > <Typography  variant='body1'>Best Sellers</Typography></Link>
-            
-            <Link onClick={handleClick} className={classes.link}>Help  <KeyboardArrowDown
-                  sx={{
-                  mr:3,
-                  top:"31.1%",
-                  position:"absolute",
-                  
-                    opacity: 2,
-                    transform: open ? 'rotate(-180deg)' : 'rotate(0)',
-                    transition: '0.2s',
-                  }}
-                /></Link>
-        
+      <StyledAppBar>
+        <div className="navbar__container">
+          <div>
+            <IconButton>
+              <MenuRoundedIcon />
+            </IconButton>
+          </div>
+          <div style={{ width: "100%" }} className="navbar__childcontainer">
+            <StyledTextField
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              size="small"
+            />
+            <StyledSearchSubmitButton variant="contained">
+              {" "}
+              Search
+            </StyledSearchSubmitButton>
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <StyledButton variant="text" sx={{ textTransform: "none" }}>
+                {" "}
+                <PersonIcon />
+                Account
+                <KeyboardArrowDown />
+              </StyledButton>
+              <StyledButton variant="text" sx={{ textTransform: "none" }}>
+                {" "}
+                <HelpIcon />
+                Help
+                <KeyboardArrowDown />
+              </StyledButton>
+              <StyledButton variant="text" sx={{ textTransform: "none" }}>
+                {" "}
+                <FavoriteBorderIcon />
+                Favorite
+              </StyledButton>
             </div>
-        </AppBar>
+          </div>
+          <div></div>
+        </div>
+      </StyledAppBar>
     </div>
-  )
+  );
 }
