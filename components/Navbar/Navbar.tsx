@@ -21,10 +21,10 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import HelpIcon from "@mui/icons-material/Help";
-import InfoIcon from '@mui/icons-material/Info';
+import InfoIcon from "@mui/icons-material/Info";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import VerifiedIcon from '@mui/icons-material/Verified';
+import VerifiedIcon from "@mui/icons-material/Verified";
 export default function Navbar() {
   const [open, setOpen] = useState(true);
   const handleClick = () => {
@@ -34,11 +34,11 @@ export default function Navbar() {
     <div className="navbar__container">
       <div className="navbar__subitem">
         <StyledButton> About</StyledButton>
-      
-        <StyledButton sx={{textDecoration:"underline"}}> <VerifiedIcon color="primary" /> Post on Wiki </StyledButton>
-        
 
-
+        <StyledButton sx={{ textDecoration: "underline" }}>
+          {" "}
+          <VerifiedIcon color="primary" /> Post on Wiki{" "}
+        </StyledButton>
       </div>
       <StyledAppBar>
         <div className="navbar__container">
@@ -46,8 +46,11 @@ export default function Navbar() {
             <IconButton>
               <MenuRoundedIcon />
             </IconButton>
+        
           </div>
+          <div>  <Typography color="black" >logo</Typography></div>
           <div style={{ width: "100%" }} className="navbar__childcontainer">
+        
             <StyledTextField
               InputProps={{
                 startAdornment: (
