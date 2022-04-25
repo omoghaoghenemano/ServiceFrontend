@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="navbar__subitem">
         <StyledButton> About</StyledButton>
       
-        <StyledButton> <VerifiedIcon sx={{color:"blue"}}/> Post on Wiki </StyledButton>
+        <StyledButton sx={{textDecoration:"underline"}}> <VerifiedIcon color="primary" /> Post on Wiki </StyledButton>
         
 
 
