@@ -24,12 +24,12 @@ import HelpIcon from "@mui/icons-material/Help";
 import InfoIcon from "@mui/icons-material/Info";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import LoginModal from "../LoginModal/Loginmodal";
 import VerifiedIcon from "@mui/icons-material/Verified";
 export default function Navbar() {
-  const [open, setOpen] = useState(true);
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
   return (
     <div className="navbar__container">
       <div className="navbar__subitem">
@@ -66,7 +66,8 @@ export default function Navbar() {
               Search
             </StyledSearchSubmitButton>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <StyledButton variant="text" sx={{ textTransform: "none" }}>
+              <StyledButton variant="text" sx={{ textTransform: "none" }} onClick={handleOpen}>
+              <LoginModal  OpenModalForm={open} CloseModalForm={handleClose} />
                 {" "}
                 <PersonIcon />
                 Account
