@@ -21,15 +21,25 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import HelpIcon from "@mui/icons-material/Help";
+import InfoIcon from '@mui/icons-material/Info';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import VerifiedIcon from '@mui/icons-material/Verified';
 export default function Navbar() {
   const [open, setOpen] = useState(true);
   const handleClick = () => {
     setOpen(!open);
   };
   return (
-    <div>
+    <div className="navbar__container">
+      <div className="navbar__subitem">
+        <StyledButton> About</StyledButton>
+      
+        <StyledButton> <VerifiedIcon sx={{color:"blue"}}/> Post on Wiki </StyledButton>
+        
+
+
+      </div>
       <StyledAppBar>
         <div className="navbar__container">
           <div>

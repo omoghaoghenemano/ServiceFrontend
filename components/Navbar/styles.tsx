@@ -29,6 +29,8 @@ export const StyledAppBar = styled(AppBar)(
   sx({
     background:"whitesmoke",
     height:50,
+    position:"fixed",
+    top:"5%"
 
   })
 )

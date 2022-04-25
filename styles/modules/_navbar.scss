@@ -2,10 +2,20 @@
    background-color: $nav-color;
   &__container {
       display: flex;
+      
       justify-content: center;
       justify-items: center;
       
 
+   }
+   
+   &__subitem {
+       display: flex;
+       justify-content: space-evenly;
+       justify-items: self-start;
+       position: relative;
+       bottom: 4px;
+       
    }
    &__childcontainer{
     margin-top: 4px;
