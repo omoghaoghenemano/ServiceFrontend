@@ -33,12 +33,13 @@ export default function Navbar() {
   return (
     <div className="navbar__container">
       <div className="navbar__subitem">
-        <StyledButton> About</StyledButton>
+      
 
         <StyledButton sx={{ textDecoration: "underline" }}>
           {" "}
           <VerifiedIcon color="primary" /> Post on Wiki{" "}
         </StyledButton>
+        <StyledButton> About</StyledButton>
       </div>
       <StyledAppBar>
         <div className="navbar__container">
@@ -48,7 +49,7 @@ export default function Navbar() {
             </IconButton>
         
           </div>
-          <div>  <Typography color="black" >logo</Typography></div>
+          <div>  <Typography color="black" >Weware</Typography></div>
           <div style={{ width: "100%" }} className="navbar__childcontainer">
         
             <StyledTextField

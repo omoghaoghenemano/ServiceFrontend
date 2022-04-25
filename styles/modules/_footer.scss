@@ -2,4 +2,19 @@
     background: green;
 
     width: 100%;
+    &__container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        justify-items: center;
+        
+  
+     }
+     &__child {
+         display: flex;
+         justify-content: space-around;
+         width: 100%;
+         padding: 10px;
+         background: $color-footer;
+     }
 }
