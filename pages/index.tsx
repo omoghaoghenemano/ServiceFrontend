@@ -4,11 +4,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar/Navbar'
 import Layout from './layout'
+import Banner from '../components/Banner/Banner'
 
 
 const Home: NextPage = () => {
   return (
-    <Layout> <Typography sx={{marginTop:"20%"}}>Hello World</Typography>    </Layout>
+    
+    <Layout> <div><Banner/></div>   </Layout>
   )
 }
 
