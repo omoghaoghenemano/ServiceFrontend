@@ -33,7 +33,7 @@ export default function Navbar() {
   const [scroll, setScroll] = useState(0)
    const handleScroll = () => {
     
-     setScroll(-5)
+     setScroll(-4.5)
    }
    const handleScrollclose = () => {
     setScroll(0)
