@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Typography,
@@ -30,16 +30,32 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [scroll, setScroll] = useState(0)
+   const handleScroll = () => {
+    
+     setScroll(-5)
+   }
+   const handleScrollclose = () => {
+    setScroll(0)
+   }
+   useEffect(() => {
+    window.onscroll = () =>
+    window.pageYOffset === 0 ? handleScrollclose() :handleScroll() ;
+   
+
+    
+  },);
+  
   return (
     <div className="navbar__container">
-      <div className="navbar__subitem">
+      <div className="navbar__subitem" >
         <StyledButton sx={{ textDecoration: "underline" }}>
           {" "}
           <VerifiedIcon color="primary" /> Post on Wiki{" "}
         </StyledButton>
         <StyledButton> About</StyledButton>
       </div>
-      <StyledAppBar>
+      <StyledAppBar sx={{marginTop:scroll}} onScroll={handleScroll}>
         <div className="navbar__container">
           <div>
             <IconButton>
