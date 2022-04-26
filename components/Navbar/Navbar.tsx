@@ -28,13 +28,11 @@ import LoginModal from "../LoginModal/Loginmodal";
 import VerifiedIcon from "@mui/icons-material/Verified";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <div className="navbar__container">
       <div className="navbar__subitem">
-      
-
         <StyledButton sx={{ textDecoration: "underline" }}>
           {" "}
           <VerifiedIcon color="primary" /> Post on Wiki{" "}
@@ -47,11 +45,12 @@ export default function Navbar() {
             <IconButton>
               <MenuRoundedIcon />
             </IconButton>
-        
           </div>
-          <div>  <Typography color="black" >Weware</Typography></div>
+          <div>
+            {" "}
+            <Typography color="black">Weware</Typography>
+          </div>
           <div style={{ width: "100%" }} className="navbar__childcontainer">
-        
             <StyledTextField
               InputProps={{
                 startAdornment: (
@@ -67,9 +66,12 @@ export default function Navbar() {
               Search
             </StyledSearchSubmitButton>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <StyledButton variant="text" sx={{ textTransform: "none" }} onClick={handleOpen}>
-              <LoginModal  OpenModalForm={open} CloseModalForm={handleClose} />
-                {" "}
+              <StyledButton
+                variant="text"
+                sx={{ textTransform: "none" }}
+                onClick={handleOpen}
+              >
+                <LoginModal OpenModalForm={open} CloseModalForm={handleClose} />{" "}
                 <PersonIcon />
                 Account
                 <KeyboardArrowDown />
