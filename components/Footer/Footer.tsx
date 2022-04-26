@@ -1,6 +1,8 @@
 import React from "react";
-import { Paper, TextField, Typography, Button } from "@mui/material";
+import Link from "next/link";
+import { Paper, TextField, Typography, Button} from "@mui/material";
 import { StyledTextField, StyledTypography, StyledButton } from "./styles";
+
 type Props = {};
 
 export default function Footer({}: Props) {
@@ -8,15 +10,20 @@ export default function Footer({}: Props) {
     <div className="footer">
       <div style={{ width: "100%" }}>
         <Paper
-          elevation={0}
+          elevation={0} 
           sx={{ background: " #464545;", lineHeight: "60px" }}
         >
           <div className="footer__container">
             <div className="footer__child">
+              <Link href="">
               <StyledTypography variant="caption">
                 E-MAIL SUPPORT
               </StyledTypography>
+              </Link>
+              <Link href="">
+
               <StyledTypography variant="caption">CONTACT US</StyledTypography>
+              </Link>
 
               <StyledTextField size="small" />
 
@@ -34,52 +41,57 @@ export default function Footer({}: Props) {
           
          
           <div style={{display:"grid", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
+          <Link href="">
             <StyledTypography variant="caption">LET US HELP YOU</StyledTypography>
-
+</Link>
+<Link href="">
             <StyledTypography  sx={{marginLeft:"-10px"}} variant="caption">ABOUT US</StyledTypography>
-
-            <StyledTypography variant="caption">MAKE MONEY WITH US</StyledTypography>
-
-            <StyledTypography variant="caption">MORE INFO</StyledTypography>
+            </Link>
+            <Link href="">
+            <StyledTypography variant="caption">MAKE MONEY WITH US</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography variant="caption">MORE INFO</StyledTypography></Link>
           </div>
          
           <div style={{display:"grid",gap:"40px", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
+          <Link href="">
             <StyledTypography variant="caption">Help center</StyledTypography>
-
+            </Link><Link href="">
             <StyledTypography sx={{marginLeft:"10px"}} variant="caption">Our Blog</StyledTypography>
-
+            </Link><Link href="">
             <StyledTypography   sx={{position:"relative", right:10}} variant="caption">Sell on this website</StyledTypography>
-
-            <StyledTypography variant="caption">Privacy Policy</StyledTypography>
+            </Link><Link href="">
+            <StyledTypography variant="caption">Privacy Policy</StyledTypography></Link>
           </div>
-            <div style={{display:"grid",gap:"20px", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
+            <div style={{display:"grid",gap:"20px", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}><Link href="">
             <StyledTypography variant="caption">Your Account</StyledTypography>
-
+            </Link><Link href="">
             <StyledTypography variant="caption">Career</StyledTypography>
-
+            </Link><Link href="">
             <StyledTypography variant="caption">Advertise</StyledTypography>
-
-            <StyledTypography sx={{position:"relative", right:-57}} variant="caption">Authentic Item Policy</StyledTypography>
+            </Link><Link href="">
+            <StyledTypography sx={{position:"relative", right:-57}} variant="caption">Authentic Item Policy</StyledTypography></Link>
           </div>
          
-          <div style={{display:"grid", gap:"20px",marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
-            <StyledTypography variant="caption">Assistance</StyledTypography>
-
-            <StyledTypography sx={{position:"relative", right:4}} variant="caption">Forum</StyledTypography>
-
-            <StyledTypography  sx={{marginLeft:"-20px"}} variant="caption">Host here</StyledTypography>
-
-            <StyledTypography sx={{position:"relative", right:-35}} variant="caption">Cookie Policy</StyledTypography>
+          <div style={{display:"grid", gap:"20px",marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}><Link href="">
+            <StyledTypography variant="caption">Assistance</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography sx={{position:"relative", right:4}} variant="caption">Forum</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography  sx={{marginLeft:"-20px"}} variant="caption">Host here</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography sx={{position:"relative", right:-35}} variant="caption">Cookie Policy</StyledTypography></Link>
           </div>
          
           <div style={{display:"grid", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
-            <StyledTypography variant="caption">Manage your content & device</StyledTypography>
-
-            <StyledTypography sx={{position:"relative", left:-42}} variant="caption">Terms & Conditions</StyledTypography>
-
-            <StyledTypography sx={{position:"relative", left:-62}} variant="caption">Become an Affliate</StyledTypography>
-
-            <StyledTypography sx={{position:"relative", left:-12}}  variant="caption">Billing Policy</StyledTypography>
+          <Link href="">
+            <StyledTypography variant="caption">Manage your content & device</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography sx={{position:"relative", left:-42}} variant="caption">Terms & Conditions</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography sx={{position:"relative", left:-62}} variant="caption">Become an Affliate</StyledTypography></Link>
+            <Link href="">
+            <StyledTypography sx={{position:"relative", left:-12}}  variant="caption">Billing Policy</StyledTypography></Link>
           </div>
          
           <div style={{display:"grid",gap:"20px", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
@@ -90,10 +102,12 @@ export default function Footer({}: Props) {
 
          
           </div>
-          <div  style={{display:"flex",marginLeft:"11%" }}>
-          <StyledTypography sx={{position:"relative", left:-12}}  variant="caption">Billing Policy</StyledTypography>
-          <StyledTypography sx={{position:"relative", left:-12}}  variant="caption">Billing Policy</StyledTypography>
-          <StyledTypography sx={{position:"relative", left:-12}}  variant="caption">Billing Policy</StyledTypography>
+          <div  style={{display:"flex",marginLeft:"10%" }}>
+        
+          <StyledTypography   variant="caption">social media icon</StyledTypography>
+          
+          <StyledTypography   variant="caption">social media icon</StyledTypography>
+          <StyledTypography   variant="caption">social media icon</StyledTypography>
 
           </div>
          
