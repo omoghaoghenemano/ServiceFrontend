@@ -11,7 +11,7 @@ type Props = {};
 
 
 export default function Banner({}: Props) {
-  const applications = {
+/*   const applications = {
     name:"admin",
     email:"kennf2fswdwwos@gmail.com",
      passwords:"nonrwwdfdfdfded"
@@ -26,7 +26,7 @@ export default function Banner({}: Props) {
   })
   
  
-  }, [])
+  }, []) */
   
   return (
     <div style={{ background: "black" }}>
