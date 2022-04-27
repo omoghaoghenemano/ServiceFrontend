@@ -9,7 +9,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  background:"white",
+  
   borderRadius:"5px"
 
 };
@@ -21,7 +21,7 @@ const LoginModal = (props) => {
      
     >
       <Box sx={style}>
-        <Paper sx={{background:"white", }}>
+        <Paper sx={{background:"rgb(218, 218, 218)", }}>
         <Signin/>
 
         </Paper>
