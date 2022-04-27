@@ -11,7 +11,7 @@ import {
 export const StyledButton = styled(Button)(
   
     sx({
-        width:"450px",
+        width:"50%",
         color:"white",
         textTransform:"none",
         marginLeft:"10px", background: "#FFA500"

@@ -30,7 +30,8 @@ export const StyledAppBar = styled(AppBar)(
     background:"whitesmoke",
     height:50,
     position:"fixed",
-    top:"5%"
+    top:"5%",
+    width:"100%"
 
   })
 )

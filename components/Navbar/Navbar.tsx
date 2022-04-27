@@ -30,13 +30,13 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [scroll, setScroll] = useState(0)
+  const [scroll, setScroll] = useState("33px")
    const handleScroll = () => {
     
-     setScroll(-4.5)
+     setScroll("0%")
    }
    const handleScrollclose = () => {
-    setScroll(0)
+    setScroll("33px")
    }
    useEffect(() => {
     window.onscroll = () =>
@@ -55,7 +55,7 @@ export default function Navbar() {
         </StyledButton>
         <StyledButton> About</StyledButton>
       </div>
-      <StyledAppBar sx={{marginTop:scroll}} onScroll={handleScroll}>
+      <StyledAppBar sx={{postion:"relative", top:scroll}} onScroll={handleScroll}>
         <div className="navbar__container">
           <div>
             <IconButton>

@@ -7,8 +7,8 @@ type Props = {}
 
 export default function Banner({}: Props) {
   return (
-    <div  style={{background:"black"}}><img style={{opacity:0.3,overflow: "hidden", background:"blue"}} src='banner.jpg'></img>
-    <div style={{position:"absolute", top:"20%",left:"30%"}} >
+    <div  style={{background:"black"}}><img style={{opacity:0.3,objectFit:"cover",overflow: "hidden",position:"relative" , background:"blue",width:"100%",height:"400px"}} src='banner.jpg'></img>
+    <div style={{position:"absolute", top:"20%",right:"35%"}} >
       <Typography sx={{color:"white"}} variant='h4'>WELCOME TO THE FUTURE</Typography>
       <Typography align="center" sx={{color:"white"}} variant='h6'>The best reliable service </Typography>
       <Typography align="center" sx={{color:"white"}} variant='h6'>Explore latest advertisement both nearby and faraway </Typography>
