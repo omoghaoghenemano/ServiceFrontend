@@ -21,7 +21,7 @@ const LoginModal = (props) => {
      
     >
       <Box sx={style}>
-        <Paper sx={{background:"rgb(218, 218, 218)", }}>
+        <Paper sx={{background:"rgb(218, 218, 218)" }}>
         <Signin/>
 
         </Paper>

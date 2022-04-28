@@ -1,4 +1,11 @@
 .flexitems{
-    display: flex;
-    justify-content: center;
+   height: 400px;
+    &__flexsignin{
+        display: flex;
+        flex-direction: column;
+        margin-left: 19%;
+        justify-items: center;
+        
+        
+    }
 }

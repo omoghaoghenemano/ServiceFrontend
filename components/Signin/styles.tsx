@@ -12,7 +12,7 @@ export const StyledButton = styled(Button)(
   
     sx({
         width:"80%",
-        height:"40px",
+     
         marginTop:"40px",
         color:"white",
         borderRadius:"13px",
@@ -20,7 +20,7 @@ export const StyledButton = styled(Button)(
         borderShadow:" 5px 10px grey",
         boxShadow:" 5px 10px #888888"
         ,
-        marginLeft:"10px", background: "blue"
+       background: "blue"
         ,
         '&:hover':{
           background: "blue"
@@ -31,12 +31,12 @@ export const StyledButtonGoogle = styled(Button)(
   
     sx({
         width:"80%",
-        height:"40px",
+       
         marginTop:"40px",
         color:"black",
         borderRadius:"13px",
         textTransform:"none",
-        marginLeft:"10px", background: "whitesmoke",
+        background: "whitesmoke",
         borderShadow:" 5px 10px grey"
         ,
         boxShadow:" 5px 10px #888888"
@@ -50,9 +50,33 @@ export const StyledTextField = styled(TextField)(
     sx({
         width:"80%",
       
-        marginTop:"40px",
+        marginTop:"30px",
         color:"white",
+      
+        textTransform:"none",
+    
+        
+    })
+)
+export const StyleCheckoutButton = styled(Button)(
+    sx({
+        width:"80%",
+       color:"white",
+        marginTop:"30px",
         borderRadius:"13px",
         textTransform:"none",
+        background: "#FFA500",
+        borderShadow:" 5px 10px grey"
+        ,
+        boxShadow:" 5px 10px #888888"
+        ,
+        '&:hover':{
+          background: "#FFA500"
+        }
+      })
+)
+export const StyledTypography = styled(Typography)(
+    sx({
+        marginTop:"30px"
     })
 )
