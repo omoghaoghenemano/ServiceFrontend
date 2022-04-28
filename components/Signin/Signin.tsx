@@ -26,7 +26,9 @@ function Signin(props: Props) {
     Clientapi.post('api/login',data)
     .then(response=>{
       console.log("it worked hahha",response)
+      const user = response.data;
       console.log("your auth token is", response.data.auth_token)
+
       Cookies.set('auth_token',response.data.auth_token)
       AuthDispatcher({ type: "login" })
       AuthDispatcher({ type: "addUser", payload: response.data })

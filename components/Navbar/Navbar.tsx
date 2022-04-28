@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   AppBar,
   Typography,
@@ -26,41 +26,50 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import LoginModal from "../LoginModal/Loginmodal";
 import VerifiedIcon from "@mui/icons-material/Verified";
-import StateContext from '../../context/StateContext';
+import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
+import Clientapi from "../../pages/api/client";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [scroll, setScroll] = useState("33px")
-   const handleScroll = () => {
-    
-     setScroll("0%")
-   }
-   const handleScrollclose = () => {
-    setScroll("33px")
-   }
-   useEffect(() => {
+  const [scroll, setScroll] = useState("33px");
+  const handleScroll = () => {
+    setScroll("0%");
+  };
+  const handleScrollclose = () => {
+    setScroll("33px");
+  };
+  useEffect(() => {
     window.onscroll = () =>
-    window.pageYOffset === 0 ? handleScrollclose() :handleScroll() ;
-   
+      window.pageYOffset === 0 ? handleScrollclose() : handleScroll();
+  });
+  useEffect(() => {
+    if (AuthState.isLoggedIn) {
+      Clientapi.get("api/user").then((response) => {
+        const user = response.data;
+        AuthDispatcher({ type: "addUser", payload: user });
+        console.log(AuthState.user);
+      });
+    }
+  }, []);
+  const { AuthState } = useContext(StateContext);
+  const { AuthDispatcher } = useContext(DispatchContext);
+  console.log("AuthState", AuthState);
 
-    
-  },);
-  const { AuthState } = useContext(StateContext)
-  const { AuthDispatcher} = useContext(DispatchContext)
-  console.log("AuthState", AuthState)
-  
   return (
     <div className="navbar__container">
-      <div className="navbar__subitem" >
+      <div className="navbar__subitem">
         <StyledButton sx={{ textDecoration: "underline" }}>
           {" "}
           <VerifiedIcon color="primary" /> Post on Wiki{" "}
         </StyledButton>
         <StyledButton> About</StyledButton>
       </div>
-      <StyledAppBar sx={{postion:"relative", top:scroll}} onScroll={handleScroll}>
+      <StyledAppBar
+        sx={{ postion: "relative", top: scroll }}
+        onScroll={handleScroll}
+      >
         <div className="navbar__container">
           <div>
             <IconButton>
@@ -87,21 +96,29 @@ export default function Navbar() {
               Search
             </StyledSearchSubmitButton>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <StyledButton
-                variant="text"
-                sx={{ textTransform: "none" }}
-                onClick={handleOpen}
-              >
-                <LoginModal   OpenModalForm={open} CloseModalForm={
-                  handleClose
-                } />{" "}
-                <PersonIcon />{
-                  AuthState.user ? (<> Hi { AuthState.user.user.name}</>) : " Account"
-
+              {AuthState.user ? (
+                <StyledButton
+                  variant="text"
+                  sx={{ textTransform: "none" }}
                   
-                }
-                <KeyboardArrowDown />
-              </StyledButton>
+                >
+                  <PersonIcon />
+                  Hi {AuthState.user.name} <KeyboardArrowDown />
+                </StyledButton>
+              ) : (
+                <StyledButton
+                  variant="text"
+                  sx={{ textTransform: "none" }}
+                  onClick={handleOpen}
+                >
+                  <LoginModal
+                    OpenModalForm={open}
+                    CloseModalForm={handleClose}
+                  />{" "}
+                  <PersonIcon /> Account <KeyboardArrowDown />
+                </StyledButton>
+              )}
+
               <StyledButton variant="text" sx={{ textTransform: "none" }}>
                 {" "}
                 <HelpIcon />
