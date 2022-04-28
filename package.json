@@ -16,13 +16,15 @@
     "@mui/styled-engine-sc": "^5.6.1",
     "@mui/styles": "^5.6.2",
     "axios": "^0.27.1",
+    "immer-reducer": "^0.7.13",
     "js-cookie": "^3.0.1",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-hook-form": "^7.30.0",
     "sass": "^1.50.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "use-immer": "^0.7.0"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.2",

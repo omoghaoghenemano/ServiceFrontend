@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import {
   AppBar,
   Typography,
@@ -26,6 +26,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import LoginModal from "../LoginModal/Loginmodal";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import StateContext from '../../context/StateContext';
+import DispatchContext from "../../context/DispatchContext";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -45,6 +47,9 @@ export default function Navbar() {
 
     
   },);
+  const { AuthState } = useContext(StateContext)
+  const { AuthDispatcher } = useContext(DispatchContext)
+  console.log("AuthState", AuthState)
   
   return (
     <div className="navbar__container">

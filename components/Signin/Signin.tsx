@@ -1,12 +1,15 @@
 
-import React from 'react'
+import React,{useContext} from 'react'
 import {Button, IconButton,Typography, Box,TextField} from '@mui/material'
 import { useForm } from 'react-hook-form';
 import {StyledButton,StyleCheckoutButton, StyledTypography,StyledButtonGoogle,StyledTextField} from './styles'
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Clientapi from '../../pages/api/client';
+import StateContext from '../../context/StateContext';
+import DispatchContext from "../../context/DispatchContext";
 import Cookies from 'js-cookie'
+
 type Props = {
   onCloseForm : any
 }
@@ -14,6 +17,9 @@ type Props = {
 
 function Signin(props: Props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const { AuthState } = useContext(StateContext)
+  const { AuthDispatcher} = useContext(DispatchContext)
+
   const onSubmit = data => {
     console.log(data.email)
     console.log(data.password)
@@ -22,6 +28,9 @@ function Signin(props: Props) {
       console.log("it worked hahha",response)
       console.log("your auth token is", response.data.auth_token)
       Cookies.set('auth_token',response.data.auth_token)
+      AuthDispatcher({ type: "login" })
+      AuthDispatcher({ type: "addUser", payload: response.data })
+      console.log("the user state is", AuthState.user)
 
     })
   };
