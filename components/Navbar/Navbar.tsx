@@ -87,7 +87,9 @@ export default function Navbar() {
                 sx={{ textTransform: "none" }}
                 onClick={handleOpen}
               >
-                <LoginModal OpenModalForm={open} CloseModalForm={handleClose} />{" "}
+                <LoginModal   OpenModalForm={open} CloseModalForm={
+                  handleClose
+                } />{" "}
                 <PersonIcon />
                 Account
                 <KeyboardArrowDown />

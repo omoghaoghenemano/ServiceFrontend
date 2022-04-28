@@ -22,7 +22,9 @@ const LoginModal = (props) => {
     >
       <Box sx={style}>
         <Paper sx={{background:"rgb(218, 218, 218)" }}>
-        <Signin/>
+        <Signin onCloseForm={()=>{
+         props.CloseModalForm
+        }}/>
 
         </Paper>
       </Box>

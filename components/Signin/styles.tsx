@@ -17,8 +17,8 @@ export const StyledButton = styled(Button)(
         color:"white",
         borderRadius:"13px",
         textTransform:"none",
-        borderShadow:" 5px 10px grey",
-        boxShadow:" 5px 10px #888888"
+        borderShadow:" 5px 4px grey",
+        boxShadow:" 5px 4px #888888"
         ,
        background: "blue"
         ,
@@ -37,9 +37,9 @@ export const StyledButtonGoogle = styled(Button)(
         borderRadius:"13px",
         textTransform:"none",
         background: "whitesmoke",
-        borderShadow:" 5px 10px grey"
+        borderShadow:" 5px 4px grey"
         ,
-        boxShadow:" 5px 10px #888888"
+        boxShadow:" 5px 4px #888888"
         ,
         '&:hover':{
           background: "white"
@@ -66,9 +66,9 @@ export const StyleCheckoutButton = styled(Button)(
         borderRadius:"13px",
         textTransform:"none",
         background: "#FFA500",
-        borderShadow:" 5px 10px grey"
+        borderShadow:" 5px 4px grey"
         ,
-        boxShadow:" 5px 10px #888888"
+        boxShadow:" 5px 4px #888888"
         ,
         '&:hover':{
           background: "#FFA500"
