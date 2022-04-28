@@ -48,7 +48,7 @@ export default function Navbar() {
     
   },);
   const { AuthState } = useContext(StateContext)
-  const { AuthDispatcher } = useContext(DispatchContext)
+  const { AuthDispatcher} = useContext(DispatchContext)
   console.log("AuthState", AuthState)
   
   return (
@@ -95,8 +95,11 @@ export default function Navbar() {
                 <LoginModal   OpenModalForm={open} CloseModalForm={
                   handleClose
                 } />{" "}
-                <PersonIcon />
-                Account
+                <PersonIcon />{
+                  AuthState.user ? (<> Hi { AuthState.user.user.name}</>) : " Account"
+
+                  
+                }
                 <KeyboardArrowDown />
               </StyledButton>
               <StyledButton variant="text" sx={{ textTransform: "none" }}>

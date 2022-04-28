@@ -20,7 +20,7 @@ function Signin(props: Props) {
   const { AuthState } = useContext(StateContext)
   const { AuthDispatcher} = useContext(DispatchContext)
 
-  const onSubmit = data => {
+  const onSubmit = (data:any )=> {
     console.log(data.email)
     console.log(data.password)
     Clientapi.post('api/login',data)
