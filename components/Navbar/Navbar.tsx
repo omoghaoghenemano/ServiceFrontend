@@ -34,6 +34,13 @@ export default function Navbar() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [scroll, setScroll] = useState("33px");
+  const [myaccount, setMyaccount] = useState(true);
+  const handleProfileClicks = () => {
+    setMyaccount(!myaccount)
+ 
+    
+
+  }
   const handleScroll = () => {
     setScroll("0%");
   };
@@ -43,6 +50,7 @@ export default function Navbar() {
   useEffect(() => {
     window.onscroll = () =>
       window.pageYOffset === 0 ? handleScrollclose() : handleScroll();
+ 
   });
   useEffect(() => {
     if (AuthState.isLoggedIn) {
@@ -100,10 +108,12 @@ export default function Navbar() {
                 <StyledButton
                   variant="text"
                   sx={{ textTransform: "none" }}
+                  onClick={handleProfileClicks}
+           
                   
                 >
                   <PersonIcon />
-                  Hi {AuthState.user.name} <KeyboardArrowDown />
+                  Hi {AuthState.user.name} {myaccount? <KeyboardArrowDown sx={{transform:'rotate(0deg)'}} /> :  <KeyboardArrowDown  sx={{transform:'rotate(180deg)'}} /> }
                 </StyledButton>
               ) : (
                 <StyledButton
@@ -115,7 +125,7 @@ export default function Navbar() {
                     OpenModalForm={open}
                     CloseModalForm={handleClose}
                   />{" "}
-                  <PersonIcon /> Account <KeyboardArrowDown />
+                  <PersonIcon /> Account <KeyboardArrowDown  />
                 </StyledButton>
               )}
 
