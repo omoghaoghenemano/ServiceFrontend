@@ -9,6 +9,7 @@ import {
   TextField,
   InputAdornment,
   IconButton,
+  Menu, MenuItem
 } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import {
@@ -32,10 +33,18 @@ import Clientapi from "../../pages/api/client";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setAnchorEl(null);
+    setMyaccount(false);
+  };
   const [scroll, setScroll] = useState("33px");
   const [myaccount, setMyaccount] = useState(true);
-  const handleProfileClicks = () => {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const displaylist = Boolean(anchorEl);
+  const handleProfileClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+     setAnchorEl(event.currentTarget);
     setMyaccount(!myaccount)
  
     
@@ -63,6 +72,7 @@ export default function Navbar() {
   }, []);
   const { AuthState } = useContext(StateContext);
   const { AuthDispatcher } = useContext(DispatchContext);
+
   console.log("AuthState", AuthState);
 
   return (
@@ -109,11 +119,26 @@ export default function Navbar() {
                   variant="text"
                   sx={{ textTransform: "none" }}
                   onClick={handleProfileClicks}
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
            
                   
                 >
                   <PersonIcon />
-                  Hi {AuthState.user.name} {myaccount? <KeyboardArrowDown sx={{transform:'rotate(0deg)'}} /> :  <KeyboardArrowDown  sx={{transform:'rotate(180deg)'}} /> }
+                  Hi {AuthState.user.name} {myaccount? <> <KeyboardArrowDown sx={{transform:'rotate(0deg)'}} />    </> :  <> <KeyboardArrowDown sx={{transform:'rotate(180deg)'}} />    <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={displaylist}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu></> }
                 </StyledButton>
               ) : (
                 <StyledButton
