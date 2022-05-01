@@ -32,7 +32,10 @@ import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
 import Cookies from "js-cookie";
-
+interface Contextype {
+  AuthState : null | any;
+  AuthDispatcher: null | any;
+}
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -81,8 +84,8 @@ export default function Navbar() {
       });
     }
   }, []);
-  const { AuthState } = useContext(StateContext);
-  const { AuthDispatcher } = useContext(DispatchContext);
+  const { AuthState } = useContext<any>(StateContext);
+  const { AuthDispatcher } = useContext<any>(DispatchContext);
   const HandleLogout = () => {
     Clientapi.get("api/logout").then((response) => {
       const user = response.data;
@@ -120,9 +123,10 @@ export default function Navbar() {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem>Mano</MenuItem>
-                <MenuItem >My account</MenuItem>
-                <MenuItem >Logout</MenuItem>
+                <MenuItem>IT Service</MenuItem>
+                <MenuItem >Entertainment Service</MenuItem>
+                <MenuItem >ChildCare Service</MenuItem>
+                <MenuItem >Building & Trade Services</MenuItem>
               </Menu>
             </IconButton>
           </div>

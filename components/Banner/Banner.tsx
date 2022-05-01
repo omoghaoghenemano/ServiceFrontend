@@ -43,7 +43,14 @@ export default function Banner({}: Props) {
         src="banner.jpg"
       ></img>
       <div style={{ position: "absolute", top: "20%", right: "35%" }}>
-        <Typography sx={{ color: "white" }} variant="h4">
+        
+        <div  style={{
+            display: "flex",
+            flexDirection:"column",
+            justifyContent: "center",
+            alignItems:"center",
+           
+          }}><Typography sx={{ color: "white" }} variant="h4">
           WELCOME TO THE FUTURE
         </Typography>
         <Typography align="center" sx={{ color: "white" }} variant="h6">
@@ -52,6 +59,7 @@ export default function Banner({}: Props) {
         <Typography align="center" sx={{ color: "white" }} variant="h6">
           Explore latest advertisement both nearby and faraway{" "}
         </Typography>
+        </div>
         <div
           style={{
             display: "flex",

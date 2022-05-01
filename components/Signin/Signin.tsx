@@ -34,8 +34,8 @@ function Signin(props: Props) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { AuthState } = useContext(StateContext);
-  const { AuthDispatcher } = useContext(DispatchContext);
+  const { AuthState } = useContext<any>(StateContext);
+  const { AuthDispatcher } = useContext<any>(DispatchContext);
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);

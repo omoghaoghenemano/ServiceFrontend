@@ -8,8 +8,8 @@ import {AuthReducer, initialAuthState} from "../store/auth.store"
 import { GlobalReducer, initialGlobalState } from "../store/global.store"
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [GlobalState, GlobalDispatcher] = useImmerReducer(GlobalReducer, initialGlobalState)
-  const [AuthState,AuthDispatcher] = useImmerReducer(AuthReducer, initialAuthState);
+  const [GlobalState, GlobalDispatcher] = useImmerReducer <any>(GlobalReducer, initialGlobalState)
+  const [AuthState,AuthDispatcher] = useImmerReducer <any>(AuthReducer, initialAuthState);
   const StateProviders = { GlobalState, AuthState }
 
   const DispatchProviders = { GlobalDispatcher, AuthDispatcher }
