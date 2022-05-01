@@ -13,7 +13,7 @@ const serviceimages = [
   "Cleaning services.jpeg",
   "event services.jpeg",
   "entertainment services.jpeg",
-  "childcare services.jpeg",
+  "kidandtoy.jpeg",
   "automotive services.jpeg",
   "building & trade services.jpeg",
   "legal services.jpeg",
@@ -96,25 +96,23 @@ const AvailableService = (props: Props) => {
             </div>
           )}
           {props.services?.map((item, i) => (
-            <>
-              <div
-                key={item.categories_id}
-                style={{ marginLeft: "1%", position: "relative" }}
-              >
-                <img
-                  src={serviceimages[i]}
-                  style={{
-                    width: "200px",
-                    borderRadius: "13px",
-                    height: "200px",
-                  }}
-                />
+            <div
+              key={Math.random()}
+              style={{ marginLeft: "1%", position: "relative" }}
+            >
+              <img
+                src={serviceimages[i]}
+                style={{
+                  width: "200px",
+                  borderRadius: "13px",
+                  height: "200px",
+                }}
+              />
 
-                <Typography style={{ fontFamily: "serif", fontSize: "0.9rem" }}>
-                  {item.type}
-                </Typography>
-              </div>
-            </>
+              <Typography style={{ fontFamily: "serif", fontSize: "0.9rem" }}>
+                {item.type}
+              </Typography>
+            </div>
           ))}
         </Paper>
       </Paper>

@@ -159,7 +159,7 @@ export default function Navbar() {
                 {" "}
                 <Box>
                   {categoriesval.map((item, i) => (
-                    <MenuItem key={item?.categories_id}>
+                    <MenuItem key={Math.random()}>
                       <div
                         style={{
                           display: "flex",
