@@ -1,5 +1,6 @@
 import { makeStyles ,withStyles} from '@mui/styles';
-import { Paper,Button,Typography , Avatar, AppBar, TextField} from '@mui/material';
+import { Paper,Button,Typography ,Box, Avatar, AppBar, TextField, Divider} from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import {
   styled,
   createTheme,
@@ -46,6 +47,12 @@ export const StyledButtonGoogle = styled(Button)(
         }
       })
 )
+export const CustomDivider = styled(Divider)(
+  sx({
+    width:"80%",
+    marginTop:"40px"
+  })
+)
 export const StyledTextField = styled(TextField)(
     sx({
         width:"80%",
@@ -57,6 +64,13 @@ export const StyledTextField = styled(TextField)(
     
         
     })
+)
+export const StyledBox = styled(Box)(
+  sx({
+    width:"80%",
+    marginTop:"30px",
+    
+  })
 )
 export const StyleCheckoutButton = styled(Button)(
     sx({
@@ -74,6 +88,21 @@ export const StyleCheckoutButton = styled(Button)(
           background: "#FFA500"
         }
       })
+)
+export const  StyleLoadingButton = styled(LoadingButton)(
+  sx({
+    width:"80%",
+    color:"white",
+     marginTop:"30px",
+     borderRadius:"13px",
+     textTransform:"none",
+     background: "#FFA500",
+     borderShadow:" 5px 4px grey"
+     ,
+     boxShadow:" 5px 4px #888888"
+     ,
+
+  })
 )
 export const StyledTypography = styled(Typography)(
     sx({

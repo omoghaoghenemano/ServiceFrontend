@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import Clientapi from "../../pages/api/client";
+import StateContext from "../../context/StateContext";
+import DispatchContext from "../../context/DispatchContext";
 import { Box, Fade, Modal, Paper, Typography } from "@mui/material";
 import Signin from "../Signin";
 // make login reusable
@@ -14,17 +16,28 @@ const style = {
 
 };
 const LoginModal = (props) => {
+  const { AuthState } = useContext(StateContext);
+  const { AuthDispatcher } = useContext(DispatchContext);
+  const [open,setOpen] = useState(false)
+  
+  const fetchuser = () =>{
+    Clientapi.get("api/user").then((response) => {
+      const user = response.data;
+      AuthDispatcher({ type: "login" });
+      AuthDispatcher({ type: "addUser", payload: user });
+
+      console.log(AuthState.user);
+    });
+  }
   return (
     <Modal
       open={props.OpenModalForm}
-      onClose={props.CloseModalForm}
+      onClose={props.onClose}
      
     >
       <Box sx={style}>
-        <Paper sx={{background:"rgb(218, 218, 218)" }}>
-        <Signin onCloseForm={()=>{
-         props.CloseModalForm
-        }}/>
+        <Paper >
+        <Signin onSuccess={fetchuser} CloseModalForm={props.onClose}/>
 
         </Paper>
       </Box>

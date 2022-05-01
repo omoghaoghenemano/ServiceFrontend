@@ -9,7 +9,8 @@ import {
   TextField,
   InputAdornment,
   IconButton,
-  Menu, MenuItem
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import {
@@ -30,6 +31,7 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
+import Cookies from "js-cookie";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -38,18 +40,15 @@ export default function Navbar() {
     setAnchorEl(null);
     setMyaccount(false);
   };
+  const Closeevent = () => setOpen(false);
   const [scroll, setScroll] = useState("33px");
   const [myaccount, setMyaccount] = useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const displaylist = Boolean(anchorEl);
   const handleProfileClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
-
-     setAnchorEl(event.currentTarget);
-    setMyaccount(!myaccount)
- 
-    
-
-  }
+    setAnchorEl(event.currentTarget);
+    setMyaccount(!myaccount);
+  };
   const handleScroll = () => {
     setScroll("0%");
   };
@@ -59,7 +58,6 @@ export default function Navbar() {
   useEffect(() => {
     window.onscroll = () =>
       window.pageYOffset === 0 ? handleScrollclose() : handleScroll();
- 
   });
   useEffect(() => {
     if (AuthState.isLoggedIn) {
@@ -70,8 +68,17 @@ export default function Navbar() {
       });
     }
   }, []);
-  const { AuthState } = useContext(StateContext);
+  const { AuthState} = useContext(StateContext);
   const { AuthDispatcher } = useContext(DispatchContext);
+  const HandleLogout = () => {
+    Clientapi.get("api/logout").then((response) => {
+      const user = response.data;
+      console.log("logging out");
+      Cookies.remove("auth_token")
+      AuthDispatcher({type:"logout"})
+    });
+
+  }
 
   console.log("AuthState", AuthState);
 
@@ -119,26 +126,40 @@ export default function Navbar() {
                   variant="text"
                   sx={{ textTransform: "none" }}
                   onClick={handleProfileClicks}
-                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-           
-                  
+                  aria-expanded={open ? "true" : undefined}
                 >
                   <PersonIcon />
-                  Hi {AuthState.user.name} {myaccount? <> <KeyboardArrowDown sx={{transform:'rotate(0deg)'}} />    </> :  <> <KeyboardArrowDown sx={{transform:'rotate(180deg)'}} />    <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={displaylist}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu></> }
+                  Hi {AuthState.user.name}{" "}
+                  {myaccount ? (
+                    <>
+                      {" "}
+                      <KeyboardArrowDown
+                        sx={{ transform: "rotate(0deg)" }}
+                      />{" "}
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <KeyboardArrowDown
+                        sx={{ transform: "rotate(180deg)" }}
+                      />{" "}
+                      <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={displaylist}
+                        onClose={handleClose}
+                        MenuListProps={{
+                          "aria-labelledby": "basic-button",
+                        }}
+                      >
+                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                        <MenuItem onClick={handleClose}>My account</MenuItem>
+                        <MenuItem onClick={HandleLogout}>Logout</MenuItem>
+                      </Menu>
+                    </>
+                  )}
                 </StyledButton>
               ) : (
                 <StyledButton
@@ -148,9 +169,14 @@ export default function Navbar() {
                 >
                   <LoginModal
                     OpenModalForm={open}
-                    CloseModalForm={handleClose}
+                    onClose={()=>{
+                      console.log("what is happening here!!!")
+                    }}
+                    
+
+                   
                   />{" "}
-                  <PersonIcon /> Account <KeyboardArrowDown  />
+                  <PersonIcon /> Account <KeyboardArrowDown />
                 </StyledButton>
               )}
 
