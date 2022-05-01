@@ -112,7 +112,7 @@ export default function Navbar() {
       >
         <div className="navbar__container">
           <div>
-            <IconButton onClick={handleMenuClicks}>
+            <IconButton onClick={handleMenuClicks}  onMouseOver={handleMenuClicks}  onMouseOut={handleCloseMenu}>
               <MenuRoundedIcon />
               <Menu
                 id="basic-menu"
