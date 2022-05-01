@@ -21,7 +21,7 @@ export const StyledButton = styled(Button)(
     fontFamily: "serif",
     textTransform: "none",
     marginLeft: "10px",
-    background: "#FFA500",
+    background: "#F68B1E",
     "&:hover": {
       background: "#FFA500",
     },

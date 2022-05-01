@@ -1,111 +1,105 @@
-import { makeStyles ,withStyles} from '@mui/styles';
-import { Paper,Button,Typography ,Box, Avatar, AppBar, TextField, Divider} from '@mui/material';
-import LoadingButton from '@mui/lab/LoadingButton';
+import { makeStyles, withStyles } from "@mui/styles";
+import {
+  Paper,
+  Button,
+  Typography,
+  Box,
+  Avatar,
+  AppBar,
+  TextField,
+  Divider,
+} from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 import {
   styled,
   createTheme,
   ThemeProvider,
   experimental_sx as sx,
-} from '@mui/system'
-
+} from "@mui/system";
 
 export const StyledButton = styled(Button)(
-  
-    sx({
-        width:"80%",
-     
-        marginTop:"40px",
-        color:"white",
-        borderRadius:"13px",
-        textTransform:"none",
-        borderShadow:" 5px 4px grey",
-        boxShadow:" 5px 4px #888888"
-        ,
-       background: "blue"
-        ,
-        '&:hover':{
-          background: "blue"
-        }
-      })
-)
+  sx({
+    width: "80%",
+
+    marginTop: "40px",
+    color: "white",
+    borderRadius: "13px",
+    textTransform: "none",
+    borderShadow: " 5px 4px grey",
+    boxShadow: " 5px 4px #888888",
+    background: "blue",
+    "&:hover": {
+      background: "blue",
+    },
+  })
+);
 export const StyledButtonGoogle = styled(Button)(
-  
-    sx({
-        width:"80%",
-       
-        marginTop:"40px",
-        color:"black",
-        borderRadius:"13px",
-        textTransform:"none",
-        background: "whitesmoke",
-        borderShadow:" 5px 4px grey"
-        ,
-        boxShadow:" 5px 4px #888888"
-        ,
-        '&:hover':{
-          background: "white"
-        }
-      })
-)
+  sx({
+    width: "80%",
+
+    marginTop: "40px",
+    color: "black",
+    borderRadius: "13px",
+    textTransform: "none",
+    background: "whitesmoke",
+    borderShadow: " 5px 4px grey",
+    boxShadow: " 5px 4px #888888",
+    "&:hover": {
+      background: "white",
+    },
+  })
+);
 export const CustomDivider = styled(Divider)(
   sx({
-    width:"80%",
-    marginTop:"40px"
+    width: "80%",
+    marginTop: "40px",
   })
-)
+);
 export const StyledTextField = styled(TextField)(
-    sx({
-        width:"80%",
-      
-        marginTop:"30px",
-        color:"white",
-      
-        textTransform:"none",
-    
-        
-    })
-)
+  sx({
+    width: "80%",
+
+    marginTop: "30px",
+    color: "white",
+
+    textTransform: "none",
+  })
+);
 export const StyledBox = styled(Box)(
   sx({
-    width:"80%",
-    marginTop:"30px",
-    
+    width: "80%",
+    marginTop: "30px",
   })
-)
+);
 export const StyleCheckoutButton = styled(Button)(
-    sx({
-        width:"80%",
-       color:"white",
-        marginTop:"30px",
-        borderRadius:"13px",
-        textTransform:"none",
-        background: "#FFA500",
-        borderShadow:" 5px 4px grey"
-        ,
-        boxShadow:" 5px 4px #888888"
-        ,
-        '&:hover':{
-          background: "#FFA500"
-        }
-      })
-)
-export const  StyleLoadingButton = styled(LoadingButton)(
   sx({
-    width:"80%",
-    color:"white",
-     marginTop:"30px",
-     borderRadius:"13px",
-     textTransform:"none",
-     background: "#FFA500",
-     borderShadow:" 5px 4px grey"
-     ,
-     boxShadow:" 5px 4px #888888"
-     ,
-
+    width: "80%",
+    color: "white",
+    marginTop: "30px",
+    borderRadius: "13px",
+    textTransform: "none",
+    background: "#F68B1E",
+    borderShadow: " 5px 4px grey",
+    boxShadow: " 5px 4px #888888",
+    "&:hover": {
+      background: "#FFA500",
+    },
   })
-)
+);
+export const StyleLoadingButton = styled(LoadingButton)(
+  sx({
+    width: "80%",
+    color: "white",
+    marginTop: "30px",
+    borderRadius: "13px",
+    textTransform: "none",
+    background: "#FFA500",
+    borderShadow: " 5px 4px grey",
+    boxShadow: " 5px 4px #888888",
+  })
+);
 export const StyledTypography = styled(Typography)(
-    sx({
-        marginTop:"30px"
-    })
-)
+  sx({
+    marginTop: "30px",
+  })
+);

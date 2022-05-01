@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { Paper, TextField, Typography, Button} from "@mui/material";
-import { StyledTextField, StyledTypography, StyledButton } from "./styles";
+import { Paper, TextField, Typography, Button } from "@mui/material";
+import {
+  StyledTextField,
+  CustomFooterText,
+  StyledTypography,
+  StyledButton,
+} from "./styles";
 
 type Props = {};
 
@@ -10,19 +15,20 @@ export default function Footer({}: Props) {
     <div className="footer">
       <div style={{ width: "100%" }}>
         <Paper
-          elevation={0} 
+          elevation={0}
           sx={{ background: " #464545;", lineHeight: "60px" }}
         >
           <div className="footer__container">
             <div className="footer__child">
               <Link href="">
-              <StyledTypography variant="caption">
-                E-MAIL SUPPORT
-              </StyledTypography>
+                <StyledTypography variant="caption">
+                  E-MAIL SUPPORT
+                </StyledTypography>
               </Link>
               <Link href="">
-
-              <StyledTypography variant="caption">CONTACT US</StyledTypography>
+                <StyledTypography variant="caption">
+                  CONTACT US
+                </StyledTypography>
               </Link>
 
               <StyledTextField size="small" />
@@ -34,83 +40,202 @@ export default function Footer({}: Props) {
                 Female
               </StyledButton>
             </div>
-            
+
             <div></div>
-          
           </div>
-          
-         
-          <div style={{display:"grid",columnGap:"0%", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
-          <Link href="">
-            <StyledTypography variant="caption">LET US HELP YOU</StyledTypography>
-</Link>
-<Link href="">
-            <StyledTypography  sx={{marginLeft:"-10px"}} variant="caption">ABOUT US</StyledTypography>
+
+          <div
+            style={{
+              display: "grid",
+              columnGap: "0%",
+              marginLeft: "10%",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
+            <Link href="">
+              <StyledTypography variant="caption">
+                LET US HELP YOU
+              </StyledTypography>
             </Link>
             <Link href="">
-            <StyledTypography variant="caption">MAKE MONEY WITH US</StyledTypography></Link>
+              <StyledTypography
+                sx={{ position: "relative", left: "-6%" }}
+                variant="caption"
+              >
+                ABOUT US
+              </StyledTypography>
+            </Link>
             <Link href="">
-            <StyledTypography variant="caption">MORE INFO</StyledTypography></Link>
+              <StyledTypography variant="caption">
+                MAKE MONEY WITH US
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography variant="caption">MORE INFO</StyledTypography>
+            </Link>
           </div>
-         
-          <div style={{display:"grid", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
-          <Link href="">
-            <StyledTypography variant="caption">Help center</StyledTypography>
-            </Link><Link href="">
-            <StyledTypography sx={{marginLeft:"10px"}} variant="caption">&nbsp;&nbsp;Our Blog</StyledTypography>
-            </Link><Link href="">
-            <StyledTypography   sx={{position:"relative", }} variant="caption">Sell on this website</StyledTypography>
-            </Link><Link href="">
-            <StyledTypography variant="caption">Privacy Policy</StyledTypography></Link>
+
+          <div
+            style={{
+              display: "grid",
+              marginLeft: "10%",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
+            <Link href="">
+              <StyledTypography variant="caption">Help center</StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography sx={{ marginLeft: "10px" }} variant="caption">
+                Our Blog
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography
+                sx={{ position: "relative", left: "3%" }}
+                variant="caption"
+              >
+                Sell on this website
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography
+                variant="caption"
+                sx={{ position: "relative", left: "10%" }}
+              >
+                Privacy Policy
+              </StyledTypography>
+            </Link>
           </div>
-            <div style={{display:"grid",columnGap:"0%", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}><Link href="">
-            <StyledTypography variant="caption">Your Account</StyledTypography>
-            </Link><Link href="">
-            <StyledTypography variant="caption">Career</StyledTypography>
-            </Link><Link href="">
-            <StyledTypography variant="caption">Advertise</StyledTypography>
-            </Link><Link href="">
-            <StyledTypography  variant="caption">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authentic Item Policy</StyledTypography></Link>
+          <div
+            style={{
+              display: "grid",
+              columnGap: "0%",
+              marginLeft: "10%",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
+            <Link href="">
+              <StyledTypography variant="caption">
+                Your Account
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography variant="caption">Career</StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography variant="caption" style={{ left: "8%" }}>
+                Advertise
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography style={{ left: "19%" }} variant="caption">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authentic Item
+                Policy
+              </StyledTypography>
+            </Link>
           </div>
-         
-          <div style={{display:"grid", columnGap: "0%",marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}><Link href="">
-            <StyledTypography variant="caption">Assistance</StyledTypography></Link>
+
+          <div
+            style={{
+              display: "grid",
+              columnGap: "0%",
+              marginLeft: "10%",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
             <Link href="">
-            <StyledTypography sx={{position:"relative", }} variant="caption">Forum</StyledTypography></Link>
+              <StyledTypography variant="caption">Assistance</StyledTypography>
+            </Link>
             <Link href="">
-            <StyledTypography  variant="caption">Host here</StyledTypography></Link>
+              <StyledTypography
+                sx={{ position: "relative", left: "-2%" }}
+                variant="caption"
+              >
+                Forum
+              </StyledTypography>
+            </Link>
             <Link href="">
-            <StyledTypography sx={{position:"relative", }} variant="caption">Cookie Policy</StyledTypography></Link>
+              <StyledTypography
+                variant="caption"
+                sx={{ position: "relative", left: "-1%" }}
+              >
+                Host here
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography
+                sx={{ position: "relative", left: "16%" }}
+                variant="caption"
+              >
+                Cookie Policy
+              </StyledTypography>
+            </Link>
           </div>
-         
-          <div style={{display:"grid", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
-          <Link href="">
-            <StyledTypography variant="caption">Manage your content & device</StyledTypography></Link>
+
+          <div
+            style={{
+              display: "grid",
+              marginLeft: "10%",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
             <Link href="">
-            <StyledTypography sx={{position:"relative", }} variant="caption">Terms & Conditions</StyledTypography></Link>
+              <StyledTypography variant="caption">
+                Manage your content & device
+              </StyledTypography>
+            </Link>
             <Link href="">
-            <StyledTypography sx={{position:"relative", }} variant="caption">Become an Affliate</StyledTypography></Link>
+              <StyledTypography
+                sx={{ position: "relative", right: "19%" }}
+                variant="caption"
+              >
+                Terms & Conditions
+              </StyledTypography>
+            </Link>
             <Link href="">
-            <StyledTypography sx={{position:"relative", }}  variant="caption">Billing Policy</StyledTypography></Link>
+              <StyledTypography
+                sx={{ position: "relative", right: "24%" }}
+                variant="caption"
+              >
+                Become an Affliate
+              </StyledTypography>
+            </Link>
+            <Link href="">
+              <StyledTypography
+                sx={{ position: "relative", right: "3%" }}
+                variant="caption"
+              >
+                Billing Policy
+              </StyledTypography>
+            </Link>
           </div>
-         
-          <div style={{display:"grid",gap:"20px", marginLeft:"10%", gridTemplateColumns:"auto auto auto auto"}}>
-         
-            <StyledTypography variant="caption">JOIN US ON SOCIAL</StyledTypography>
+
+          <div
+            style={{
+              display: "grid",
+              gap: "20px",
+              marginLeft: "10%",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
+            <StyledTypography variant="caption">
+              JOIN US ON SOCIAL
+            </StyledTypography>
             <br></br>
-
-
-         
           </div>
-          <div  style={{display:"flex",marginLeft:"10%" }}>
-        
-          <StyledTypography   variant="caption">social media icon</StyledTypography>
-          
-          <StyledTypography   variant="caption">social media icon</StyledTypography>
-          <StyledTypography   variant="caption">social media icon</StyledTypography>
+          <div style={{ display: "flex", marginLeft: "10%" }}>
+            <StyledTypography variant="caption">
+              social media icon
+            </StyledTypography>
 
+            <StyledTypography variant="caption">
+              social media icon
+            </StyledTypography>
+            <StyledTypography variant="caption">
+              social media icon
+            </StyledTypography>
           </div>
-         
         </Paper>
       </div>
     </div>
