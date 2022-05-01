@@ -144,7 +144,7 @@ export default function Navbar() {
             <IconButton
               onClick={handleMenuClicks}
               onMouseOver={handleMenuClicks}
-              onMouseOut={handleCloseMenu}
+              onMouseLeave={handleCloseMenu}
             >
               <MenuRoundedIcon />
               <Menu
@@ -157,7 +157,7 @@ export default function Navbar() {
                 }}
               >
                 {" "}
-                <Box sx={{ minWidth: "300px" }}>
+                <Box>
                   {categoriesval.map((item, i) => (
                     <MenuItem key={item?.categories_id}>
                       <div

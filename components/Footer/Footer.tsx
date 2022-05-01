@@ -1,12 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Paper, TextField, Typography, Button } from "@mui/material";
-import {
-  StyledTextField,
-  CustomFooterText,
-  StyledTypography,
-  StyledButton,
-} from "./styles";
+import { StyledTextField, StyledTypography, StyledButton } from "./styles";
 
 type Props = {};
 
@@ -99,10 +94,7 @@ export default function Footer({}: Props) {
               </StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography
-                variant="caption"
-                sx={{ position: "relative", left: "10%" }}
-              >
+              <StyledTypography variant="caption">
                 Privacy Policy
               </StyledTypography>
             </Link>
@@ -124,12 +116,10 @@ export default function Footer({}: Props) {
               <StyledTypography variant="caption">Career</StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography variant="caption" style={{ left: "8%" }}>
-                Advertise
-              </StyledTypography>
+              <StyledTypography variant="caption">Advertise</StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography style={{ left: "19%" }} variant="caption">
+              <StyledTypography variant="caption">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authentic Item
                 Policy
               </StyledTypography>
@@ -156,18 +146,10 @@ export default function Footer({}: Props) {
               </StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography
-                variant="caption"
-                sx={{ position: "relative", left: "-1%" }}
-              >
-                Host here
-              </StyledTypography>
+              <StyledTypography variant="caption">Host here</StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography
-                sx={{ position: "relative", left: "16%" }}
-                variant="caption"
-              >
+              <StyledTypography sx={{ position: "relative" }} variant="caption">
                 Cookie Policy
               </StyledTypography>
             </Link>
@@ -194,18 +176,12 @@ export default function Footer({}: Props) {
               </StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography
-                sx={{ position: "relative", right: "24%" }}
-                variant="caption"
-              >
+              <StyledTypography sx={{ position: "relative" }} variant="caption">
                 Become an Affliate
               </StyledTypography>
             </Link>
             <Link href="">
-              <StyledTypography
-                sx={{ position: "relative", right: "3%" }}
-                variant="caption"
-              >
+              <StyledTypography sx={{ position: "relative" }} variant="caption">
                 Billing Policy
               </StyledTypography>
             </Link>

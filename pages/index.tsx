@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -6,16 +6,26 @@ import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
 import Layout from "./layout";
 import Banner from "../components/Banner/Banner";
+import Clientapi from "./api/client";
 import AvailableServices from "../components/AvailableServices";
 
-
 const Home: NextPage = () => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    if (categories.length === 0) {
+      Clientapi.get("api/Categories").then((response) => {
+        setCategories(response.data);
+      });
+      console.log("the lenght wasnt fetched");
+    }
+  }, [categories]);
+  console.log("checking via the index", categories);
   return (
     <Layout>
       {" "}
       <div>
         <Banner />
-        <AvailableServices/>
+        <AvailableServices services={categories} />
       </div>{" "}
     </Layout>
   );

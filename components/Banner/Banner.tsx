@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
 import Clientapi from "../../pages/api/client";
 import Cookies from "js-cookie";
+import AvailableServices from "../AvailableServices";
 
 type Props = {};
 
@@ -27,58 +28,63 @@ export default function Banner({}: Props) {
   }, []) */
 
   return (
-    <div style={{ background: "black" }}>
-      <img
-        style={{
-          opacity: 0.3,
-          objectFit: "cover",
-          overflow: "hidden",
-          position: "relative",
-          background: "blue",
-          width: "100%",
-          height: "400px",
-        }}
-        src="banner.jpg"
-      ></img>
-      <div style={{ position: "absolute", top: "20%", right: "35%" }}>
-        <div
+    <>
+      <div style={{ background: "black" }}>
+        <img
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            opacity: 0.3,
+            objectFit: "cover",
+            overflow: "hidden",
+            position: "relative",
+            background: "blue",
+            width: "100%",
+            height: "400px",
           }}
-        >
-          <Typography sx={{ color: "white", fontFamily: "serif" }} variant="h4">
-            WELCOME TO THE FUTURE
-          </Typography>
-          <Typography
-            align="center"
-            sx={{ color: "white", fontFamily: "serif" }}
-            variant="h6"
+          src="banner.jpg"
+        ></img>
+        <div style={{ position: "absolute", top: "20%", right: "35%" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            The best reliable service{" "}
-          </Typography>
-          <Typography
-            align="center"
-            sx={{ color: "white", fontFamily: "serif" }}
-            variant="h6"
+            <Typography
+              sx={{ color: "white", fontFamily: "serif" }}
+              variant="h4"
+            >
+              WELCOME TO THE FUTURE
+            </Typography>
+            <Typography
+              align="center"
+              sx={{ color: "white", fontFamily: "serif" }}
+              variant="h6"
+            >
+              The best reliable service{" "}
+            </Typography>
+            <Typography
+              align="center"
+              sx={{ color: "white", fontFamily: "serif" }}
+              variant="h6"
+            >
+              Explore latest advertisement both nearby and faraway{" "}
+            </Typography>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10%",
+            }}
           >
-            Explore latest advertisement both nearby and faraway{" "}
-          </Typography>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "10%",
-          }}
-        >
-          <StyledButton endIcon={<ArrowForwardIosIcon />}>
-            Checkout latest advertisement
-          </StyledButton>
+            <StyledButton endIcon={<ArrowForwardIosIcon />}>
+              Checkout latest advertisement
+            </StyledButton>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
