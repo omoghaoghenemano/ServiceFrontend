@@ -9,6 +9,9 @@ import {
   TextField,
   InputAdornment,
   IconButton,
+  ListItemIcon,
+  List,
+  ListItemButton,
   Menu,
   MenuItem,
 } from "@mui/material";
@@ -40,6 +43,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const [categories, setCategories] = useState([]);
+  const categoriesval = categories.slice(0, 14);
   const handleClose = () => {
     setOpen(false);
     setAnchorEl(null);
@@ -106,7 +110,22 @@ export default function Navbar() {
   };
 
   console.log("AuthState", AuthState);
-
+  const imagelist = [
+    "ITservice.png",
+    "cleaningservice.png",
+    "Eventservice.png",
+    "entertainmentservices.png",
+    "childcareservices.jpeg",
+    "automativeservices.jpeg",
+    "building&tradeservices.png",
+    "legalservices.png",
+    "image&beautyservices.jpeg",
+    "landscaping&gardeningservices.jpeg",
+    "logisticsservices.png",
+    "printingservices.png",
+    "photography&videoservices.png",
+    "weddingeventsservices.jpeg",
+  ];
   return (
     <div className="navbar__container">
       <div className="navbar__subitem">
@@ -138,11 +157,50 @@ export default function Navbar() {
                 }}
               >
                 {" "}
-                {categories.map((item) => (
-                  <MenuItem key={item.categories_id}>
-                    <Typography textAlign="center">{item.type}</Typography>
+                <Box sx={{ minWidth: "300px" }}>
+                  {categoriesval.map((item, i) => (
+                    <MenuItem key={item?.categories_id}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignSelf: "self-end",
+                        }}
+                      >
+                        <Typography
+                          style={{
+                            fontFamily: "serif",
+
+                            fontSize: "0.9rem",
+                          }}
+                        >
+                          <img
+                            src={imagelist[i]}
+                            style={{
+                              height: "20px",
+                              width: "20px",
+                              position: "relative",
+                              top: "4px",
+                              left: -10,
+                            }}
+                          />
+                          {item?.type}
+                        </Typography>
+                      </div>
+                    </MenuItem>
+                  ))}
+                  <MenuItem>
+                    <Typography
+                      style={{
+                        fontFamily: "serif",
+
+                        fontSize: "0.9rem",
+                      }}
+                    >
+                      Other Services
+                    </Typography>
                   </MenuItem>
-                ))}
+                </Box>
               </Menu>
             </IconButton>
           </div>
