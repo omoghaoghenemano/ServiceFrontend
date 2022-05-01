@@ -32,6 +32,7 @@ import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
 import Cookies from "js-cookie";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -40,14 +41,26 @@ export default function Navbar() {
     setAnchorEl(null);
     setMyaccount(false);
   };
+
   const Closeevent = () => setOpen(false);
   const [scroll, setScroll] = useState("33px");
   const [myaccount, setMyaccount] = useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorElmenu, setAnchorElmenu] = React.useState<null | HTMLElement>(null);
   const displaylist = Boolean(anchorEl);
+  const displaymenu = Boolean(anchorElmenu);
   const handleProfileClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
     setMyaccount(!myaccount);
+  };
+  const handleCloseMenu = () => {
+    setAnchorElmenu(null);
+    
+  }
+  const [menu, setMenu] = useState(true);
+  const handleMenuClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorElmenu(event.currentTarget);
+    setMenu(!menu);
   };
   const handleScroll = () => {
     setScroll("0%");
@@ -68,17 +81,16 @@ export default function Navbar() {
       });
     }
   }, []);
-  const { AuthState} = useContext(StateContext);
+  const { AuthState } = useContext(StateContext);
   const { AuthDispatcher } = useContext(DispatchContext);
   const HandleLogout = () => {
     Clientapi.get("api/logout").then((response) => {
       const user = response.data;
       console.log("logging out");
-      Cookies.remove("auth_token")
-      AuthDispatcher({type:"logout"})
+      Cookies.remove("auth_token");
+      AuthDispatcher({ type: "logout" });
     });
-
-  }
+  };
 
   console.log("AuthState", AuthState);
 
@@ -97,8 +109,21 @@ export default function Navbar() {
       >
         <div className="navbar__container">
           <div>
-            <IconButton>
+            <IconButton onClick={handleMenuClicks}>
               <MenuRoundedIcon />
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorElmenu}
+                open={displaymenu}
+                onClose={handleCloseMenu}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem>Mano</MenuItem>
+                <MenuItem >My account</MenuItem>
+                <MenuItem >Logout</MenuItem>
+              </Menu>
             </IconButton>
           </div>
           <div>
@@ -169,12 +194,7 @@ export default function Navbar() {
                 >
                   <LoginModal
                     OpenModalForm={open}
-                    onClose={()=>{
-                      console.log("what is happening here!!!")
-                    }}
-                    
-
-                   
+                    CloseModalForm={Closeevent}
                   />{" "}
                   <PersonIcon /> Account <KeyboardArrowDown />
                 </StyledButton>

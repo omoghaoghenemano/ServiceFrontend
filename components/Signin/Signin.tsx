@@ -70,12 +70,7 @@ function Signin(props: Props) {
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="flexitems__flexsignin">
-        <IconButton
-          onClick={props.CloseModalForm}
-          sx={{ position: "absolute", right: "5%" }}
-        >
-          <CloseIcon />
-        </IconButton>
+       
         <StyledButton>Facebook</StyledButton>
         <StyledButtonGoogle>Google</StyledButtonGoogle>
         <CustomDivider/>

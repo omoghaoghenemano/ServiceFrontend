@@ -2,8 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import Clientapi from "../../pages/api/client";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
-import { Box, Fade, Modal, Paper, Typography } from "@mui/material";
+import { Box, Fade, Modal,IconButton, Paper, Typography } from "@mui/material";
 import Signin from "../Signin";
+import CloseIcon from "@mui/icons-material/Close";
 // make login reusable
 const style = {
   position: "absolute",
@@ -32,11 +33,19 @@ const LoginModal = (props) => {
   return (
     <Modal
       open={props.OpenModalForm}
-      onClose={props.onClose}
+      onClose={props.CloseModalForm}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
      
     >
       <Box sx={style}>
         <Paper >
+      <IconButton
+          onClick={props.CloseModalForm}
+          sx={{ position: "absolute", right: "5%" }}
+        >
+          <CloseIcon />
+        </IconButton>
         <Signin onSuccess={fetchuser} CloseModalForm={props.onClose}/>
 
         </Paper>
