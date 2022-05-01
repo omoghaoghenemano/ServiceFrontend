@@ -33,12 +33,13 @@ import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
 import Cookies from "js-cookie";
 interface Contextype {
-  AuthState : null | any;
+  AuthState: null | any;
   AuthDispatcher: null | any;
 }
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+  const [categories, setCategories] = useState([]);
   const handleClose = () => {
     setOpen(false);
     setAnchorEl(null);
@@ -49,7 +50,9 @@ export default function Navbar() {
   const [scroll, setScroll] = useState("33px");
   const [myaccount, setMyaccount] = useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [anchorElmenu, setAnchorElmenu] = React.useState<null | HTMLElement>(null);
+  const [anchorElmenu, setAnchorElmenu] = React.useState<null | HTMLElement>(
+    null
+  );
   const displaylist = Boolean(anchorEl);
   const displaymenu = Boolean(anchorElmenu);
   const handleProfileClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -58,8 +61,7 @@ export default function Navbar() {
   };
   const handleCloseMenu = () => {
     setAnchorElmenu(null);
-    
-  }
+  };
   const [menu, setMenu] = useState(true);
   const handleMenuClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorElmenu(event.currentTarget);
@@ -75,7 +77,14 @@ export default function Navbar() {
     window.onscroll = () =>
       window.pageYOffset === 0 ? handleScrollclose() : handleScroll();
   });
+
   useEffect(() => {
+    if (categories.length === 0) {
+      Clientapi.get("api/Categories").then((response) => {
+        setCategories(response.data);
+      });
+      console.log("the lenght wasnt fetched");
+    }
     if (AuthState.isLoggedIn) {
       Clientapi.get("api/user").then((response) => {
         const user = response.data;
@@ -83,7 +92,8 @@ export default function Navbar() {
         console.log(AuthState.user);
       });
     }
-  }, []);
+  }, [categories]);
+  console.log("this are the categories", categories);
   const { AuthState } = useContext<any>(StateContext);
   const { AuthDispatcher } = useContext<any>(DispatchContext);
   const HandleLogout = () => {
@@ -112,7 +122,11 @@ export default function Navbar() {
       >
         <div className="navbar__container">
           <div>
-            <IconButton onClick={handleMenuClicks}  onMouseOver={handleMenuClicks}  onMouseOut={handleCloseMenu}>
+            <IconButton
+              onClick={handleMenuClicks}
+              onMouseOver={handleMenuClicks}
+              onMouseOut={handleCloseMenu}
+            >
               <MenuRoundedIcon />
               <Menu
                 id="basic-menu"
@@ -123,10 +137,12 @@ export default function Navbar() {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem>IT Service</MenuItem>
-                <MenuItem >Entertainment Service</MenuItem>
-                <MenuItem >ChildCare Service</MenuItem>
-                <MenuItem >Building & Trade Services</MenuItem>
+                {" "}
+                {categories.map((item) => (
+                  <MenuItem key={item.categories_id}>
+                    <Typography textAlign="center">{item.type}</Typography>
+                  </MenuItem>
+                ))}
               </Menu>
             </IconButton>
           </div>
