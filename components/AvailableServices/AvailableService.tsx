@@ -130,6 +130,7 @@ const AvailableService = (props: Props) => {
                       width: "200px",
                       borderRadius: "13px",
                       height: "200px",
+                      cursor: "pointer",
                     }}
                   />
                   <Typography
