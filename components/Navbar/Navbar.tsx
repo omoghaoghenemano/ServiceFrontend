@@ -15,6 +15,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import {
   StyledAppBar,
@@ -158,37 +159,50 @@ export default function Navbar() {
               >
                 {" "}
                 <Box>
-                  {categoriesval.map((item, i) => (
-                    <MenuItem key={Math.random()}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignSelf: "self-end",
-                        }}
-                      >
-                        <Typography
+                  {categoriesval.map(
+                    (
+                      item: {
+                        type:
+                          | boolean
+                          | React.ReactChild
+                          | React.ReactFragment
+                          | React.ReactPortal
+                          | null
+                          | undefined;
+                      },
+                      i: string | number | any
+                    ) => (
+                      <MenuItem key={Math.random()}>
+                        <div
                           style={{
-                            fontFamily: "serif",
-
-                            fontSize: "0.9rem",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignSelf: "self-end",
                           }}
                         >
-                          <img
-                            src={imagelist[i]}
+                          <Typography
                             style={{
-                              height: "20px",
-                              width: "20px",
-                              position: "relative",
-                              top: "4px",
-                              left: -10,
+                              fontFamily: "serif",
+
+                              fontSize: "0.9rem",
                             }}
-                          />
-                          {item?.type}
-                        </Typography>
-                      </div>
-                    </MenuItem>
-                  ))}
+                          >
+                            <img
+                              src={imagelist[i]}
+                              style={{
+                                height: "20px",
+                                width: "20px",
+                                position: "relative",
+                                top: "4px",
+                                left: -10,
+                              }}
+                            />
+                            {item?.type}
+                          </Typography>
+                        </div>
+                      </MenuItem>
+                    )
+                  )}
                   <MenuItem>
                     <Typography
                       style={{

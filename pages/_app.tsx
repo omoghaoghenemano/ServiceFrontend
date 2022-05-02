@@ -15,9 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     AuthReducer,
     initialAuthState
   );
-  const StateProviders = { GlobalState, AuthState };
+  const StateProviders: any = { GlobalState, AuthState };
 
-  const DispatchProviders = { GlobalDispatcher, AuthDispatcher };
+  const DispatchProviders: any = { GlobalDispatcher, AuthDispatcher };
 
   return (
     <StateContext.Provider value={{ ...StateProviders }}>

@@ -25,6 +25,7 @@
     "react-hook-form": "^7.30.0",
     "react-horizontal-scrolling-menu": "^2.7.1",
     "react-simple-image-slider": "^2.4.1",
+    "react-slick": "^0.29.0",
     "sass": "^1.50.1",
     "styled-components": "^5.3.5",
     "use-immer": "^0.7.0"

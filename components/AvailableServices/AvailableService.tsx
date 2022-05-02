@@ -4,6 +4,7 @@ import { Typography, List, IconButton } from "@mui/material";
 import Clientapi from "../../pages/api/client";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 type Props = {
   services: any;
 };
@@ -45,12 +46,17 @@ const AvailableService = (props: Props) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   }
 
-  const handleMousehover = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMousehover = (
+    event: React.MouseEventHandler<HTMLDivElement> | undefined
+  ) => {
     setCheckhover(true);
   };
-  const handleMouseClose = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseClose = (
+    event: React.MouseEventHandler<HTMLDivElement> | undefined
+  ) => {
     setCheckhover(false);
   };
+
   return (
     <div>
       <Paper elevation={2}>
@@ -65,16 +71,8 @@ const AvailableService = (props: Props) => {
             Available Service for you
           </Typography>
         </div>
-        <Paper
-          sx={{
-            marginTop: "10px",
-            display: "flex",
-            overflow: "scroll",
-          }}
-          onMouseOver={handleMousehover}
-          onMouseOut={handleMouseClose}
-        >
-          {checkhover && (
+        <div className="flexitems__avalableservice">
+          {/*  {checkhover && (
             <div
               style={{
                 display: "flex",
@@ -94,27 +92,40 @@ const AvailableService = (props: Props) => {
                 <ArrowForwardIosIcon />
               </IconButton>
             </div>
-          )}
-          {props.services?.map((item, i) => (
-            <div
-              key={Math.random()}
-              style={{ marginLeft: "1%", position: "relative" }}
-            >
-              <img
-                src={serviceimages[i]}
-                style={{
-                  width: "200px",
-                  borderRadius: "13px",
-                  height: "200px",
-                }}
-              />
+          )} */}
+          {props.services?.map(
+            (
+              item: {
+                type:
+                  | boolean
+                  | React.ReactChild
+                  | React.ReactFragment
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+              },
+              i: string | number | any
+            ) => (
+              <div
+                key={Math.random()}
+                style={{ marginLeft: "1%", position: "relative" }}
+              >
+                <img
+                  src={serviceimages[i]}
+                  style={{
+                    width: "200px",
+                    borderRadius: "13px",
+                    height: "200px",
+                  }}
+                />
 
-              <Typography style={{ fontFamily: "serif", fontSize: "0.9rem" }}>
-                {item.type}
-              </Typography>
-            </div>
-          ))}
-        </Paper>
+                <Typography style={{ fontFamily: "serif", fontSize: "0.9rem" }}>
+                  {item.type}
+                </Typography>
+              </div>
+            )
+          )}
+        </div>
       </Paper>
     </div>
   );

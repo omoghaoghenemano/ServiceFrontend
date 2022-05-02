@@ -1,11 +1,21 @@
-.flexitems{
+.flexitems {
+  &__flexsignin {
+    display: flex;
+    flex-direction: column;
+    margin-left: 19%;
+    justify-items: center;
+  }
+  &__avalableservice {
+    margin-top: 10px;
+    display: flex;
 
-    &__flexsignin{
-        display: flex;
-        flex-direction: column;
-        margin-left: 19%;
-        justify-items: center;
-        
-        
-    }
+    overflow-x: scroll;
+  }
+  &__avalableservice::-webkit-scrollbar {
+    height: 0.2rem;
+    background-color: #0d3b97;
+  }
+  &__avalableservice::-webkit-scrollbar-thumb {
+    background-color: #f68b1e;
+  }
 }

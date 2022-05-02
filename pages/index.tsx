@@ -8,6 +8,7 @@ import Layout from "./layout";
 import Banner from "../components/Banner/Banner";
 import Clientapi from "./api/client";
 import AvailableServices from "../components/AvailableServices";
+import Testing from "./testing";
 
 const Home: NextPage = () => {
   const [categories, setCategories] = useState([]);
