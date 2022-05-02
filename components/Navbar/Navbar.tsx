@@ -35,6 +35,7 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
+import HowToRegRoundedIcon from "@mui/icons-material/HowToRegRounded";
 import Cookies from "js-cookie";
 interface Contextype {
   AuthState: null | any;
@@ -87,8 +88,15 @@ export default function Navbar() {
     if (categories.length === 0) {
       Clientapi.get("api/Categories").then((response) => {
         setCategories(response.data);
+        AuthDispatcher({ type: "addCategories", payload: response.data });
+        console.log(
+          "checking data",
+          AuthDispatcher({ type: "addCategories", payload: response.data })
+        );
+        AuthDispatcher({ type: "displayCategories" });
       });
-      console.log("the lenght wasnt fetched");
+
+      console.log("the lenght wasnt fetched", AuthState.categorydata);
     }
     if (AuthState.isLoggedIn) {
       Clientapi.get("api/user").then((response) => {
@@ -247,7 +255,7 @@ export default function Navbar() {
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
                 >
-                  <PersonIcon />
+                  <HowToRegRoundedIcon />
                   Hi {AuthState.user.name}{" "}
                   {myaccount ? (
                     <>
