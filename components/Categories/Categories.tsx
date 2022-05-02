@@ -36,6 +36,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { StyledTypography, StyledLink } from "./styles";
 
 import MailIcon from "@mui/icons-material/Mail";
 import { MenuItem } from "@mui/material";
@@ -72,14 +73,36 @@ export default function Categories() {
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ marginLeft: "6%" }}>Services</Typography>
-            <Typography sx={{ marginLeft: "8%" }}>IT Services</Typography>
-            <Typography sx={{ marginLeft: "8%" }}>Cleaning Services</Typography>
-            <Typography sx={{ marginLeft: "8%" }}>Event Services</Typography>
-            <Typography sx={{ marginLeft: "8%" }}>
-              Entertainment Services
-            </Typography>
-            <Typography sx={{ marginLeft: "8%" }}>Show all</Typography>
+            <StyledLink>
+              <StyledTypography sx={{ marginLeft: "6%" }}>
+                Services
+              </StyledTypography>
+            </StyledLink>
+            <StyledLink>
+              <StyledTypography sx={{ marginLeft: "8%" }}>
+                IT Services
+              </StyledTypography>
+            </StyledLink>
+            <StyledLink>
+              <StyledTypography sx={{ marginLeft: "8%" }}>
+                Cleaning Services
+              </StyledTypography>
+            </StyledLink>
+            <StyledLink>
+              <StyledTypography sx={{ marginLeft: "8%" }}>
+                Event Services
+              </StyledTypography>
+            </StyledLink>
+            <StyledLink>
+              <StyledTypography sx={{ marginLeft: "8%" }}>
+                Entertainment Services
+              </StyledTypography>
+            </StyledLink>
+            <StyledLink>
+              <StyledTypography sx={{ marginLeft: "8%" }}>
+                Show all
+              </StyledTypography>
+            </StyledLink>
           </div>
           <Divider />
         </Drawer>
@@ -88,7 +111,9 @@ export default function Categories() {
           sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
         >
           <Toolbar />
-          <Typography paragraph>waiting for demo DATA from woke</Typography>
+          <StyledTypography paragraph>
+            waiting for demo DATA from woke
+          </StyledTypography>
         </Box>
       </Box>
     </div>
