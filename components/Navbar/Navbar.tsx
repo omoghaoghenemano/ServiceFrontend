@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useRouter } from "next/router";
 import {
   StyledAppBar,
   StyledButton,
@@ -46,6 +47,7 @@ export default function Navbar() {
   const handleOpen = () => setOpen(true);
   const [categories, setCategories] = useState([]);
   const categoriesval = categories.slice(0, 14);
+  const route = useRouter();
   const handleClose = () => {
     setOpen(false);
     setAnchorEl(null);
@@ -152,7 +154,6 @@ export default function Navbar() {
           <div>
             <IconButton
               onClick={handleMenuClicks}
-              onMouseOver={handleMenuClicks}
               onMouseLeave={handleCloseMenu}
             >
               <MenuRoundedIcon />
@@ -211,7 +212,7 @@ export default function Navbar() {
                       </MenuItem>
                     )
                   )}
-                  <MenuItem>
+                  <MenuItem onClick={handleCloseMenu}>
                     <Typography
                       style={{
                         fontFamily: "serif",
@@ -228,7 +229,13 @@ export default function Navbar() {
           </div>
           <div>
             {" "}
-            <Typography color="black">Weware</Typography>
+            <Link
+              onClick={() => {
+                route.push("/");
+              }}
+            >
+              <Typography color="black">Weware</Typography>
+            </Link>
           </div>
           <div style={{ width: "100%" }} className="navbar__childcontainer">
             <StyledTextField
