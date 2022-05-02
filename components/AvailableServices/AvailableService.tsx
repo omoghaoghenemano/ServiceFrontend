@@ -68,7 +68,7 @@ const AvailableService = (props: Props) => {
           }}
         >
           <Typography variant="h5" style={{ fontFamily: "serif" }}>
-            Available Service for you
+            Service Categories
           </Typography>
         </div>
         <div className="flexitems__avalableservice">
