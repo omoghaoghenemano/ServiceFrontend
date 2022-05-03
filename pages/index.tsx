@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Typography } from "@mui/material";
 import type { NextPage } from "next";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
+
+import { Dispatch } from "redux";
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
@@ -12,6 +15,13 @@ import Testing from "./testing";
 
 const Home: NextPage = () => {
   const [categories, setCategories] = useState([]);
+  const articles: readonly IArticle[] = useSelector(
+    (state: ArticleState) => state.articles,
+    shallowEqual
+  );
+
+  const dispatch: Dispatch<any> = useDispatch();
+
   useEffect(() => {
     if (categories.length === 0) {
       Clientapi.get("api/Categories").then((response) => {

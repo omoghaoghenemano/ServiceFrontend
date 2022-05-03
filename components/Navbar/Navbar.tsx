@@ -1,4 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Dispatch } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../pages/state";
+import { RootState } from "../../pages/state/reducers";
+
 import {
   AppBar,
   Typography,
@@ -31,24 +37,32 @@ import HelpIcon from "@mui/icons-material/Help";
 import InfoIcon from "@mui/icons-material/Info";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import LoginModal from "../LoginModal/Loginmodal";
+import { LoginModal } from "../LoginModal/Loginmodal";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
 import HowToRegRoundedIcon from "@mui/icons-material/HowToRegRounded";
+
 import Cookies from "js-cookie";
 interface Contextype {
   AuthState: null | any;
   AuthDispatcher: null | any;
 }
-export default function Navbar() {
+type Props = {
+  article: IArticle;
+  removeArticle: (article: IArticle) => void;
+};
+const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const [categories, setCategories] = useState([]);
   const categoriesval = categories.slice(0, 14);
   const { AuthState } = useContext<any>(StateContext);
   const { AuthDispatcher } = useContext<any>(DispatchContext);
+  const dispatch: Dispatch<any> = useDispatch();
+
+  console.log("article", article);
 
   const route = useRouter();
   const handleClose = () => {
@@ -66,6 +80,7 @@ export default function Navbar() {
   );
   const displaylist = Boolean(anchorEl);
   const displaymenu = Boolean(anchorElmenu);
+  const [uservaldata, setUserValdata] = useState<any>();
   const handleProfileClicks = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
     setMyaccount(!myaccount);
@@ -108,6 +123,8 @@ export default function Navbar() {
         const user = response.data;
         AuthDispatcher({ type: "addUser", payload: user });
         console.log(AuthState.user);
+        //checking dispatch for reducer
+        depositMoney(user);
       });
     }
   }, [categories]);
@@ -122,8 +139,14 @@ export default function Navbar() {
       AuthDispatcher({ type: "logout" });
     });
   };
+  const state = useSelector((state: RootState) => state.bank);
+  console.log("confirmation of the state ", state);
 
-  console.log("AuthState", AuthState);
+  const { depositMoney, withdrawMoney, bankrupt } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
+
   const imagelist = [
     "ITservice.png",
     "cleaningservice.png",
@@ -417,4 +440,5 @@ export default function Navbar() {
       </StyledAppBar>
     </div>
   );
-}
+};
+export default Navbar;

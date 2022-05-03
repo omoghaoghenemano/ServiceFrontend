@@ -1,8 +1,13 @@
+import React from "react";
 import { useState, useEffect, useContext } from "react";
 import Clientapi from "../../pages/api/client";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import { Box, Fade, Modal, IconButton, Paper, Typography } from "@mui/material";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { addArticle } from "../../store/actions/actionCreators";
+import { Dispatch } from "redux";
+
 import Signin from "../Signin";
 import CloseIcon from "@mui/icons-material/Close";
 // make login reusable
@@ -15,10 +20,32 @@ const style = {
 
   borderRadius: "5px",
 };
-const LoginModal = (props) => {
-  const { AuthState } = useContext(StateContext);
-  const { AuthDispatcher } = useContext(DispatchContext);
+
+type Props = {
+  OpenModalForm: any;
+  CloseModalForm: any;
+  saveUser: (article: IArticle | any) => void;
+};
+
+export const LoginModal: React.FC<Props> = ({
+  saveUser,
+  CloseModalForm,
+  OpenModalForm,
+}) => {
+  const { AuthState } = useContext<any>(StateContext);
+  const { AuthDispatcher } = useContext<any>(DispatchContext);
   const [open, setOpen] = useState(false);
+  const articles: readonly IArticle[] = useSelector(
+    (state: ArticleState) => state.articles,
+    shallowEqual
+  );
+
+  const dispatch: Dispatch<any> = useDispatch();
+
+  const saveuser = React.useCallback(
+    (article: IArticle) => dispatch(addArticle(article)),
+    [dispatch]
+  );
 
   const fetchuser = () => {
     Clientapi.get("api/user").then((response) => {
@@ -31,23 +58,26 @@ const LoginModal = (props) => {
   };
   return (
     <Modal
-      open={props.OpenModalForm}
-      onClose={props.CloseModalForm}
+      open={OpenModalForm}
+      onClose={CloseModalForm}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
         <Paper>
           <IconButton
-            onClick={props.CloseModalForm}
+            onClick={CloseModalForm}
             sx={{ position: "absolute", right: "5%" }}
           >
             <CloseIcon />
           </IconButton>
-          <Signin onSuccess={fetchuser} CloseModalForm={props.onClose} />
+          <Signin
+            saveUser={saveuser}
+            onSuccess={fetchuser}
+            CloseModalForm={CloseModalForm}
+          />
         </Paper>
       </Box>
     </Modal>
   );
 };
-export default LoginModal;

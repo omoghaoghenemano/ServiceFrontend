@@ -15,6 +15,14 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/LoginModal/index.js", "components/LoginModal/Loginmodal.js", "pages/layout.js", "pages/api/client.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/LoginModal/index.js",
+    "components/LoginModal/Loginmodal.tsx",
+    "pages/layout.js",
+    "pages/api/client.js"
+  ],
   "exclude": ["node_modules"]
 }

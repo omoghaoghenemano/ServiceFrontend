@@ -29,11 +29,11 @@ import Cookies from "js-cookie";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 type Props = {
+  saveUser: (article: IArticle | any) => void;
   CloseModalForm: () => void;
   onSuccess: () => void;
 };
-
-function Signin(props: Props) {
+const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
   const {
     register,
     handleSubmit,
@@ -46,6 +46,7 @@ function Signin(props: Props) {
     setLoading(true);
   }
   const [loginsucess, setLoginsucess] = useState(true);
+  const [article, setArticle] = React.useState<IArticle | {}>();
 
   const onSubmit = async (data: any) => {
     console.log(data.email);
@@ -60,8 +61,16 @@ function Signin(props: Props) {
         Cookies.set("auth_token", response.data.auth_token);
         AuthDispatcher({ type: "login" });
         AuthDispatcher({ type: "addUser", payload: response.data });
+
+        setArticle({
+          ...article,
+          user,
+        });
+        console.log("article payload data", article);
+        saveUser(article);
+
         console.log("the user state is", AuthState.user);
-        props.onSuccess;
+        onSuccess();
         setLoginsucess(true);
 
         setLoading(false);
@@ -133,6 +142,5 @@ function Signin(props: Props) {
       </div>
     </Box>
   );
-}
-
+};
 export default Signin;
