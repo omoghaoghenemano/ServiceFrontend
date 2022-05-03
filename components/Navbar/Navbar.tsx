@@ -137,8 +137,96 @@ export default function Navbar() {
     "photography&videoservices.png",
     "weddingeventsservices.jpeg",
   ];
+  const RenderMobile = () => {
+    return (
+      <div className="navbar__nav_mobile">
+        <IconButton onClick={handleMenuClicks} onMouseLeave={handleCloseMenu}>
+          <MenuRoundedIcon />
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorElmenu}
+            open={displaymenu}
+            onClose={handleCloseMenu}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
+            }}
+          >
+            {" "}
+            <Box>
+              {categoriesval.map(
+                (
+                  item: {
+                    type:
+                      | boolean
+                      | React.ReactChild
+                      | React.ReactFragment
+                      | React.ReactPortal
+                      | null
+                      | undefined;
+                  },
+                  i: string | number | any
+                ) => (
+                  <MenuItem key={Math.random()}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignSelf: "self-end",
+                      }}
+                    >
+                      <Typography
+                        style={{
+                          fontFamily: "serif",
+
+                          fontSize: "0.9rem",
+                        }}
+                      >
+                        <img
+                          src={imagelist[i]}
+                          style={{
+                            height: "20px",
+                            width: "20px",
+                            position: "relative",
+                            top: "4px",
+                            left: -10,
+                          }}
+                        />
+                        {item?.type}
+                      </Typography>
+                    </div>
+                  </MenuItem>
+                )
+              )}
+              <MenuItem onClick={handleCloseMenu}>
+                <Typography
+                  style={{
+                    fontFamily: "serif",
+
+                    fontSize: "0.9rem",
+                  }}
+                >
+                  Other Services
+                </Typography>
+              </MenuItem>
+            </Box>
+          </Menu>
+        </IconButton>
+
+        <StyledTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+          size="small"
+        />
+      </div>
+    );
+  };
   return (
-    <div className="navbar__container">
+    <div className="navbar__navbarwrapper">
       <div className="navbar__subitem">
         <StyledButton sx={{ textDecoration: "underline" }}>
           {" "}
@@ -150,6 +238,7 @@ export default function Navbar() {
         sx={{ postion: "relative", top: scroll }}
         onScroll={handleScroll}
       >
+        {RenderMobile()}
         <div className="navbar__container">
           <div>
             <IconButton

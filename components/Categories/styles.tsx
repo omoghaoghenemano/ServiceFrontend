@@ -30,7 +30,7 @@ export const StyledTypography = styled(Typography)(
     width: "50%",
 
     fontFamily: "serif",
-    fontSize: "0.85rem",
+    fontSize: "0.9rem",
 
     marginLeft: "10px",
   })

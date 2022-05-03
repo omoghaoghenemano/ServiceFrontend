@@ -15,6 +15,27 @@
       display: flex;
     }
   }
+  &__nav_mobile {
+    @include atSmall {
+      display: flex;
+    }
+    @include atSmallMax {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+    @include atMedium {
+      display: none;
+    }
+  }
+  &__navbarwrapper {
+    display: flex;
+
+    justify-content: center;
+    justify-items: center;
+  }
 
   &__subitem {
     display: flex;

@@ -1,49 +1,60 @@
 /* import React from "react";
-
-import { useRouter } from "next/router";
-import Layout from "./layout";
-import { Typography } from "@mui/material";
-
 type Props = {};
 
 const categories = (props: Props) => {
-  const route = useRouter();
-  const query = route.query;
-  const handle = query["list"];
   console.log("the query handle is ", handle);
   return (
     <Layout>
-      <div style={{ marginTop: "50px" }}>
-        <Typography variant="h1">
-          hey your category id is {handle} and we are waiting for woke
-        </Typography>
-      </div>
+    <div style={{ marginTop: "50px" }}>
+    <Typography variant="h1">
+    hey your category id is {handle} and we are waiting for woke
+    </Typography>
+    </div>
     </Layout>
-  );
-};
-export default categories;
- */
-import * as React from "react";
+    );
+  };
+  export default categories;
+  */
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { StyledTypography, StyledLink } from "./styles";
 
-import MailIcon from "@mui/icons-material/Mail";
-import { MenuItem } from "@mui/material";
+import { useRouter } from "next/router";
+import { Typography } from "@mui/material";
+import Toolbar from "@mui/material/Toolbar";
+import Divider from "@mui/material/Divider";
+import StateContext from "../../context/StateContext";
+import DispatchContext from "../../context/DispatchContext";
+import Clientapi from "../../pages/api/client";
+import { StyledTypography, StyledLink } from "./styles";
 
 const drawerWidth = 240;
 
 export default function Categories() {
+  const route = useRouter();
+  const query = route.query;
+  const { AuthState } = useContext<any>(StateContext);
+  const { AuthDispatcher } = useContext<any>(DispatchContext);
+  const lessvalue = AuthState.categorydata?.slice(0, 5);
+  const showall = AuthState.categorydata?.length - 5;
+  const [usercategoriesdata, setUsercategoriesdata] = useState([]);
+  const [cat, setCat] = useState<number>();
+
+  const handle = query["list"];
+  console.log("the handle is ", handle);
+  function getIsbriskpackage() {
+    Clientapi.get("/api/company/categories")
+      .then((response) => {
+        const offer = response.data.filter(
+          (items) => items?.categories_id == handle
+        );
+        console.log("the filtered data is", offer);
+
+        console.log("fecthing the response data", response.data);
+      })
+      .catch((error) => {});
+  }
+  getIsbriskpackage();
   return (
     <div style={{ position: "relative" }}>
       <Box sx={{ display: "flex" }}>
@@ -73,37 +84,73 @@ export default function Categories() {
               flexDirection: "column",
             }}
           >
+            {lessvalue?.map(
+              (
+                item: {
+                  type:
+                    | boolean
+                    | React.ReactChild
+                    | React.ReactFragment
+                    | React.ReactPortal
+                    | null
+                    | undefined;
+                },
+                i: string | number | any
+              ) => (
+                <StyledLink key={Math.random()}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignSelf: "self-end",
+                    }}
+                  >
+                    <StyledTypography
+                      style={{
+                        fontFamily: "serif",
+
+                        fontSize: "0.9rem",
+                      }}
+                    >
+                      {item?.type}
+                    </StyledTypography>
+                  </div>
+                </StyledLink>
+              )
+            )}
             <StyledLink>
-              <StyledTypography sx={{ marginLeft: "6%" }}>
-                Services
-              </StyledTypography>
-            </StyledLink>
-            <StyledLink>
-              <StyledTypography sx={{ marginLeft: "8%" }}>
-                IT Services
-              </StyledTypography>
-            </StyledLink>
-            <StyledLink>
-              <StyledTypography sx={{ marginLeft: "8%" }}>
-                Cleaning Services
-              </StyledTypography>
-            </StyledLink>
-            <StyledLink>
-              <StyledTypography sx={{ marginLeft: "8%" }}>
-                Event Services
-              </StyledTypography>
-            </StyledLink>
-            <StyledLink>
-              <StyledTypography sx={{ marginLeft: "8%" }}>
-                Entertainment Services
-              </StyledTypography>
-            </StyledLink>
-            <StyledLink>
-              <StyledTypography sx={{ marginLeft: "8%" }}>
-                Show all
-              </StyledTypography>
+              {" "}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignSelf: "center",
+                  alignItems: "center",
+                }}
+              >
+                <StyledTypography sx={{ textDecoration: "underline" }}>
+                  {" "}
+                  Show all ({showall})
+                </StyledTypography>
+              </div>
             </StyledLink>
           </div>
+          <Divider />
+          <StyledTypography> Location</StyledTypography>
+          <StyledLink>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignSelf: "center",
+                alignItems: "center",
+              }}
+            >
+              <StyledTypography> Nigeria </StyledTypography>
+            </div>
+          </StyledLink>
           <Divider />
         </Drawer>
         <Box
@@ -116,6 +163,7 @@ export default function Categories() {
           </StyledTypography>
         </Box>
       </Box>
+      <div style={{ marginTop: "40%" }}></div>
     </div>
   );
 }
