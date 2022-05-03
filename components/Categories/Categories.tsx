@@ -46,7 +46,7 @@ export default function Categories() {
     Clientapi.get("/api/company/categories")
       .then((response) => {
         const offer = response.data.filter(
-          (items) => items?.categories_id == handle
+          (items: any) => items?.categories_id == handle
         );
         console.log("the filtered data is", offer);
 
