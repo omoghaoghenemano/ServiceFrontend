@@ -47,6 +47,9 @@ export default function Navbar() {
   const handleOpen = () => setOpen(true);
   const [categories, setCategories] = useState([]);
   const categoriesval = categories.slice(0, 14);
+  const { AuthState } = useContext<any>(StateContext);
+  const { AuthDispatcher } = useContext<any>(DispatchContext);
+
   const route = useRouter();
   const handleClose = () => {
     setOpen(false);
@@ -108,9 +111,9 @@ export default function Navbar() {
       });
     }
   }, [categories]);
+  let catvalue = AuthState.categorydata?.slice(0, 14);
   console.log("this are the categories", categories);
-  const { AuthState } = useContext<any>(StateContext);
-  const { AuthDispatcher } = useContext<any>(DispatchContext);
+
   const HandleLogout = () => {
     Clientapi.get("api/logout").then((response) => {
       const user = response.data;
@@ -153,7 +156,7 @@ export default function Navbar() {
           >
             {" "}
             <Box>
-              {categoriesval.map(
+              {catvalue?.map(
                 (
                   item: {
                     type:
@@ -257,7 +260,7 @@ export default function Navbar() {
               >
                 {" "}
                 <Box>
-                  {categoriesval.map(
+                  {catvalue?.map(
                     (
                       item: {
                         type:

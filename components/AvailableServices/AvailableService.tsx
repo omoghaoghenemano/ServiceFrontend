@@ -120,7 +120,7 @@ const AvailableService = (props: Props) => {
                 <StyledLink /* href={"/categories?list=" + item?.categories_id} */
                   sx={{ textDecoration: "none", color: "#000" }}
                   onClick={() => {
-                    route.push("/categories?list=" + item?.categories_id);
+                    route.push("/categories?services=" + item?.categories_id);
                   }}
                 >
                   {" "}

@@ -7,6 +7,7 @@ import {
   Link,
   AppBar,
   TextField,
+  Drawer,
 } from "@mui/material";
 import {
   styled,
@@ -22,6 +23,25 @@ export const StyledLink = styled(Link)(
     cursor: "pointer",
     "&:hover": {
       color: "blue",
+    },
+  })
+);
+export const CustomDrawer = styled(Drawer)(
+  sx({
+    width: "19rem",
+
+    flexShrink: 0,
+
+    "& .MuiDrawer-paper": {
+      width: "85%",
+      boxSizing: "border-box",
+      height: "100%",
+
+      position: "static",
+      marginLeft: "2.5%",
+
+      overflowY: "scroll",
+      borderRadius: "12px",
     },
   })
 );
