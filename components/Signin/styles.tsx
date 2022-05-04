@@ -100,5 +100,6 @@ export const StyleLoadingButton = styled(LoadingButton)(
 export const StyledTypography = styled(Typography)(
   sx({
     marginTop: "10px",
+    fontFamily: "serif",
   })
 );

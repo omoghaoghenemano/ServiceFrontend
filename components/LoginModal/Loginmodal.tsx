@@ -18,7 +18,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
 
-  borderRadius: "5px",
+  borderRadius: "25px",
+  outline: 0,
 };
 
 type Props = {
@@ -62,7 +63,7 @@ export const LoginModal: React.FC<Props> = ({
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <Paper>
+        <Paper style={{ borderRadius: "25px" }}>
           <IconButton
             onClick={CloseModalForm}
             sx={{ position: "absolute", right: "5%" }}
