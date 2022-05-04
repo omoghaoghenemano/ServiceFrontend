@@ -37,6 +37,19 @@ const LatestServices: React.FC<Props> = ({}) => {
           >
             Latest Services
           </Typography>
+          <Typography
+            variant="body1"
+            style={{
+              fontFamily: "serif",
+              position: "absolute",
+              right: 0,
+              color: "white",
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
+          >
+            See All
+          </Typography>
         </div>
         <div className="flexitems__avalableservice">
           {state.mainservices?.map(
