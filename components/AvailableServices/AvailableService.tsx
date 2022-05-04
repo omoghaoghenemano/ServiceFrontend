@@ -7,6 +7,12 @@ import { useRouter } from "next/router";
 import Clientapi from "../../pages/api/client";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Dispatch } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../pages/state";
+import { RootState } from "../../pages/state/reducers";
+
 import { StyledLink } from "./styles";
 
 type Props = {
@@ -44,6 +50,8 @@ const AvailableService = (props: Props) => {
   const route = useRouter();
   const { AuthState } = useContext<any>(StateContext);
   const { AuthDispatcher } = useContext<any>(DispatchContext);
+  const dispatch: Dispatch<any> = useDispatch();
+  const state = useSelector((state: RootState) => state.appstate);
   function nextSlide() {
     setCurrent(current === length - 10 ? 0 : current + 1);
   }
@@ -78,28 +86,7 @@ const AvailableService = (props: Props) => {
           </Typography>
         </div>
         <div className="flexitems__avalableservice">
-          {/*  {checkhover && (
-            <div
-              style={{
-                display: "flex",
-                position: "absolute",
-                zIndex: 100,
-                marginTop: "80px",
-
-                width: "100%",
-
-                justifyContent: " space-between",
-              }}
-            >
-              <IconButton sx={{ background: "black", color: "white" }}>
-                <ArrowBackIosNewIcon />
-              </IconButton>
-              <IconButton sx={{ background: "black", color: "white" }}>
-                <ArrowForwardIosIcon />
-              </IconButton>
-            </div>
-          )} */}
-          {AuthState.categorydata?.map(
+          {state.categories?.map(
             (
               item: {
                 type:

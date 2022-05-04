@@ -24,11 +24,9 @@ const style = {
 type Props = {
   OpenModalForm: any;
   CloseModalForm: any;
-  saveUser: (article: IArticle | any) => void;
 };
 
 export const LoginModal: React.FC<Props> = ({
-  saveUser,
   CloseModalForm,
   OpenModalForm,
 }) => {

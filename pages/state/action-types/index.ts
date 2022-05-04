@@ -3,5 +3,8 @@ export enum ActionType {
     WITHDRAW = "withdraw",
     BANKRUPT = "bankrupt",
     USER = "user",
-    CATEGORY = "category"
+    CATEGORY = "category",
+    SERVICEVIAID = "serviceviaid"
+
+    
 }

@@ -7,6 +7,7 @@ import {
   Link,
   AppBar,
   TextField,
+  Card,
   Drawer,
 } from "@mui/material";
 import {
@@ -23,6 +24,57 @@ export const StyledLink = styled(Link)(
     cursor: "pointer",
     "&:hover": {
       color: "blue",
+    },
+  })
+);
+
+export const StyledCard = styled(Card)(
+  sx({
+    cursor: "pointer",
+    "&:hover": {
+      boxShadow: " 0px 2px 2px 2px #565454;",
+    },
+  })
+);
+export const StyledHeader = styled(Typography)(
+  sx({
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    marginBottom: "10px",
+    fontFamily: "serif",
+  })
+);
+export const StyledPrice = styled(Typography)(
+  sx({
+    fontSize: "1.1rem",
+    fontWeight: "bold",
+    marginBottom: "10px",
+    textAlign: "center",
+    fontFamily: "serif",
+  })
+);
+export const StyledAbout = styled(Typography)(
+  sx({
+    fontSize: "1rem",
+    color: "grey",
+    fontFamily: "serif",
+    marginLeft: "21px",
+  })
+);
+export const StyledPriceValue = styled(Typography)(
+  sx({
+    color: "red",
+    fontFamily: "serif",
+    fontSize: "1.1rem",
+  })
+);
+export const StyledButton = styled(Button)(
+  sx({
+    background: "#F68B1E",
+    marginBottom: "10px",
+    color: "white",
+    "&:hover": {
+      background: "#F68B1E",
     },
   })
 );

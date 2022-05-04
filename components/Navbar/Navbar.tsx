@@ -113,6 +113,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
           "checking data",
           AuthDispatcher({ type: "addCategories", payload: response.data })
         );
+        storecategory(response.data);
         AuthDispatcher({ type: "displayCategories" });
       });
 
@@ -128,7 +129,13 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
       });
     }
   }, [categories]);
-  let catvalue = AuthState.categorydata?.slice(0, 14);
+  const state = useSelector((state: RootState) => state.appstate);
+  console.log("confirmation of the state ", state);
+  console.log("checking the category state", state.categories);
+
+  const { depositMoney, storecategory, withdrawMoney, bankrupt } =
+    bindActionCreators(actionCreators, dispatch);
+  let catvalue = state.categories?.slice(0, 14);
   console.log("this are the categories", categories);
 
   const HandleLogout = () => {
@@ -139,13 +146,6 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
       AuthDispatcher({ type: "logout" });
     });
   };
-  const state = useSelector((state: RootState) => state.bank);
-  console.log("confirmation of the state ", state);
-
-  const { depositMoney, withdrawMoney, bankrupt } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
 
   const imagelist = [
     "ITservice.png",

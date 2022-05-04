@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import bankReducer from "./bankReducer"
+import AppReducer from "./bankReducer"
 
 
 const reducers = combineReducers({
-    bank: bankReducer
+    appstate: AppReducer
 })
 
 export default reducers

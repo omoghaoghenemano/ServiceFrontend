@@ -10,7 +10,24 @@ export const depositMoney = (amount: any) => {
         })
     }
 }
-
+export const storecategory = (category: any) => {
+    return (dispatch:Dispatch<Action> ) => {
+        dispatch({
+            type: ActionType.CATEGORY,
+            payload:category
+        })
+    
+    }
+}
+export const storeservices = (services: any) => {
+    return (dispatch:Dispatch<Action> ) => {
+        dispatch({
+            type: ActionType.SERVICEVIAID,
+            payload:services
+        })
+    
+    }
+}
 export const withdrawMoney = (amount: any) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({

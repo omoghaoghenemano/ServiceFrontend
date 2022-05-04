@@ -5,7 +5,12 @@ import { Action } from "../actions"
 
 const initialState = {
     user: [],
-    categories: false
+    isLoggedIn: false,
+    categories: [],
+    isCategories: false,
+    services: [],
+
+    
 }
 
 const reducer = (state: any = initialState, action: Action): any => {
@@ -14,15 +19,22 @@ const reducer = (state: any = initialState, action: Action): any => {
            
             return  {
                 ...state,
-                categories: true,
+                isLoggedIn: true,
                 user:action.payload
             }
-        case ActionType.WITHDRAW:
-            return action.payload;
-        case ActionType.BANKRUPT:
-            return 0;
-        case ActionType.USER:
-            return state;
+            case ActionType.CATEGORY: 
+            return {
+                ...state,
+                isCategories: false,
+                categories: action.payload
+
+            }
+            case ActionType.SERVICEVIAID:
+                return {
+                    ...state,
+                services: action.payload
+                }
+        
         default:
             return state
     }
