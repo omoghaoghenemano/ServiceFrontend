@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../pages/state";
 import { RootState } from "../../pages/state/reducers";
 import Card from "@mui/material/Card";
+import { useRouter } from "next/router";
 import {
   StyledLink,
   StyledCard,
@@ -16,6 +17,7 @@ import {
 type Props = {};
 const LatestServices: React.FC<Props> = ({}) => {
   const state = useSelector((state: RootState) => state.appstate);
+  const route = useRouter();
   console.log(
     "hey this is the state for the latest services",
     state.mainservices
@@ -38,10 +40,14 @@ const LatestServices: React.FC<Props> = ({}) => {
             Latest Services
           </Typography>
           <Typography
-            variant="body1"
+            variant="button"
+            onClick={() => {
+              route.push("/all-services");
+            }}
             style={{
               fontFamily: "serif",
               position: "absolute",
+              textTransform: "none",
               right: 0,
               color: "white",
               textDecoration: "underline",
