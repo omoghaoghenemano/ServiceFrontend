@@ -43,6 +43,7 @@ import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Clientapi from "../../pages/api/client";
 import HowToRegRoundedIcon from "@mui/icons-material/HowToRegRounded";
+import ForumIcon from "@mui/icons-material/Forum";
 
 import Cookies from "js-cookie";
 interface Contextype {
@@ -264,7 +265,9 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
           {" "}
           <VerifiedIcon color="primary" /> Post on Wiki{" "}
         </StyledButton>
-        <StyledButton> About</StyledButton>
+        <StyledButton>
+          <ForumIcon color="primary" /> Forum
+        </StyledButton>
       </div>
       <StyledAppBar
         sx={{ postion: "relative", top: scroll }}

@@ -25,6 +25,7 @@ import Clientapi from "../../pages/api/client";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Cookies from "js-cookie";
+import ReCaptchaV2 from "react-google-recaptcha";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 
@@ -81,11 +82,16 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
         setLoading(false);
       });
   };
+  console.log("finding the recaptcha ", process.env.NEXT_PUBLIC_SITE_KEY);
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="flexitems__flexsignin">
-        <StyledButton>Facebook</StyledButton>
-        <StyledButtonGoogle>Google</StyledButtonGoogle>
+        <Typography
+          style={{ fontSize: "1.4rem", fontWeight: "bold", marginTop: "30px" }}
+        >
+          Log In
+        </Typography>
+
         <CustomDivider />
         {!loginsucess && (
           <StyledBox sx={{ background: "red" }}>
@@ -98,6 +104,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             </Typography>
           </StyledBox>
         )}
+
         <StyledTextField
           type="text"
           size="small"
@@ -111,6 +118,9 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
           {...register("password", { required: true, maxLength: 100 })}
           label="password"
         />
+        <br></br>
+
+        <ReCaptchaV2 sitekey={process.env.NEXT_PUBLIC_SITE_KEY} />
         {loading ? (
           <StyleLoadingButton
             loading={loading}
@@ -136,7 +146,16 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             SignUp
           </Button>
         </StyledTypography>
-
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            width: "100%",
+          }}
+        >
+          <StyledButton>Facebook</StyledButton>
+          <StyledButtonGoogle>Google</StyledButtonGoogle>
+        </div>
         <br></br>
         <br></br>
       </div>

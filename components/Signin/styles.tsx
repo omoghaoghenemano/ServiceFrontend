@@ -10,6 +10,7 @@ import {
   Divider,
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
+
 import {
   styled,
   createTheme,
@@ -19,14 +20,12 @@ import {
 
 export const StyledButton = styled(Button)(
   sx({
-    width: "80%",
+    width: "35%",
 
-    marginTop: "40px",
     color: "white",
     borderRadius: "13px",
     textTransform: "none",
-    borderShadow: " 5px 4px grey",
-    boxShadow: " 5px 4px #888888",
+    boxShadow: "  0px 1px 0px 1px #888888",
     background: "blue",
     "&:hover": {
       background: "blue",
@@ -35,15 +34,14 @@ export const StyledButton = styled(Button)(
 );
 export const StyledButtonGoogle = styled(Button)(
   sx({
-    width: "80%",
+    width: "35%",
 
-    marginTop: "40px",
     color: "black",
     borderRadius: "13px",
     textTransform: "none",
     background: "whitesmoke",
-    borderShadow: " 5px 4px grey",
-    boxShadow: " 5px 4px #888888",
+
+    boxShadow: "  0px 1px 0px 1px #888888",
     "&:hover": {
       background: "white",
     },
@@ -61,6 +59,7 @@ export const StyledTextField = styled(TextField)(
 
     marginTop: "30px",
     color: "white",
+    borderRadius: "10px",
 
     textTransform: "none",
   })
@@ -79,8 +78,8 @@ export const StyleCheckoutButton = styled(Button)(
     borderRadius: "13px",
     textTransform: "none",
     background: "#F68B1E",
-    borderShadow: " 5px 4px grey",
-    boxShadow: " 5px 4px #888888",
+    borderShadow: " 0px 0px 0px 10px grey",
+
     "&:hover": {
       background: "#FFA500",
     },
@@ -100,6 +99,6 @@ export const StyleLoadingButton = styled(LoadingButton)(
 );
 export const StyledTypography = styled(Typography)(
   sx({
-    marginTop: "30px",
+    marginTop: "10px",
   })
 );

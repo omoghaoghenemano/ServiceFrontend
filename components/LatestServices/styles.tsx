@@ -40,7 +40,7 @@ export const StyledCard = styled(Card)(
     width: "200px",
     display: "flex",
     background: "#464545",
-    justifyContent: "center",
+    justifyContent: "space-between",
     justifyItems: "center",
     "&:hover": {
       boxShadow: " 0px 2px 12px -1px #565454;",

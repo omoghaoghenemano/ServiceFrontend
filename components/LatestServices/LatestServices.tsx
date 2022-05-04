@@ -57,8 +57,8 @@ const LatestServices: React.FC<Props> = ({}) => {
             See All
           </Typography>
         </div>
-        <div className="flexitems__avalableservice">
-          {state.mainservices?.map(
+        <div className="flexitems__latestservices">
+          {state.mainservices.slice(0, 6)?.map(
             (
               item: {
                 type:
@@ -71,21 +71,21 @@ const LatestServices: React.FC<Props> = ({}) => {
                 categories_id: number;
                 image: any;
                 name: string;
+                services_id: number;
               },
               i: string | number | any
             ) => (
               <div
                 key={Math.random()}
                 style={{
-                  marginLeft: "1%",
                   position: "relative",
                 }}
               >
-                <StyledCard elevation={2}>
+                <StyledCard key={Math.random()} elevation={2}>
                   <StyledLink /* href={"/categories?list=" + item?.categories_id} */
                     sx={{ textDecoration: "none", color: "#000" }}
                     onClick={() => {
-                      /*   route.push("/categories?services=" + item?.categories_id); */
+                      route.push("/services?user=" + item?.services_id);
                     }}
                   >
                     {" "}
@@ -125,7 +125,12 @@ const LatestServices: React.FC<Props> = ({}) => {
                       </StyledTypographyHeader>
                       <br></br>
 
-                      <StyledButton size="small">
+                      <StyledButton
+                        size="small"
+                        onClick={() => {
+                          route.push("/services?user=" + item?.services_id);
+                        }}
+                      >
                         {" "}
                         Talk to {item.name}
                       </StyledButton>

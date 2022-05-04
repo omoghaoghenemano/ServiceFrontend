@@ -1,15 +1,30 @@
 .flexitems {
-  &__flexsignin {
-    display: flex;
-    flex-direction: column;
-    margin-left: 19%;
-    justify-items: center;
-  }
   &__avalableservice {
     margin-top: 10px;
     display: flex;
 
     overflow-x: scroll;
+  }
+  &__latestservices {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+
+    overflow-x: scroll;
+  }
+  &__flexsignin {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__latestservices::-webkit-scrollbar {
+    height: 0.2rem;
+    background-color: #0d3b97;
+  }
+  &__latestservices::-webkit-scrollbar-thumb {
+    background-color: #f68b1e;
   }
   &__avalableservice::-webkit-scrollbar {
     height: 0.2rem;
