@@ -26,7 +26,7 @@ export const StyledButton = styled(Button)(
     borderRadius: "13px",
     textTransform: "none",
     boxShadow: "  0px 1px 0px 1px #888888",
-    background: "blue",
+    background: "	#4267B2",
     "&:hover": {
       background: "blue",
     },

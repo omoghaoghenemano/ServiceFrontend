@@ -98,7 +98,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             <Typography
               color="white"
               align="center"
-              sx={{ fontSize: "0.9rem" }}
+              sx={{ fontSize: "0.9rem", fontFamily: "serif" }}
             >
               Email or password is incorrect
             </Typography>
@@ -153,8 +153,36 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             width: "100%",
           }}
         >
-          <StyledButton>Facebook</StyledButton>
-          <StyledButtonGoogle>Google</StyledButtonGoogle>
+          <StyledButton>
+            {" "}
+            <img
+              src="fb.png"
+              height={20}
+              style={{
+                color: "white",
+                background: "white",
+                marginRight: "2px",
+
+                position: "relative",
+              }}
+            ></img>
+            Facebook
+          </StyledButton>
+          <StyledButtonGoogle>
+            {" "}
+            <img
+              src="google.png"
+              height={20}
+              style={{
+                color: "white",
+                background: "white",
+                marginRight: "2px",
+
+                position: "relative",
+              }}
+            ></img>
+            Google
+          </StyledButtonGoogle>
         </div>
         <br></br>
         <br></br>
