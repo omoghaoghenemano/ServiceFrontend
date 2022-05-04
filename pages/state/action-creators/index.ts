@@ -28,6 +28,15 @@ export const storeservices = (services: any) => {
     
     }
 }
+export const mainServices = (mainservices: any) => {
+    return (dispatch:Dispatch<Action> ) => {
+        dispatch({
+            type: ActionType.SERVICE,
+            payload:mainservices
+        })
+    
+    }
+}
 export const withdrawMoney = (amount: any) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({

@@ -4,7 +4,8 @@ export enum ActionType {
     BANKRUPT = "bankrupt",
     USER = "user",
     CATEGORY = "category",
-    SERVICEVIAID = "serviceviaid"
+    SERVICEVIAID = "serviceviaid",
+    SERVICE = "services"
 
     
 }

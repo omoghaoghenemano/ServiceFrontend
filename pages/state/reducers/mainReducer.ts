@@ -9,6 +9,7 @@ const initialState = {
     categories: [],
     isCategories: false,
     services: [],
+    mainservices : []
 
     
 }
@@ -33,6 +34,12 @@ const reducer = (state: any = initialState, action: Action): any => {
                 return {
                     ...state,
                 services: action.payload
+                }
+                
+            case ActionType.SERVICE:
+                return {
+                    ...state,
+                    mainservices: action.payload
                 }
         
         default:

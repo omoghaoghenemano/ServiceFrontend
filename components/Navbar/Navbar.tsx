@@ -75,6 +75,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
   const [scroll, setScroll] = useState("33px");
   const [myaccount, setMyaccount] = useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [mainservice, setMainservices] = useState([]);
   const [anchorElmenu, setAnchorElmenu] = React.useState<null | HTMLElement>(
     null
   );
@@ -103,7 +104,12 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
     window.onscroll = () =>
       window.pageYOffset === 0 ? handleScrollclose() : handleScroll();
   });
+  const state = useSelector((state: RootState) => state.appstate);
+  console.log("confirmation of the state ", state);
+  console.log("checking the category state", state.categories);
 
+  const { depositMoney, storecategory, withdrawMoney, mainServices, bankrupt } =
+    bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     if (categories.length === 0) {
       Clientapi.get("api/Categories").then((response) => {
@@ -119,6 +125,11 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
 
       console.log("the lenght wasnt fetched", AuthState.categorydata);
     }
+    if (mainservice.length === 0) {
+      Clientapi.get("/api/company/categories").then((response) => {
+        mainServices(response.data);
+      });
+    }
     if (AuthState.isLoggedIn) {
       Clientapi.get("api/user").then((response) => {
         const user = response.data;
@@ -129,12 +140,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
       });
     }
   }, [categories]);
-  const state = useSelector((state: RootState) => state.appstate);
-  console.log("confirmation of the state ", state);
-  console.log("checking the category state", state.categories);
 
-  const { depositMoney, storecategory, withdrawMoney, bankrupt } =
-    bindActionCreators(actionCreators, dispatch);
   let catvalue = state.categories?.slice(0, 14);
   console.log("this are the categories", categories);
 

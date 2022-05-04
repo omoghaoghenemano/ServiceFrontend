@@ -24,4 +24,8 @@ interface ServiceAction {
 interface UserAction {
     type: ActionType.USER
 }
-export type Action = DepositAction | WithdrawAction | BankruptAction | UserAction | CategoryAction | ServiceAction;
+interface MainServiceAction {
+    type: ActionType.SERVICE,
+    payload: any
+}
+export type Action = DepositAction | WithdrawAction | BankruptAction | UserAction | CategoryAction | ServiceAction | MainServiceAction;
