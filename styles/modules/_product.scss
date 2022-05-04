@@ -1,0 +1,35 @@
+.product {
+  &__gridval {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px 1px;
+    margin-left: 30px;
+    margin-top: 10px;
+    @include atLarge {
+      grid-template-columns: auto auto auto auto;
+      gap: 20px;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+    @include atSmallMax {
+      grid-template-columns: auto;
+      gap: 20px;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+    @include atMedium {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 20px;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+    @include tablet {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 20px;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+  }
+}

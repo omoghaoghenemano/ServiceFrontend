@@ -17,6 +17,7 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../pages/state";
 import { RootState } from "../../pages/state/reducers";
 import Card from "@mui/material/Card";
+import { SideBar } from "../SideBar/SideBar";
 
 import {
   StyledTypography,
@@ -76,7 +77,7 @@ export default function Categories() {
   }
 
   useEffect(() => {
-    if (services.length === 0) {
+    if (state.services.length <= 0) {
       Clientapi.get("/api/company/categories")
         .then((response) => {
           const offer = response.data.filter(
@@ -118,102 +119,22 @@ export default function Categories() {
       </div>
       <div>
         <Box sx={{ display: "flex", marginTop: "7%" }}>
-          <CustomDrawer variant="permanent" anchor="left">
-            <Divider />
-            <Toolbar />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              {lessvalue?.map(
-                (
-                  item: {
-                    type:
-                      | boolean
-                      | React.ReactChild
-                      | React.ReactFragment
-                      | React.ReactPortal
-                      | null
-                      | undefined;
-                  },
-                  i: string | number | any
-                ) => (
-                  <StyledLink key={Math.random()}>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignSelf: "self-end",
-                      }}
-                    >
-                      <StyledTypography
-                        style={{
-                          fontFamily: "serif",
+          <div style={{ position: "relative" }}>
+            <SideBar lessvalue={lessvalue} showall={showall} />
+          </div>
 
-                          fontSize: "0.9rem",
-                        }}
-                      >
-                        {item?.type}
-                      </StyledTypography>
-                    </div>
-                  </StyledLink>
-                )
-              )}
-              <StyledLink>
-                {" "}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    alignSelf: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <StyledTypography sx={{ textDecoration: "underline" }}>
-                    {" "}
-                    Show all ({showall})
-                  </StyledTypography>
-                </div>
-              </StyledLink>
-            </div>
-            <Divider />
-            <StyledTypography> Location</StyledTypography>
-            <StyledLink>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  alignSelf: "center",
-                  alignItems: "center",
-                }}
-              >
-                <StyledTypography> Nigeria </StyledTypography>
-              </div>
-            </StyledLink>
-            <Divider />
-          </CustomDrawer>
           <Box
             component="main"
             sx={{
               flexGrow: 1,
               bgcolor: "background.default",
+              marginRight: "22px",
               p: 1,
               borderRadius: "12px",
             }}
           >
-            <Toolbar />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-              }}
-            >
-              {services?.map(
+            <div className="product__gridval">
+              {state.services?.map(
                 (
                   item: {
                     type:
@@ -236,7 +157,7 @@ export default function Categories() {
                   return (
                     <StyledCard
                       key={item.services_id}
-                      sx={{ width: "25%" }}
+                      sx={{ width: "270px" }}
                       onClick={() => {
                         console.log("you clicked on me", item.services_id);
                       }}
