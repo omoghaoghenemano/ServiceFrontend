@@ -11,9 +11,10 @@ import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../pages/state";
+import Card from "@mui/material/Card";
 import { RootState } from "../../pages/state/reducers";
 
-import { StyledLink } from "./styles";
+import { StyledLink, StyledCard } from "./styles";
 
 type Props = {
   services: any;
@@ -104,28 +105,30 @@ const AvailableService = (props: Props) => {
                 key={Math.random()}
                 style={{ marginLeft: "1%", position: "relative" }}
               >
-                <StyledLink /* href={"/categories?list=" + item?.categories_id} */
-                  sx={{ textDecoration: "none", color: "#000" }}
-                  onClick={() => {
-                    route.push("/categories?services=" + item?.categories_id);
-                  }}
-                >
-                  {" "}
-                  <img
-                    src={serviceimages[i]}
-                    style={{
-                      width: "200px",
-                      borderRadius: "13px",
-                      height: "200px",
-                      cursor: "pointer",
+                <StyledCard elevation={0}>
+                  <StyledLink /* href={"/categories?list=" + item?.categories_id} */
+                    sx={{ textDecoration: "none", color: "#000" }}
+                    onClick={() => {
+                      route.push("/categories?services=" + item?.categories_id);
                     }}
-                  />
-                  <Typography
-                    style={{ fontFamily: "serif", fontSize: "0.9rem" }}
                   >
-                    {item.type}
-                  </Typography>
-                </StyledLink>
+                    {" "}
+                    <img
+                      src={serviceimages[i]}
+                      style={{
+                        width: "200px",
+                        borderRadius: "13px",
+                        height: "200px",
+                        cursor: "pointer",
+                      }}
+                    />
+                    <Typography
+                      style={{ fontFamily: "serif", fontSize: "0.9rem" }}
+                    >
+                      {item.type}
+                    </Typography>
+                  </StyledLink>
+                </StyledCard>
               </div>
             )
           )}
