@@ -61,9 +61,6 @@ export const StyledButton = styled(Button)(
   sx({
     color: "black",
     textTransform: "none",
-    "&:hover": {
-      background: "none",
-    },
   })
 );
 export const Styledpaper = styled(Paper)(

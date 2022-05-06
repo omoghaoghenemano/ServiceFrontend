@@ -151,6 +151,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
       console.log("logging out");
       Cookies.remove("auth_token");
       AuthDispatcher({ type: "logout" });
+      handleClose();
     });
   };
 
@@ -422,17 +423,19 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
                   )}
                 </StyledButton>
               ) : (
-                <StyledButton
-                  variant="text"
-                  sx={{ textTransform: "none" }}
-                  onClick={handleOpen}
-                >
+                <>
+                  <StyledButton
+                    variant="text"
+                    sx={{ textTransform: "none" }}
+                    onClick={handleOpen}
+                  >
+                    <PersonIcon /> Account <KeyboardArrowDown />
+                  </StyledButton>
                   <LoginModal
                     OpenModalForm={open}
-                    CloseModalForm={Closeevent}
+                    CloseModalForm={handleClose}
                   />{" "}
-                  <PersonIcon /> Account <KeyboardArrowDown />
-                </StyledButton>
+                </>
               )}
 
               <StyledButton variant="text" sx={{ textTransform: "none" }}>
