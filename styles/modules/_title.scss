@@ -14,6 +14,21 @@
   margin-top: 0px;
   margin-left: -10px;
 }
+.title1 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  padding: 2%;
+  position: relative;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  letter-spacing: 0.5px;
+
+  background: $main-color;
+  margin-top: 0px;
+}
 .title:after {
   content: "";
   height: 1px;

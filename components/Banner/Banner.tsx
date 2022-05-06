@@ -9,6 +9,9 @@ import Cookies from "js-cookie";
 import SimpleImageSlider from "react-simple-image-slider";
 import AvailableServices from "../AvailableServices";
 import PostJob from "../PostJob/postjob";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../state/reducers";
+import Postadvertisment from "../Postadvertisement/postadvertisement";
 
 type Props = {};
 
@@ -39,6 +42,7 @@ export default function Banner({}: Props) {
     { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
   ];
 
+  const state = useSelector((state: RootState) => state.appstate);
   return (
     <>
       <br></br>
@@ -64,7 +68,7 @@ export default function Banner({}: Props) {
               showBullets={true}
               showNavs={false}
             />{" "}
-            <PostJob />
+            <Postadvertisment checkuser={state.user.name} />
           </div>
         </div>
       </div>

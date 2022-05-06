@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 import { RootState } from "../../state/reducers";
+//plus button
+import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 
 import {
   AppBar,
@@ -18,6 +20,7 @@ import {
   ListItemIcon,
   List,
   ListItemButton,
+  Avatar,
   Menu,
   MenuItem,
 } from "@mui/material";
@@ -280,80 +283,78 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
         {RenderMobile()}
         <div className="navbar__container">
           <div className="navbar__mainwrapper">
-            <IconButton
-              onClick={handleMenuClicks}
-              onMouseLeave={handleCloseMenu}
-            >
+            <IconButton onMouseEnter={handleMenuClicks}>
               <MenuRoundedIcon />
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorElmenu}
-                open={displaymenu}
-                onClose={handleCloseMenu}
-                MenuListProps={{
-                  "aria-labelledby": "basic-button",
-                }}
-              >
-                {" "}
-                <Box>
-                  {catvalue?.map(
-                    (
-                      item: {
-                        type:
-                          | boolean
-                          | React.ReactChild
-                          | React.ReactFragment
-                          | React.ReactPortal
-                          | null
-                          | undefined;
-                      },
-                      i: string | number | any
-                    ) => (
-                      <MenuItem key={Math.random()}>
-                        <div
+            </IconButton>
+
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorElmenu}
+              open={displaymenu}
+              onClose={handleCloseMenu}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              {" "}
+              <Box>
+                {catvalue?.map(
+                  (
+                    item: {
+                      type:
+                        | boolean
+                        | React.ReactChild
+                        | React.ReactFragment
+                        | React.ReactPortal
+                        | null
+                        | undefined;
+                    },
+                    i: string | number | any
+                  ) => (
+                    <MenuItem key={Math.random()}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignSelf: "self-end",
+                        }}
+                      >
+                        <Typography
                           style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignSelf: "self-end",
+                            fontFamily: "serif",
+
+                            fontSize: "0.9rem",
                           }}
                         >
-                          <Typography
+                          <img
+                            src={imagelist[i]}
                             style={{
-                              fontFamily: "serif",
-
-                              fontSize: "0.9rem",
+                              height: "20px",
+                              width: "20px",
+                              position: "relative",
+                              top: "4px",
+                              left: -10,
                             }}
-                          >
-                            <img
-                              src={imagelist[i]}
-                              style={{
-                                height: "20px",
-                                width: "20px",
-                                position: "relative",
-                                top: "4px",
-                                left: -10,
-                              }}
-                            />
-                            {item?.type}
-                          </Typography>
-                        </div>
-                      </MenuItem>
-                    )
-                  )}
-                  <MenuItem onClick={handleCloseMenu}>
-                    <Typography
-                      style={{
-                        fontFamily: "serif",
+                          />
+                          {item?.type}
+                        </Typography>
+                      </div>
+                    </MenuItem>
+                  )
+                )}
+                <MenuItem onClick={handleCloseMenu}>
+                  <Typography
+                    style={{
+                      fontFamily: "serif",
 
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      Other Services
-                    </Typography>
-                  </MenuItem>
-                </Box>
-              </Menu>
-            </IconButton>
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    Other Services
+                  </Typography>
+                </MenuItem>
+              </Box>
+            </Menu>
           </div>
           <div>
             {" "}
@@ -391,8 +392,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
                 >
-                  <HowToRegRoundedIcon />
-                  Hi {AuthState.user.name}{" "}
+                  <Avatar /> &nbsp; Hi {AuthState.user.name}{" "}
                   {myaccount ? (
                     <>
                       {" "}
