@@ -40,7 +40,10 @@ const LatestServices: React.FC<Props> = ({}) => {
                 marginTop: "10px",
               }}
             >
-              <Typography variant="h5" style={{ fontFamily: "serif" }}>
+              <Typography
+                variant="h5"
+                style={{ marginLeft: "2%", fontFamily: "serif" }}
+              >
                 Latest Services
               </Typography>
               <div
