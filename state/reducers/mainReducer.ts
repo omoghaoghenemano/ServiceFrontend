@@ -1,4 +1,4 @@
-import categories from "../../categories";
+import categories from "../../pages/categories";
 import { ActionType } from "../action-types/index"
 import { Action } from "../actions"
 

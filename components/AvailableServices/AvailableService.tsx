@@ -10,9 +10,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "../../pages/state";
+import { actionCreators } from "../../state";
 import Card from "@mui/material/Card";
-import { RootState } from "../../pages/state/reducers";
+import { RootState } from "../../state/reducers";
 
 import { StyledLink, StyledCard } from "./styles";
 

@@ -14,8 +14,8 @@ import Clientapi from "../../pages/api/client";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "../../pages/state";
-import { RootState } from "../../pages/state/reducers";
+import { actionCreators } from "../../state";
+import { RootState } from "../../state/reducers";
 import Card from "@mui/material/Card";
 
 import {

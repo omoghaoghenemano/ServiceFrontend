@@ -9,7 +9,7 @@ import { createStore, applyMiddleware, Store } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducer from "../store/reducer.store";
-import store from "./state";
+import store from "../state";
 function MyApp({ Component, pageProps }: AppProps) {
   const [GlobalState, GlobalDispatcher] = useImmerReducer<any>(
     GlobalReducer,
