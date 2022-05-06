@@ -42,6 +42,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
   } = useForm();
   const { AuthState } = useContext<any>(StateContext);
   const { AuthDispatcher } = useContext<any>(DispatchContext);
+  const [recapcha, setRecapcha] = useState(false);
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -52,35 +53,40 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
   const onSubmit = async (data: any) => {
     console.log(data.email);
     console.log(data.password);
-    await handleClick();
-    await Clientapi.post("api/login", data)
-      .then((response) => {
-        console.log("it worked hahha", response);
-        const user = response.data;
-        console.log("your auth token is", response.data.auth_token);
+    if (!recapcha) {
+      console.log("please use recaptcha");
+      setLoginsucess(true);
+    } else {
+      await handleClick();
+      await Clientapi.post("api/login", data)
+        .then((response) => {
+          console.log("it worked hahha", response);
+          const user = response.data;
+          console.log("your auth token is", response.data.auth_token);
 
-        Cookies.set("auth_token", response.data.auth_token);
-        AuthDispatcher({ type: "login" });
-        AuthDispatcher({ type: "addUser", payload: response.data });
+          Cookies.set("auth_token", response.data.auth_token);
+          AuthDispatcher({ type: "login" });
+          AuthDispatcher({ type: "addUser", payload: response.data });
 
-        setArticle({
-          ...article,
-          user,
+          setArticle({
+            ...article,
+            user,
+          });
+          console.log("article payload data", article);
+          saveUser(article);
+
+          console.log("the user state is", AuthState.user);
+          onSuccess();
+          setLoginsucess(true);
+
+          setLoading(false);
+        })
+        .catch((err: AxiosError) => {
+          setLoginsucess(false);
+          console.log("invalid data entered");
+          setLoading(false);
         });
-        console.log("article payload data", article);
-        saveUser(article);
-
-        console.log("the user state is", AuthState.user);
-        onSuccess();
-        setLoginsucess(true);
-
-        setLoading(false);
-      })
-      .catch((err: AxiosError) => {
-        setLoginsucess(false);
-        console.log("invalid data entered");
-        setLoading(false);
-      });
+    }
   };
   console.log("finding the recaptcha ", process.env.NEXT_PUBLIC_SITE_KEY);
   return (
@@ -120,7 +126,12 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
         />
         <br></br>
 
-        <ReCaptchaV2 sitekey={process.env.NEXT_PUBLIC_SITE_KEY} />
+        <ReCaptchaV2
+          sitekey="6LeotcQfAAAAAHVLOUkTTNL0tk0ic512fOIaVEPG"
+          onChange={() => {
+            setRecapcha(true);
+          }}
+        />
         {loading ? (
           <StyleLoadingButton
             loading={loading}
