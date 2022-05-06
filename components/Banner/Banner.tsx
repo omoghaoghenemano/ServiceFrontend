@@ -5,7 +5,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
 import Clientapi from "../../pages/api/client";
 import Cookies from "js-cookie";
+
+import SimpleImageSlider from "react-simple-image-slider";
 import AvailableServices from "../AvailableServices";
+import PostJob from "../PostJob/postjob";
 
 type Props = {};
 
@@ -26,64 +29,36 @@ export default function Banner({}: Props) {
   
  
   }, []) */
+  const images = [
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
+  ];
 
   return (
     <>
-      <div style={{ background: "black" }}>
-        <img
-          style={{
-            opacity: 0.3,
-            objectFit: "cover",
-            overflow: "hidden",
-            position: "relative",
-            background: "blue",
-            width: "100%",
-            height: "400px",
-          }}
-          src="banner.jpg"
-        ></img>
-        <div style={{ position: "absolute", top: "20%", right: "35%" }}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{ color: "white", fontFamily: "serif" }}
-              variant="h4"
-            >
-              WELCOME TO THE FUTURE
-            </Typography>
-            <Typography
-              align="center"
-              sx={{ color: "white", fontFamily: "serif" }}
-              variant="h6"
-            >
-              The best reliable service{" "}
-            </Typography>
-            <Typography
-              align="center"
-              sx={{ color: "white", fontFamily: "serif" }}
-              variant="h6"
-            >
-              Explore latest advertisement both nearby and faraway{" "}
-            </Typography>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "10%",
-            }}
-          >
-            <StyledButton endIcon={<ArrowForwardIosIcon />}>
-              Checkout latest advertisement
-            </StyledButton>
-          </div>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginLeft: "7%",
+
+          marginTop: "3%",
+        }}
+      >
+        <PostJob />
+        <SimpleImageSlider
+          style={{ borderRadius: "12px" }}
+          width={"70%"}
+          height={504}
+          images={images}
+          showBullets={true}
+          showNavs={true}
+        />
       </div>
     </>
   );
