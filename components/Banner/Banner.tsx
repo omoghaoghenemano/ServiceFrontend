@@ -41,6 +41,7 @@ export default function Banner({}: Props) {
 
   return (
     <>
+      <br></br>
       <div className="maindiv">
         <div className="maindivwrapper">
           <div

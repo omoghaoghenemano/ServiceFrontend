@@ -366,6 +366,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
           </div>
           <div style={{ width: "100%" }} className="navbar__childcontainer">
             <StyledTextField
+              placeholder="Find Service"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
