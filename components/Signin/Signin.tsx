@@ -168,6 +168,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             {" "}
             <img
               src="fb.png"
+              alt="facebookimage"
               height={20}
               style={{
                 color: "white",
@@ -183,6 +184,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             {" "}
             <img
               src="google.png"
+              alt="googleimage"
               height={20}
               style={{
                 color: "white",

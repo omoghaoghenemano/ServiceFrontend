@@ -31,8 +31,8 @@ import {
 } from "../Categories/styles";
 
 type Props = {
-  lessvalue: [] | any;
-  showall: any;
+  lessvalue?: [] | any;
+  showall?: any;
 };
 export const SideBar: React.FC<Props> = ({ lessvalue, showall }) => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -131,7 +131,7 @@ export const SideBar: React.FC<Props> = ({ lessvalue, showall }) => {
           <div>
             {state.services?.map((item: any, i: any) => {
               return (
-                <StyledLink>
+                <StyledLink key={Math.random()}>
                   <StyledTypography>{item.title}</StyledTypography>
                 </StyledLink>
               );
