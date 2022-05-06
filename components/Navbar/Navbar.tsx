@@ -270,7 +270,10 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
         </StyledButton>
       </div>
       <StyledAppBar
-        sx={{ postion: "relative", top: scroll }}
+        sx={{
+          postion: "relative",
+          top: scroll,
+        }}
         onScroll={handleScroll}
       >
         {RenderMobile()}

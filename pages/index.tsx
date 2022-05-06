@@ -39,6 +39,8 @@ const Home: NextPage = () => {
         <Banner />
         <AvailableServices services={categories} />
         <LatestServices />
+        <LatestServices />
+        <LatestServices />
       </div>{" "}
     </Layout>
   );

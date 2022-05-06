@@ -31,8 +31,11 @@ export const StyledCaption = styled(Typography)(sx({}));
 export const StyledAppBar = styled(AppBar)(
   sx({
     background: "whitesmoke",
-    height: 50,
+    height: 70,
     position: "fixed",
+    justifyContent: "center",
+
+    display: "flex",
     top: "5%",
     width: "100%",
   })
@@ -65,7 +68,7 @@ export const StyledButton = styled(Button)(
 );
 export const Styledpaper = styled(Paper)(
   sx({
-    height: 300,
+    height: 500,
     width: 300,
     position: "relative",
 

@@ -190,6 +190,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                               marginLeft: "5px",
                               alignItems: "flex-end",
                               background: "#fff",
+                              padding: "7px",
                             }}
                           >
                             <div style={{ display: "flex", color: "grey" }}>
@@ -207,7 +208,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                               }}
                             >
                               <StyledPrice sx={{ color: "grey" }}>
-                                STARTING AT:{" "}
+                                STARTING AT &nbsp;
                               </StyledPrice>
                               <StyledPriceValue>
                                 ${item?.price}

@@ -4,6 +4,10 @@
     display: flex;
 
     overflow-x: scroll;
+
+    @include atSmallMax {
+      display: none;
+    }
   }
   &__latestservices {
     margin-top: 10px;
@@ -11,6 +15,9 @@
     justify-content: space-between;
 
     overflow-x: scroll;
+    @include atSmallMax {
+      display: none;
+    }
   }
   &__flexsignin {
     display: flex;
