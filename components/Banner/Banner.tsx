@@ -41,24 +41,31 @@ export default function Banner({}: Props) {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginLeft: "7%",
+      <div className="maindiv">
+        <div className="maindivwrapper">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              justifyItems: "center",
 
-          marginTop: "3%",
-        }}
-      >
-        <PostJob />
-        <SimpleImageSlider
-          style={{ borderRadius: "12px" }}
-          width={"70%"}
-          height={504}
-          images={images}
-          showBullets={true}
-          showNavs={true}
-        />
+              marginTop: "5%",
+            }}
+          >
+            <PostJob />
+            <SimpleImageSlider
+              width={"50%"}
+              style={{ marginRight: "5%" }}
+              autoPlay={true}
+              height={"400px"}
+              autoPlayDelay={5}
+              images={images}
+              showBullets={true}
+              showNavs={false}
+            />{" "}
+            <PostJob />
+          </div>
+        </div>
       </div>
     </>
   );

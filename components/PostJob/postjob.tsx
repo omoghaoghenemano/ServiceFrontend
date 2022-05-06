@@ -1,25 +1,19 @@
 import React from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
+import Categories from "../Categories/Categories";
 
 type Props = {};
 
 const Postjob: React.FC<Props> = ({}) => {
   return (
-    <div
-      className="postjob"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "15%",
-        position: "absolute",
-        height: "500px",
-        left: "3%",
-        background: "orange",
-      }}
-    >
-      <TextField />
-
-      <Button> Explore Services</Button>
+    <div className="side-nav-categories">
+      <div className="title">
+        <Typography
+          sx={{ color: "white", textAlign: "center", marginTop: "4px" }}
+        >
+          Categories
+        </Typography>
+      </div>
     </div>
   );
 };

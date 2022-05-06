@@ -27,9 +27,7 @@ export const StyledTypography = styled(Typography)(
 
 export const StyledLink = styled(Link)(
   sx({
-    "&:hover": {
-      color: "blue",
-    },
+    "&:hover": {},
   })
 );
 
@@ -37,11 +35,14 @@ export const StyledCard = styled(Card)(
   sx({
     cursor: "pointer",
     borderRadius: "10px",
-    width: "200px",
+
     display: "flex",
-    background: "#464545",
-    justifyContent: "space-between",
+
+    marginLeft: "3%",
+    background: "whitesmoke",
+
     justifyItems: "center",
+    alignItems: "center",
     "&:hover": {
       boxShadow: " 0px 2px 12px -1px #565454;",
     },
@@ -52,7 +53,6 @@ export const StyledTypographyHeader = styled(Typography)(
     fontSize: "1rem",
     fontWeight: "bold",
     fontFamily: "serif",
-    color: "white",
   })
 );
 export const StyledButton = styled(Button)(
@@ -60,10 +60,26 @@ export const StyledButton = styled(Button)(
     background: "#F68B1E",
     color: "white",
     textTransform: "none",
-    width: "200px",
+    width: "255px",
     maxwidth: "10px",
     "&:hover": {
       background: "#F68B1E",
     },
+  })
+);
+export const StyledPriceValue = styled(Typography)(
+  sx({
+    color: "red",
+    fontFamily: "serif",
+    fontSize: "1.1rem",
+  })
+);
+export const StyledPrice = styled(Typography)(
+  sx({
+    fontSize: "1.1rem",
+    fontWeight: "bold",
+    marginBottom: "10px",
+    textAlign: "center",
+    fontFamily: "serif",
   })
 );

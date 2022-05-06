@@ -275,7 +275,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
       >
         {RenderMobile()}
         <div className="navbar__container">
-          <div>
+          <div className="navbar__mainwrapper">
             <IconButton
               onClick={handleMenuClicks}
               onMouseLeave={handleCloseMenu}

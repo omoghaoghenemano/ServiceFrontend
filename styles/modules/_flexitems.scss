@@ -8,7 +8,7 @@
   &__latestservices {
     margin-top: 10px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     overflow-x: scroll;
   }
@@ -20,13 +20,7 @@
     border-radius: 25px;
     flex-direction: column;
   }
-  &__latestservices::-webkit-scrollbar {
-    height: 0.2rem;
-    background-color: #0d3b97;
-  }
-  &__latestservices::-webkit-scrollbar-thumb {
-    background-color: #f68b1e;
-  }
+
   &__avalableservice::-webkit-scrollbar {
     height: 0.2rem;
     background-color: #0d3b97;

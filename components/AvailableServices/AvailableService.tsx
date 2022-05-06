@@ -73,67 +73,72 @@ const AvailableService = (props: Props) => {
   };
 
   return (
-    <div>
-      <Paper elevation={2}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "10px",
-          }}
-        >
-          <Typography variant="h5" style={{ fontFamily: "serif" }}>
-            Service Categories
-          </Typography>
-        </div>
-        <div className="flexitems__avalableservice">
-          {state.categories?.map(
-            (
-              item: {
-                type:
-                  | boolean
-                  | React.ReactChild
-                  | React.ReactFragment
-                  | React.ReactPortal
-                  | null
-                  | undefined;
-                categories_id: number;
-              },
-              i: string | number | any
-            ) => (
-              <div
-                key={Math.random()}
-                style={{ marginLeft: "1%", position: "relative" }}
-              >
-                <StyledCard elevation={0}>
-                  <StyledLink /* href={"/categories?list=" + item?.categories_id} */
-                    sx={{ textDecoration: "none", color: "#000" }}
-                    onClick={() => {
-                      route.push("/categories?services=" + item?.categories_id);
-                    }}
-                  >
-                    {" "}
-                    <img
-                      src={serviceimages[i]}
-                      style={{
-                        width: "200px",
-                        borderRadius: "13px",
-                        height: "200px",
-                        cursor: "pointer",
+    <div className="maindiv">
+      <div className="maindivwrapper">
+        <Paper elevation={2}>
+          <div
+            style={{
+              display: "flex",
+
+              marginTop: "10px",
+              background: "#E2F5FF",
+            }}
+          >
+            <Typography variant="h5" style={{ fontFamily: "serif" }}>
+              Service Categories
+            </Typography>
+          </div>
+          <div className="flexitems__avalableservice">
+            {state.categories?.map(
+              (
+                item: {
+                  type:
+                    | boolean
+                    | React.ReactChild
+                    | React.ReactFragment
+                    | React.ReactPortal
+                    | null
+                    | undefined;
+                  categories_id: number;
+                },
+                i: string | number | any
+              ) => (
+                <div
+                  key={Math.random()}
+                  style={{ marginLeft: "1%", position: "relative" }}
+                >
+                  <StyledCard elevation={0}>
+                    <StyledLink /* href={"/categories?list=" + item?.categories_id} */
+                      sx={{ textDecoration: "none", color: "#000" }}
+                      onClick={() => {
+                        route.push(
+                          "/categories?services=" + item?.categories_id
+                        );
                       }}
-                    />
-                    <Typography
-                      style={{ fontFamily: "serif", fontSize: "0.9rem" }}
                     >
-                      {item.type}
-                    </Typography>
-                  </StyledLink>
-                </StyledCard>
-              </div>
-            )
-          )}
-        </div>
-      </Paper>
+                      {" "}
+                      <img
+                        src={serviceimages[i]}
+                        style={{
+                          width: "200px",
+                          borderRadius: "13px",
+                          height: "200px",
+                          cursor: "pointer",
+                        }}
+                      />
+                      <Typography
+                        style={{ fontFamily: "serif", fontSize: "0.9rem" }}
+                      >
+                        {item.type}
+                      </Typography>
+                    </StyledLink>
+                  </StyledCard>
+                </div>
+              )
+            )}
+          </div>
+        </Paper>
+      </div>
     </div>
   );
 };

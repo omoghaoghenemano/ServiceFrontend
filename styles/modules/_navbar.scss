@@ -1,5 +1,6 @@
 .navbar {
   background-color: $nav-color;
+  width: 100%;
   &__container {
     display: flex;
 
@@ -33,6 +34,12 @@
   &__navbarwrapper {
     display: flex;
 
+    justify-content: center;
+    justify-items: center;
+  }
+  &__mainwrapper {
+    width: 10%;
+    display: flex;
     justify-content: center;
     justify-items: center;
   }
