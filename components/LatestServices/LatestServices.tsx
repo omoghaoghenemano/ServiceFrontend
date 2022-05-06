@@ -7,18 +7,20 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 import { RootState } from "../../state/reducers";
 import Card from "@mui/material/Card";
+import { Avatar } from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useRouter } from "next/router";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   StyledLink,
   StyledCard,
   StyledTypographyHeader,
-  StyledButton,
-} from "./styles";
-import {
-  StyledAbout,
   StyledPriceValue,
   StyledPrice,
-} from "../Categories/styles";
+  StyledButton,
+} from "./styles";
+import { StyledAbout } from "../Categories/styles";
 type Props = {};
 const LatestServices: React.FC<Props> = ({}) => {
   const state = useSelector((state: RootState) => state.appstate);
@@ -31,7 +33,7 @@ const LatestServices: React.FC<Props> = ({}) => {
     <div className="maindiv">
       <div className="maindivwrapper">
         <div style={{ width: "100%" }}>
-          <Paper elevation={2} sx={{ height: "100%" }}>
+          <Paper elevation={2} sx={{ height: "110%" }}>
             <div
               style={{
                 display: "flex",
@@ -112,58 +114,106 @@ const LatestServices: React.FC<Props> = ({}) => {
                             display: "flex",
                             justifyContent: "center",
                             flexDirection: "column",
-                            alignItems: "center",
+
                             width: "255px",
                           }}
                         >
                           <img
                             src={item.image}
                             style={{
-                              width: "150px",
-                              marginTop: "10px",
-                              borderRadius: "100%",
-                              border: " 4px solid whitesmoke",
-                              height: "150px",
+                              width: "100%",
+
+                              height: "200px",
                               cursor: "pointer",
                             }}
                           />
                           <br></br>
-                          <StyledTypographyHeader
-                            style={{ fontFamily: "serif", fontSize: "0.9rem" }}
-                          >
-                            {item.type}
-                          </StyledTypographyHeader>
-                          <StyledTypographyHeader
+                          <div
                             style={{
-                              fontFamily: "serif",
-                              textAlign: "center",
-                              fontSize: "0.9rem",
+                              display: "flex",
+                              alignItems: "center",
+
+                              marginLeft: "5px",
                             }}
                           >
-                            {item.name}
-                          </StyledTypographyHeader>
+                            <Avatar sx={{ height: "40px" }}></Avatar>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                              }}
+                            >
+                              <StyledTypographyHeader
+                                style={{
+                                  fontFamily: "serif",
+
+                                  fontSize: "0.9rem",
+                                  marginLeft: "4px",
+                                }}
+                              >
+                                {item.name}
+                              </StyledTypographyHeader>{" "}
+                              <StyledTypographyHeader
+                                style={{
+                                  fontFamily: "serif",
+
+                                  fontSize: "0.9rem",
+                                  fontWeight: "normal",
+                                  marginLeft: "4px",
+                                }}
+                              >
+                                {item.type}
+                              </StyledTypographyHeader>
+                            </div>
+                          </div>
+                          <br></br>
 
                           <StyledAbout>
                             {item?.about.slice(0, 30)}...
                           </StyledAbout>
+
                           <div
                             style={{
                               display: "flex",
-                              justifyContent: "center",
+                              alignItems: "center",
+                              marginLeft: "5px",
+                              color: "orange",
                             }}
                           >
-                            <StyledPrice>Price: </StyledPrice>
-                            <StyledPriceValue>${item?.price}</StyledPriceValue>
+                            <StarIcon />
+                            <p>4.9(52)</p>
                           </div>
-                          <StyledButton
-                            size="small"
-                            onClick={() => {
-                              route.push("/services?user=" + item?.services_id);
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              marginLeft: "5px",
+                              alignItems: "flex-end",
+                              background: "#fff",
                             }}
                           >
-                            {" "}
-                            Talk to {item.name}
-                          </StyledButton>
+                            <div style={{ display: "flex", color: "grey" }}>
+                              <MenuIcon />
+                              <FavoriteBorderIcon />
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                justifyItems: "flex-end",
+
+                                marginRight: "15px",
+                              }}
+                            >
+                              <StyledPrice sx={{ color: "grey" }}>
+                                STARTING AT:{" "}
+                              </StyledPrice>
+                              <StyledPriceValue>
+                                ${item?.price}
+                              </StyledPriceValue>
+                            </div>
+                          </div>
                         </div>
                       </StyledLink>
                     </StyledCard>
@@ -172,6 +222,7 @@ const LatestServices: React.FC<Props> = ({}) => {
               )}
             </div>
           </Paper>
+          <br></br>
           <br></br>
         </div>
       </div>

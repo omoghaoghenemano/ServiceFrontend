@@ -76,9 +76,9 @@ export const StyledPriceValue = styled(Typography)(
 );
 export const StyledPrice = styled(Typography)(
   sx({
-    fontSize: "1.1rem",
+    fontSize: "0.6rem",
     fontWeight: "bold",
-    marginBottom: "10px",
+
     textAlign: "center",
     fontFamily: "serif",
   })
