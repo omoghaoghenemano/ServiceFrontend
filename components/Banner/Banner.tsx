@@ -86,6 +86,23 @@ export default function Banner({}: Props) {
             </StyledDiv>
           </div>
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "10px",
+          }}
+        >
+          <Typography
+            sx={{
+              fontFamily: "Avenir Light",
+              fontSize: "15px",
+              color: "#626462",
+            }}
+          >
+            Welcome to a place where you find reliable services
+          </Typography>
+        </div>
       </div>
     </>
   );

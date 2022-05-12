@@ -13,6 +13,7 @@ import Clientapi from "./api/client";
 import AvailableServices from "../components/AvailableServices";
 import Testing from "./testing";
 import LatestServices from "../components/LatestServices";
+import TopCategories from "../components/TopCategories/TopCategories";
 
 const Home: NextPage = () => {
   const [categories, setCategories] = useState([]);
@@ -37,6 +38,7 @@ const Home: NextPage = () => {
       {" "}
       <div>
         <Banner />
+        <TopCategories />
         <AvailableServices services={categories} />
         <LatestServices />
         <LatestServices />
