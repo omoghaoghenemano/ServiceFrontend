@@ -48,7 +48,7 @@ export default function Banner({}: Props) {
       <br></br>
       <div className="maindiv">
         <div style={{ position: "relative", marginTop: "50px" }}>
-          <img src="construction.jpg"></img>
+          <img src="construction.jpg" style={{ width: "100%" }}></img>
           <div
             style={{
               position: "absolute",
