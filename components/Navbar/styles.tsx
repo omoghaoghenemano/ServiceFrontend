@@ -30,13 +30,14 @@ export const StyledQuote = styled(Typography)(
 export const StyledCaption = styled(Typography)(sx({}));
 export const StyledAppBar = styled(AppBar)(
   sx({
-    background: "whitesmoke",
     height: 70,
     position: "fixed",
     justifyContent: "center",
 
     display: "flex",
-    top: "5%",
+    background: "#C3E5F0",
+    opacity: "98%",
+
     width: "100%",
   })
 );
@@ -45,10 +46,11 @@ export const StyledSearchSubmitButton = styled(Button)(
   sx({
     color: "white",
     textTransform: "none",
-    marginLeft: "10px",
+    height: "40px",
+
     background: "#F68B1E",
     "&:hover": {
-      background: "#FFA500",
+      background: "#F68B1E",
     },
   })
 );

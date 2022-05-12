@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+/* import React, { useState, useEffect, useContext } from "react";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -363,7 +363,15 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
                 route.push("/");
               }}
             >
-              <Typography color="black">Weware</Typography>
+              <Typography
+                color="black"
+                sx={{
+                  fontFamily: "Geotica Four Open",
+                  font: "Geotica Four Open",
+                }}
+              >
+                GreatServices
+              </Typography>
             </Link>
           </div>
           <div style={{ width: "100%" }} className="navbar__childcontainer">
@@ -378,7 +386,7 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
               }}
               size="small"
             />
-            <StyledSearchSubmitButton variant="contained">
+            <StyledSearchSubmitButton size="small" variant="contained">
               {" "}
               Search
             </StyledSearchSubmitButton>
@@ -458,3 +466,69 @@ const Navbar: React.FC<Props> = ({ article, removeArticle }) => {
   );
 };
 export default Navbar;
+ */
+import React, { useState, useEffect, useContext } from "react";
+import { Dispatch } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../state";
+import { RootState } from "../../state/reducers";
+//plus button
+import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
+
+import {
+  AppBar,
+  Typography,
+  Link,
+  Box,
+  ListItemText,
+  Button,
+  TextField,
+  InputAdornment,
+  IconButton,
+  ListItemIcon,
+  List,
+  ListItemButton,
+  Avatar,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useRouter } from "next/router";
+import {
+  StyledAppBar,
+  StyledButton,
+  StyledSearchSubmitButton,
+  StyledTextField,
+} from "./styles";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import SearchIcon from "@mui/icons-material/Search";
+import PersonIcon from "@mui/icons-material/Person";
+import HelpIcon from "@mui/icons-material/Help";
+import InfoIcon from "@mui/icons-material/Info";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import { LoginModal } from "../LoginModal/Loginmodal";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import StateContext from "../../context/StateContext";
+import DispatchContext from "../../context/DispatchContext";
+import Clientapi from "../../pages/api/client";
+import HowToRegRoundedIcon from "@mui/icons-material/HowToRegRounded";
+import ForumIcon from "@mui/icons-material/Forum";
+
+import Cookies from "js-cookie";
+
+export default function Navbar() {
+  return (
+    <StyledAppBar
+      sx={{
+        postion: "relative",
+      }}
+    >
+      <div className="navbar__container">
+        <div className="navbar__mainwrapper"></div>
+      </div>
+    </StyledAppBar>
+  );
+}

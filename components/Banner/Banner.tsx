@@ -1,6 +1,13 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
-import { StyledButton } from "./styles";
+import {
+  StyledButton,
+  StyledTypography,
+  SubTypography,
+  StyledTextField,
+  StyledDiv,
+  StyledDivButton,
+} from "./styles";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
 import Clientapi from "../../pages/api/client";
@@ -11,6 +18,8 @@ import AvailableServices from "../AvailableServices";
 import PostJob from "../PostJob/postjob";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../state/reducers";
+import SearchIcon from "@mui/icons-material/Search";
+import { InputAdornment } from "@mui/material";
 import Postadvertisment from "../Postadvertisement/postadvertisement";
 
 type Props = {};
@@ -32,43 +41,49 @@ export default function Banner({}: Props) {
   
  
   }, []) */
-  const images = [
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-    { url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1" },
-  ];
 
   const state = useSelector((state: RootState) => state.appstate);
   return (
     <>
       <br></br>
       <div className="maindiv">
-        <div className="maindivwrapper">
+        <div style={{ position: "relative", marginTop: "50px" }}>
+          <img src="construction.jpg"></img>
           <div
             style={{
+              position: "absolute",
+              width: "100%",
+              bottom: "10%",
               display: "flex",
-              justifyContent: "space-between",
-              justifyItems: "center",
 
-              marginTop: "5%",
+              alignItems: "center",
+
+              flexDirection: "column",
             }}
           >
-            <PostJob />
-            <SimpleImageSlider
-              width={"50%"}
-              style={{ marginRight: "5%" }}
-              autoPlay={true}
-              height={"400px"}
-              autoPlayDelay={5}
-              images={images}
-              showBullets={true}
-              showNavs={false}
-            />{" "}
-            <Postadvertisment checkuser={state.user.name} />
+            <StyledTypography>Great Services</StyledTypography>{" "}
+            <SubTypography>
+              Every service you can think of in one space
+            </SubTypography>
+            <br></br>
+            <StyledTextField
+              placeholder="Find Service"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              size="small"
+              variant="outlined"
+              color="primary"
+            />
+            <StyledDiv>
+              <StyledDivButton>It Services</StyledDivButton>
+              <StyledDivButton> Events</StyledDivButton>
+              <StyledDivButton>Cleaning</StyledDivButton>
+            </StyledDiv>
           </div>
         </div>
       </div>
