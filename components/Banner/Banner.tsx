@@ -50,7 +50,7 @@ export default function Banner({}: Props) {
         <div style={{ position: "relative", marginTop: "50px" }}>
           <img
             src="construction.jpg"
-            style={{ width: "100%", height: "250px" }}
+            style={{ width: "100%", height: "300px" }}
           ></img>
           <div
             style={{
