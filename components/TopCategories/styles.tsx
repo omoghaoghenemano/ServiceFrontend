@@ -8,6 +8,7 @@ import {
   TextField,
   InputAdornment,
   Box,
+  IconButton,
 } from "@mui/material";
 import {
   styled,
@@ -27,5 +28,35 @@ export const StyledTypography = styled(Typography)(
   sx({
     fontSize: "40px",
     fontFamily: "caudex",
+  })
+);
+export const StyledDiv = styled("div")(
+  sx({
+    display: "grid",
+    width: "80%",
+    marginTop: "1%",
+    gridTemplateColumns: "auto auto auto",
+  })
+);
+export const StyledHeaderTypo = styled(Typography)(
+  sx({
+    fontSize: "24px",
+    fontFamily: "Helvetica Bold",
+    textAlign: "center",
+  })
+);
+export const StyledTypographySub = styled(Typography)(
+  sx({
+    fontFamily: "Helvetica Light",
+
+    fontSize: "14px",
+  })
+);
+export const StyledIconButton = styled(IconButton)(
+  sx({
+    background: "black",
+    "&:hover": {
+      background: "black",
+    },
   })
 );
