@@ -3,9 +3,8 @@
   width: 100%;
   &__container {
     display: flex;
+    margin-left: 20%;
 
-    justify-content: center;
-    justify-items: center;
     @include atSmall {
       display: none;
     }
@@ -34,13 +33,13 @@
   &__navbarwrapper {
     display: flex;
 
-    justify-content: center;
+    justify-content: left;
     justify-items: center;
   }
   &__mainwrapper {
-    width: 10%;
     display: flex;
-    justify-content: center;
+
+    justify-content: space-between;
     justify-items: center;
   }
 

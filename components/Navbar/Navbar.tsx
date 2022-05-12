@@ -499,8 +499,11 @@ import { useRouter } from "next/router";
 import {
   StyledAppBar,
   StyledButton,
+  StyledTypography,
+  StyledDiv,
   StyledSearchSubmitButton,
   StyledTextField,
+  StyledMainButton,
 } from "./styles";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
@@ -527,7 +530,17 @@ export default function Navbar() {
       }}
     >
       <div className="navbar__container">
-        <div className="navbar__mainwrapper"></div>
+        <div className="navbar__mainwrapper">
+          <StyledTypography sx={{ fontFamily: "GeoticaW01-FourOpen" }}>
+            GreatServices
+          </StyledTypography>
+        </div>
+        <StyledDiv>
+          <StyledMainButton variant="outlined">
+            Post a Service{" "}
+            <KeyboardArrowDown sx={{ transform: "rotate(270deg)" }} />
+          </StyledMainButton>
+        </StyledDiv>
       </div>
     </StyledAppBar>
   );

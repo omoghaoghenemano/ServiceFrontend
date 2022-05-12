@@ -6,6 +6,7 @@ import {
   Avatar,
   AppBar,
   TextField,
+  InputAdornment,
 } from "@mui/material";
 import {
   styled,
@@ -16,8 +17,10 @@ import {
 
 export const StyledTypography = styled(Typography)(
   sx({
-    color: "grey",
-    fontFamily: "san-serif",
+    color: "#091405",
+
+    fontFamily: "GeoticaW01-FourOpen",
+    fontSize: "28px",
   })
 );
 export const StyledQuote = styled(Typography)(
@@ -107,40 +110,29 @@ export const StyledTitle = styled("div")(
   })
 );
 
-const useStyles = makeStyles({
-  root: {},
-  companyname_typography: {
-    color: "grey",
-    textAlign: "center",
-    fontFamily: "san-serif",
-    fontStyle: "italic",
-  },
-  paper: {
-    height: 400,
-    width: 300,
-
-    borderRadius: "10px",
-    "&:hover": {
-      elevation: "19%",
-      height: 400,
-      cursor: "pointer",
-      boxShadow: 20,
-    },
-  },
-  wrapper: {
-    width: "90%",
-    marginLeft: "10%",
-    marginTop: "4%",
-  },
-  quote: {
-    color: "#221133",
-  },
-  profile: {
-    marginTop: "30%",
-    justifyContent: "spaced-evenly",
-    alignItems: "self",
-
+export const StyledDiv = styled("div")(
+  sx({
     display: "flex",
-  },
-});
-export default useStyles;
+
+    width: "100%",
+
+    justifyContent: "end",
+    marginRight: "20%",
+  })
+);
+export const StyledMainButton = styled(Button)(
+  sx({
+    border: "1px #035772 ",
+    borderStyle: "solid",
+    borderRadius: "20px",
+    fontFamily: "Avenir Light",
+    textTransform: "none",
+    background: "#F6F9F5",
+    color: "#035772",
+    fontSize: "13px",
+    "&:hover": {
+      background: "#035772",
+      color: "white",
+    },
+  })
+);

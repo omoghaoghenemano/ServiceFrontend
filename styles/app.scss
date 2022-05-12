@@ -1,4 +1,18 @@
 @import url(//db.onlinewebfonts.com/c/f50deaf3f2e2c69311cebdafbf7561d2?family=GeoticaW01-FourOpen);
+@font-face {
+  font-family: "GeoticaW01-FourOpen";
+  src: url("//db.onlinewebfonts.com/t/f50deaf3f2e2c69311cebdafbf7561d2.eot");
+  src: url("//db.onlinewebfonts.com/t/f50deaf3f2e2c69311cebdafbf7561d2.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/f50deaf3f2e2c69311cebdafbf7561d2.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/f50deaf3f2e2c69311cebdafbf7561d2.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/f50deaf3f2e2c69311cebdafbf7561d2.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/f50deaf3f2e2c69311cebdafbf7561d2.svg#GeoticaW01-FourOpen")
+      format("svg");
+}
 @import "modules/global";
 @import "base/variable";
 @import "base/mixins";
