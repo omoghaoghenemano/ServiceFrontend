@@ -537,7 +537,7 @@ export default function Navbar() {
           </StyledTypography>
         </div>
         <StyledDiv>
-          <StyledMainButton variant="outlined">
+          <StyledMainButton variant="outlined" size="small">
             Post a Service{" "}
             <KeyboardArrowDown sx={{ transform: "rotate(270deg)" }} />
           </StyledMainButton>
@@ -547,6 +547,7 @@ export default function Navbar() {
           <div>
             <IconButton>
               <Avatar />
+              <KeyboardArrowDown />
             </IconButton>
           </div>
         </StyledDiv>

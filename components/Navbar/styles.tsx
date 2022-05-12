@@ -119,11 +119,13 @@ export const StyledDiv = styled("div")(
     justifyContent: "end",
     justifyItems: "end",
     marginRight: "20%",
+    alignItems: "center",
   })
 );
 export const StyledMainButton = styled(Button)(
   sx({
     border: "1px #035772 ",
+    height: "40px",
     borderStyle: "solid",
     borderRadius: "20px",
     fontFamily: "Avenir Light",
