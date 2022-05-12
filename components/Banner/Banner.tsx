@@ -87,6 +87,7 @@ export default function Banner({}: Props) {
               <StyledDivButton> Events</StyledDivButton>
               <StyledDivButton>Cleaning</StyledDivButton>
             </StyledDiv>
+            <br></br>
           </div>
         </div>
         <div
