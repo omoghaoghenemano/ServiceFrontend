@@ -475,6 +475,7 @@ import { actionCreators } from "../../state";
 import { RootState } from "../../state/reducers";
 //plus button
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 
 import {
   AppBar,
@@ -540,6 +541,14 @@ export default function Navbar() {
             Post a Service{" "}
             <KeyboardArrowDown sx={{ transform: "rotate(270deg)" }} />
           </StyledMainButton>
+          <IconButton sx={{ color: "#035772" }}>
+            <NotificationsIcon />
+          </IconButton>
+          <div>
+            <IconButton>
+              <Avatar />
+            </IconButton>
+          </div>
         </StyledDiv>
       </div>
     </StyledAppBar>

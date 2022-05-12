@@ -117,6 +117,7 @@ export const StyledDiv = styled("div")(
     width: "100%",
 
     justifyContent: "end",
+    justifyItems: "end",
     marginRight: "20%",
   })
 );
