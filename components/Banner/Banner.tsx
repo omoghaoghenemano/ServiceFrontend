@@ -48,12 +48,15 @@ export default function Banner({}: Props) {
       <br></br>
       <div className="maindiv">
         <div style={{ position: "relative", marginTop: "50px" }}>
-          <img src="construction.jpg" style={{ width: "100%" }}></img>
+          <img
+            src="construction.jpg"
+            style={{ width: "100%", height: "250px" }}
+          ></img>
           <div
             style={{
               position: "absolute",
               width: "100%",
-              bottom: "10%",
+              bottom: "10px",
               display: "flex",
 
               alignItems: "center",

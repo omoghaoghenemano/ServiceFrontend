@@ -24,7 +24,7 @@ export default function TopCategories() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "75%",
+                width: "250px",
               }}
             >
               <img
@@ -68,7 +68,7 @@ export default function TopCategories() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "75%",
+                width: "250px",
               }}
             >
               <img
@@ -112,7 +112,7 @@ export default function TopCategories() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "75%",
+                width: "250px",
               }}
             >
               <img

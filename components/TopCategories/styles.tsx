@@ -36,6 +36,7 @@ export const StyledDiv = styled("div")(
     width: "80%",
     marginTop: "1%",
     gridTemplateColumns: "auto auto auto",
+    gap: "10px",
   })
 );
 export const StyledHeaderTypo = styled(Typography)(
