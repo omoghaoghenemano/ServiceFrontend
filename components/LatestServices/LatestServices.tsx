@@ -30,9 +30,9 @@ const LatestServices: React.FC<Props> = ({}) => {
     state.mainservices
   );
   return (
-    <div className="maindiv">
-      <div className="maindivwrapper">
-        <div style={{ width: "100%" }}>
+    <div className="navbar__mycontainer">
+      <div className="navbar__catwrapper">
+        <div style={{ width: "80%" }}>
           <Paper elevation={2} sx={{ height: "110%" }}>
             <div
               style={{

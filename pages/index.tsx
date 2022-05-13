@@ -14,6 +14,7 @@ import AvailableServices from "../components/AvailableServices";
 import Testing from "./testing";
 import LatestServices from "../components/LatestServices";
 import TopCategories from "../components/TopCategories/TopCategories";
+import Featured from "../components/Featured/Featured";
 
 const Home: NextPage = () => {
   const [categories, setCategories] = useState([]);
@@ -39,6 +40,7 @@ const Home: NextPage = () => {
       <div>
         <Banner />
         <TopCategories />
+        <Featured />
         <AvailableServices services={categories} />
         <LatestServices />
         <LatestServices />
