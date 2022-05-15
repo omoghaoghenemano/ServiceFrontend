@@ -65,6 +65,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                     services_id: number;
                     about: string;
                     price: number;
+                    updated_at: string;
                   },
                   i: string | number | any
                 ) => (
@@ -105,7 +106,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                               </span>
                               <span>
                                 <TextTypography>
-                                  {moment(item.updated_at).format("MMM Do YY")}
+                                  {moment(item.updated_at).format("MMM Do ")}
                                 </TextTypography>
                               </span>
                             </div>
@@ -132,6 +133,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                               style={{
                                 display: "flex",
                                 width: "100%",
+
                                 justifyContent: "space-evenly",
                                 alignItems: "center",
                               }}
