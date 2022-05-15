@@ -126,7 +126,11 @@ const LatestServices: React.FC<Props> = ({}) => {
                               marginLeft: "-4.5%",
                               display: "flex",
                               marginTop: "5%",
-                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              alignSelf: "center",
+                              justifyItems: "flex-end",
+
+                              alignItems: "flex-end",
                             }}
                           >
                             <div

@@ -40,12 +40,12 @@ export const StyledCard = styled(Card)(
 
     display: "flex",
 
-    justifyContent: "center",
+    justifyContent: "flex-start",
 
-    rowGap: "60px",
     border: "#949593 5px",
     opacity: "78%",
     borderRadius: " 3px",
+    height: "100%",
 
     width: {
       xs: "200px",
@@ -59,11 +59,11 @@ export const StyledCard = styled(Card)(
       sm: "2%",
       lg: "7%",
     },
-    marginTop: "6%",
+
     background: "#F6F9F5",
 
-    justifyItems: "center",
-    alignItems: "center",
+    justifyItems: "flex-end",
+    alignItems: "end",
 
     "&:hover": {
       boxShadow: " 0px 2px 12px -1px #565454;",
