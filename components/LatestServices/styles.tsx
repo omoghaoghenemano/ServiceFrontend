@@ -63,7 +63,7 @@ export const StyledCard = styled(Card)(
     background: "#F6F9F5",
 
     justifyItems: "flex-end",
-    alignItems: "end",
+    alignItems: "flex-end",
 
     "&:hover": {
       boxShadow: " 0px 2px 12px -1px #565454;",

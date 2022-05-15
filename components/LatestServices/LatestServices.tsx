@@ -77,8 +77,16 @@ const LatestServices: React.FC<Props> = ({}) => {
                     }}
                   >
                     <StyledCard key={Math.random()} elevation={6}>
-                      <div style={{ width: "100%", height: "100%" }}>
-                        <div>
+                      <div
+                        style={{
+                          width: "100%",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                          }}
+                        >
                           <img
                             src={item.image}
                             style={{ height: "200px", width: "100%" }}
@@ -89,6 +97,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                             display: "flex",
                             flexDirection: "column",
                             marginLeft: "4%",
+                            marginTop: "2%",
                           }}
                         >
                           <div style={{ display: "flex" }}>
@@ -127,7 +136,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                               display: "flex",
                               marginTop: "5%",
                               justifyContent: "flex-end",
-                              alignSelf: "center",
+                              alignSelf: "flex-end",
                               justifyItems: "flex-end",
 
                               alignItems: "flex-end",
@@ -137,6 +146,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                               style={{
                                 display: "flex",
                                 width: "100%",
+                                alignSelf: "flex-end",
 
                                 justifyContent: "space-evenly",
                                 alignItems: "center",
