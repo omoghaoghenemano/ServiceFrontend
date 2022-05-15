@@ -11,8 +11,9 @@
   }
   &__latestservices {
     margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
 
     overflow-x: scroll;
     @include atSmallMax {

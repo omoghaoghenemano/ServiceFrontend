@@ -7,18 +7,24 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 import { RootState } from "../../state/reducers";
 import Card from "@mui/material/Card";
-import { Avatar } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useRouter } from "next/router";
 import MenuIcon from "@mui/icons-material/Menu";
+import moment from "moment";
+
 import {
   StyledLink,
   StyledCard,
   StyledTypographyHeader,
   StyledPriceValue,
+  TextTypography,
   StyledPrice,
   StyledButton,
+  StyledTypography,
+  StyledCustomTypography,
+  StyledBox,
 } from "./styles";
 import { StyledAbout } from "../Categories/styles";
 type Props = {};
@@ -34,48 +40,16 @@ const LatestServices: React.FC<Props> = ({}) => {
       <div className="navbar__catwrapper">
         <div style={{ width: "80%" }}>
           <Paper elevation={2} sx={{ height: "110%" }}>
-            <div
-              style={{
-                display: "flex",
-
-                background: "#E2F5FF",
-                marginTop: "10px",
-              }}
-            >
-              <Typography
+            <StyledBox>
+              <StyledCustomTypography
                 variant="h5"
                 style={{ marginLeft: "2%", fontFamily: "serif" }}
               >
                 Latest Services
-              </Typography>
-              <div
-                style={{
-                  display: "flex",
-
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Typography
-                  variant="button"
-                  onClick={() => {
-                    route.push("/all-services");
-                  }}
-                  style={{
-                    fontFamily: "serif",
-                    position: "absolute",
-                    textTransform: "none",
-                    right: "6%",
-                    color: "white",
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                  }}
-                >
-                  See All
-                </Typography>
-              </div>
-            </div>
+              </StyledCustomTypography>
+            </StyledBox>
             <div className="flexitems__latestservices">
-              {state.mainservices.slice(0, 7)?.map(
+              {state.mainservices.slice(0, 9)?.map(
                 (
                   item: {
                     type:
@@ -102,121 +76,75 @@ const LatestServices: React.FC<Props> = ({}) => {
                     }}
                   >
                     <StyledCard key={Math.random()} elevation={6}>
-                      <StyledLink /* href={"/categories?list=" + item?.categories_id} */
-                        sx={{ textDecoration: "none", color: "#000" }}
-                        onClick={() => {
-                          route.push("/services?user=" + item?.services_id);
-                        }}
-                      >
-                        {" "}
+                      <div style={{ width: "100%", height: "100%" }}>
+                        <div>
+                          <img
+                            src={item.image}
+                            style={{ height: "200px", width: "100%" }}
+                          ></img>
+                        </div>
                         <div
                           style={{
                             display: "flex",
-                            justifyContent: "center",
                             flexDirection: "column",
-
-                            width: "255px",
+                            marginLeft: "4%",
                           }}
                         >
-                          <img
-                            src={item.image}
-                            style={{
-                              width: "100%",
-
-                              height: "200px",
-                              cursor: "pointer",
-                            }}
-                          />
-                          <br></br>
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-
-                              marginLeft: "5px",
-                            }}
-                          >
-                            <Avatar sx={{ height: "40px" }}></Avatar>
+                          <div style={{ display: "flex" }}>
+                            <span>
+                              <Avatar />
+                            </span>
                             <div
                               style={{
                                 display: "flex",
                                 flexDirection: "column",
                               }}
                             >
-                              <StyledTypographyHeader
-                                style={{
-                                  fontFamily: "serif",
-
-                                  fontSize: "0.9rem",
-                                  marginLeft: "4px",
-                                }}
-                              >
-                                {item.name}
-                              </StyledTypographyHeader>{" "}
-                              <StyledTypographyHeader
-                                style={{
-                                  fontFamily: "serif",
-
-                                  fontSize: "0.9rem",
-                                  fontWeight: "normal",
-                                  marginLeft: "4px",
-                                }}
-                              >
-                                {item.type}
-                              </StyledTypographyHeader>
+                              <span>
+                                <TextTypography>{item.name}</TextTypography>
+                              </span>
+                              <span>
+                                <TextTypography>
+                                  {moment(item.updated_at).format("MMM Do YY")}
+                                </TextTypography>
+                              </span>
                             </div>
                           </div>
-                          <br></br>
-
-                          <StyledAbout>
-                            {item?.about.slice(0, 30)}...
-                          </StyledAbout>
-
+                          <span>
+                            <StyledTypography>{item.type}</StyledTypography>
+                            <StyledTypographyHeader>
+                              {item.about}
+                            </StyledTypographyHeader>
+                          </span>
                           <div
                             style={{
+                              height: "50px",
+                              background: "#949593",
+                              opacity: "73%",
+                              width: "114%",
+                              marginLeft: "-4.5%",
                               display: "flex",
+                              marginTop: "5%",
                               alignItems: "center",
-                              marginLeft: "5px",
-                              color: "orange",
                             }}
                           >
-                            <StarIcon />
-                            <p>4.9(52)</p>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              marginLeft: "5px",
-                              alignItems: "flex-end",
-                              background: "#fff",
-                              padding: "7px",
-                            }}
-                          >
-                            <div style={{ display: "flex", color: "grey" }}>
-                              <MenuIcon />
-                              <FavoriteBorderIcon />
-                            </div>
                             <div
                               style={{
                                 display: "flex",
+                                width: "100%",
+                                justifyContent: "space-evenly",
                                 alignItems: "center",
-                                justifyContent: "center",
-                                justifyItems: "flex-end",
-
-                                marginRight: "15px",
                               }}
                             >
-                              <StyledPrice sx={{ color: "grey" }}>
-                                STARTING AT &nbsp;
-                              </StyledPrice>
-                              <StyledPriceValue>
-                                ${item?.price}
-                              </StyledPriceValue>
+                              <IconButton>
+                                <FavoriteBorderIcon />
+                              </IconButton>
+                              <StyledPrice> STARTING AT</StyledPrice>
+                              <StyledPriceValue>${item.price}</StyledPriceValue>
                             </div>
                           </div>
                         </div>
-                      </StyledLink>
+                      </div>
                     </StyledCard>
                   </div>
                 )

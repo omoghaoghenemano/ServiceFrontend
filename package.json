@@ -22,6 +22,7 @@
     "axios": "^0.27.1",
     "immer-reducer": "^0.7.13",
     "js-cookie": "^3.0.1",
+    "moment": "^2.29.3",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",

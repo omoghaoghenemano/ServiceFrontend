@@ -505,6 +505,8 @@ import {
   StyledSearchSubmitButton,
   StyledTextField,
   StyledMainButton,
+  StyledCustomTypography,
+  StyledBox,
 } from "./styles";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
