@@ -130,7 +130,7 @@ export const StyledBox = styled(Box)(
 );
 export const StyledCustomTypography = styled(Typography)(
   sx({
-    fontSize: "40px",
+    fontSize: "30px",
     fontFamily: "caudex",
   })
 );

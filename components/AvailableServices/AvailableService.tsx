@@ -14,7 +14,12 @@ import { actionCreators } from "../../state";
 import Card from "@mui/material/Card";
 import { RootState } from "../../state/reducers";
 
-import { StyledLink, StyledCard } from "./styles";
+import {
+  StyledLink,
+  StyledCard,
+  StyledCustomTypography,
+  StyledBox,
+} from "./styles";
 
 type Props = {
   services: any;
@@ -77,21 +82,14 @@ const AvailableService = (props: Props) => {
       <div className="navbar__catwrapper">
         <div style={{ width: "80%" }}>
           <Paper elevation={2}>
-            <div
-              style={{
-                display: "flex",
-
-                marginTop: "10px",
-                background: "#E2F5FF",
-              }}
-            >
-              <Typography
+            <StyledBox>
+              <StyledCustomTypography
                 variant="h5"
                 style={{ marginLeft: "2%", fontFamily: "serif" }}
               >
-                Service Categories
-              </Typography>
-            </div>
+                Service categories
+              </StyledCustomTypography>
+            </StyledBox>
             <div className="flexitems__avalableservice">
               {state.categories?.map(
                 (

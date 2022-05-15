@@ -505,8 +505,6 @@ import {
   StyledSearchSubmitButton,
   StyledTextField,
   StyledMainButton,
-  StyledCustomTypography,
-  StyledBox,
 } from "./styles";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
@@ -749,10 +747,57 @@ export default function Navbar() {
             <NotificationsIcon />
           </IconButton>
           <div>
-            <IconButton>
-              <Avatar />
-              <KeyboardArrowDown />
-            </IconButton>
+            {AuthState.user ? (
+              <StyledButton
+                variant="text"
+                sx={{ textTransform: "none" }}
+                onClick={handleProfileClicks}
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+              >
+                <Avatar /> &nbsp; Hi {AuthState.user.name}{" "}
+                {myaccount ? (
+                  <>
+                    {" "}
+                    <KeyboardArrowDown
+                      sx={{ transform: "rotate(0deg)" }}
+                    />{" "}
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <KeyboardArrowDown
+                      sx={{ transform: "rotate(180deg)" }}
+                    />{" "}
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorEl}
+                      open={displaylist}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        "aria-labelledby": "basic-button",
+                      }}
+                    >
+                      <MenuItem onClick={handleClose}>Profile</MenuItem>
+                      <MenuItem onClick={handleClose}>My account</MenuItem>
+                      <MenuItem onClick={HandleLogout}>Logout</MenuItem>
+                    </Menu>
+                  </>
+                )}
+              </StyledButton>
+            ) : (
+              <>
+                <StyledButton
+                  variant="text"
+                  sx={{ textTransform: "none" }}
+                  onClick={handleOpen}
+                >
+                  <PersonIcon /> Account <KeyboardArrowDown />
+                </StyledButton>
+                <LoginModal OpenModalForm={open} CloseModalForm={handleClose} />{" "}
+              </>
+            )}
           </div>
         </StyledDiv>
       </div>

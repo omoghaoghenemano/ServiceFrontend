@@ -64,7 +64,7 @@ export const StyledTextField = styled(TextField)(
 );
 export const StyledButton = styled(Button)(
   sx({
-    color: "black",
+    color: "#035772",
     textTransform: "none",
   })
 );

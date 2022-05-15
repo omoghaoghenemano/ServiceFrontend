@@ -26,7 +26,7 @@ export const StyledBox = styled(Box)(
 );
 export const StyledTypography = styled(Typography)(
   sx({
-    fontSize: "40px",
+    fontSize: "30px",
     fontFamily: "caudex",
   })
 );
