@@ -51,13 +51,16 @@ export const StyledCard = styled(Card)(
       xs: "200px",
 
       sm: "230px",
-      lg: "300px",
+
+      lg: "250px",
+      xl: "300px",
     },
 
     borderStyle: "solid",
     marginLeft: {
       sm: "2%",
-      lg: "7%",
+      lg: "3%",
+      xl: "7%",
     },
 
     background: "#F6F9F5",
