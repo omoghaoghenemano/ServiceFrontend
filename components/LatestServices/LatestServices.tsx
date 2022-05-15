@@ -42,12 +42,14 @@ const LatestServices: React.FC<Props> = ({}) => {
 
   const route = useRouter();
   const handleLogin = AuthState.user;
+  const [buttoncolor, setButtoncolor] = useState("grey");
   const handleOpen = () => {
     if (handleLogin === null || handleLogin === undefined) {
       setLoggedIn(false);
       setOpen(true);
     } else {
       setLoggedIn(true);
+      setButtoncolor("red");
       setOpen(false);
     }
   };
@@ -170,7 +172,9 @@ const LatestServices: React.FC<Props> = ({}) => {
                               }}
                             >
                               <IconButton onClick={handleOpen}>
-                                <FavoriteBorderIcon />
+                                <FavoriteBorderIcon
+                                  sx={{ color: buttoncolor }}
+                                />
                               </IconButton>
 
                               <StyledPrice> STARTING AT</StyledPrice>
