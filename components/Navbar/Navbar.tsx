@@ -539,9 +539,9 @@ export default function Navbar() {
     setMyaccount(false);
   };
 
-  const Closeevent = () => setOpen(false);
+  const Closeevent = () => setOpen(true);
   const [scroll, setScroll] = useState("33px");
-  const [myaccount, setMyaccount] = useState(true);
+  const [myaccount, setMyaccount] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mainservice, setMainservices] = useState([]);
   const [anchorElmenu, setAnchorElmenu] = React.useState<null | HTMLElement>(
@@ -761,14 +761,14 @@ export default function Navbar() {
                   <>
                     {" "}
                     <KeyboardArrowDown
-                      sx={{ transform: "rotate(0deg)" }}
+                      sx={{ transform: "rotate(180deg)" }}
                     />{" "}
                   </>
                 ) : (
                   <>
                     {" "}
                     <KeyboardArrowDown
-                      sx={{ transform: "rotate(180deg)" }}
+                      sx={{ transform: "rotate(0deg)" }}
                     />{" "}
                     <Menu
                       id="basic-menu"

@@ -24,7 +24,7 @@ export default function TopCategories() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "250px",
+                width: "90%",
               }}
             >
               <img
@@ -34,7 +34,7 @@ export default function TopCategories() {
                   borderTopLeftRadius: "250px",
                   borderTopRightRadius: "250px",
                   height: "300px",
-                  width: "250px",
+                  width: "100%",
                 }}
               />
               <div style={{ background: "#EEEEF5" }}>
@@ -68,7 +68,7 @@ export default function TopCategories() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "250px",
+                width: "90%",
               }}
             >
               <img
@@ -78,7 +78,7 @@ export default function TopCategories() {
                   borderTopLeftRadius: "250px",
                   borderTopRightRadius: "250px",
                   height: "300px",
-                  width: "250px",
+                  width: "100%",
                 }}
               />
               <div style={{ background: "#EEEEF5" }}>
@@ -112,7 +112,7 @@ export default function TopCategories() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "250px",
+                width: "90%",
               }}
             >
               <img
@@ -122,7 +122,7 @@ export default function TopCategories() {
                   borderTopLeftRadius: "250px",
                   borderTopRightRadius: "250px",
                   height: "300px",
-                  width: "250px",
+                  width: "100%",
                 }}
               />
               <div style={{ background: "#EEEEF5" }}>

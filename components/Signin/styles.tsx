@@ -77,11 +77,11 @@ export const StyleCheckoutButton = styled(Button)(
     marginTop: "30px",
     borderRadius: "13px",
     textTransform: "none",
-    background: "#F68B1E",
+    background: "#035772",
     borderShadow: " 0px 0px 0px 10px grey",
 
     "&:hover": {
-      background: "#FFA500",
+      background: "#035772",
     },
   })
 );

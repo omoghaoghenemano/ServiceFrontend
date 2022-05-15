@@ -93,7 +93,12 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="flexitems__flexsignin">
         <Typography
-          style={{ fontSize: "1.4rem", fontWeight: "bold", marginTop: "30px" }}
+          style={{
+            fontSize: "1.4rem",
+            color: "#035772",
+            fontWeight: "bold",
+            marginTop: "30px",
+          }}
         >
           Log In
         </Typography>
