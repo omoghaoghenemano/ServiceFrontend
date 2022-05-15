@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import StateContext from "../../context/StateContext";
+import DispatchContext from "../../context/DispatchContext";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Dispatch } from "redux";
@@ -10,7 +12,9 @@ import Card from "@mui/material/Card";
 import { Avatar, IconButton } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { LoginModal } from "../LoginModal/Loginmodal";
 import { useRouter } from "next/router";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import moment from "moment";
 
@@ -30,11 +34,24 @@ import { StyledAbout } from "../Categories/styles";
 type Props = {};
 const LatestServices: React.FC<Props> = ({}) => {
   const state = useSelector((state: RootState) => state.appstate);
+  const { AuthState } = useContext<any>(StateContext);
+  const { AuthDispatcher } = useContext<any>(DispatchContext);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const dispatch: Dispatch<any> = useDispatch();
+  const [open, setOpen] = useState(false);
+
   const route = useRouter();
-  console.log(
-    "hey this is the state for the latest services",
-    state.mainservices
-  );
+  const handleLogin = AuthState.user;
+  const handleOpen = () => {
+    if (handleLogin === null || handleLogin === undefined) {
+      setLoggedIn(false);
+      setOpen(true);
+    } else {
+      setLoggedIn(true);
+      setOpen(false);
+    }
+  };
+
   return (
     <div className="navbar__mycontainer">
       <div className="navbar__catwrapper">
@@ -152,9 +169,10 @@ const LatestServices: React.FC<Props> = ({}) => {
                                 alignItems: "center",
                               }}
                             >
-                              <IconButton>
+                              <IconButton onClick={handleOpen}>
                                 <FavoriteBorderIcon />
                               </IconButton>
+
                               <StyledPrice> STARTING AT</StyledPrice>
                               <StyledPriceValue>${item.price}</StyledPriceValue>
                             </div>
@@ -165,6 +183,10 @@ const LatestServices: React.FC<Props> = ({}) => {
                   </div>
                 )
               )}
+              <LoginModal
+                OpenModalForm={open}
+                CloseModalForm={() => setOpen(false)}
+              />{" "}
             </div>
           </Paper>
           <br></br>
