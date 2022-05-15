@@ -36,7 +36,8 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.50.1",
     "styled-components": "^5.3.5",
-    "use-immer": "^0.7.0"
+    "use-immer": "^0.7.0",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.2",
