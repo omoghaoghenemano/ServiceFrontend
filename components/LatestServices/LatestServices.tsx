@@ -17,6 +17,9 @@ import { useRouter } from "next/router";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import moment from "moment";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CustomLoader from "../CustomLoader";
+import ToggleButton from "@mui/material/ToggleButton";
 
 import {
   StyledLink,
@@ -27,6 +30,7 @@ import {
   StyledPrice,
   StyledButton,
   StyledTypography,
+  StyledIconButton,
   StyledCustomTypography,
   StyledBox,
 } from "./styles";
@@ -39,20 +43,39 @@ const LatestServices: React.FC<Props> = ({}) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const dispatch: Dispatch<any> = useDispatch();
   const [open, setOpen] = useState(false);
+  const [loaded, setLoaded] = useState(true);
+  const [active, setActive] = useState(false);
 
   const route = useRouter();
   const handleLogin = AuthState.user;
-  const [buttoncolor, setButtoncolor] = useState("grey");
+  const [buttoncolor, setButtoncolor] = useState<any>(false);
+  const handleColor = () => {
+    if (!active) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  };
+  const [activeButton, setActiveButton] = useState([]);
+
   const handleOpen = () => {
     if (handleLogin === null || handleLogin === undefined) {
       setLoggedIn(false);
       setOpen(true);
     } else {
       setLoggedIn(true);
-      setButtoncolor("red");
+      handleColor();
       setOpen(false);
+      setButtoncolor(true);
     }
   };
+  useEffect(() => {
+    if (state.mainservices.length < 0) {
+      setLoaded(true);
+    } else {
+      setLoaded(false);
+    }
+  }, [state.mainservices]);
 
   return (
     <div className="navbar__mycontainer">
@@ -67,131 +90,138 @@ const LatestServices: React.FC<Props> = ({}) => {
                 Latest Services
               </StyledCustomTypography>
             </StyledBox>
-            <div className="flexitems__latestservices">
-              {state.mainservices.slice(0, 9)?.map(
-                (
-                  item: {
-                    type:
-                      | boolean
-                      | React.ReactChild
-                      | React.ReactFragment
-                      | React.ReactPortal
-                      | null
-                      | undefined;
-                    categories_id: number;
-                    image: any;
-                    name: string;
-                    services_id: number;
-                    about: string;
-                    price: number;
-                    updated_at: string;
-                  },
-                  i: string | number | any
-                ) => (
-                  <div
-                    key={Math.random()}
-                    style={{
-                      position: "relative",
-                      marginLeft: "1%",
-                    }}
-                  >
-                    <StyledCard key={Math.random()} elevation={6}>
-                      <div
-                        style={{
-                          width: "100%",
-                        }}
-                      >
+            {loaded ? (
+              <CustomLoader />
+            ) : (
+              <div className="flexitems__latestservices">
+                {state.mainservices.slice(0, 9)?.map(
+                  (
+                    item: {
+                      type:
+                        | boolean
+                        | React.ReactChild
+                        | React.ReactFragment
+                        | React.ReactPortal
+                        | null
+                        | undefined;
+                      categories_id: number;
+                      image: any;
+                      name: string;
+                      services_id: number;
+                      about: string;
+                      price: number;
+                      updated_at: string;
+                    },
+                    i: string | number | any
+                  ) => (
+                    <div
+                      key={item.services_id}
+                      style={{
+                        position: "relative",
+                        marginLeft: "1%",
+                      }}
+                    >
+                      <StyledCard key={Math.random()} elevation={6}>
                         <div
                           style={{
-                            display: "flex",
+                            width: "100%",
                           }}
                         >
-                          <img
-                            src={item.image}
-                            style={{ height: "200px", width: "100%" }}
-                          ></img>
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            marginLeft: "4%",
-                            marginTop: "2%",
-                          }}
-                        >
-                          <div style={{ display: "flex" }}>
+                          <div
+                            style={{
+                              display: "flex",
+                            }}
+                          >
+                            <img
+                              src={item.image}
+                              style={{ height: "200px", width: "100%" }}
+                            ></img>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              marginLeft: "4%",
+                              marginTop: "2%",
+                            }}
+                          >
+                            <div style={{ display: "flex" }}>
+                              <span>
+                                <Avatar />
+                              </span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <span>
+                                  <TextTypography>{item.name}</TextTypography>
+                                </span>
+                                <span>
+                                  <TextTypography>
+                                    {moment(item.updated_at).format("MMM Do ")}
+                                  </TextTypography>
+                                </span>
+                              </div>
+                            </div>
                             <span>
-                              <Avatar />
+                              <StyledTypography>{item.type}</StyledTypography>
+                              <StyledTypographyHeader>
+                                {item.about}
+                              </StyledTypographyHeader>
                             </span>
                             <div
                               style={{
+                                height: "50px",
+                                background: "#949593",
+                                opacity: "73%",
+                                width: "114%",
+                                marginLeft: "-4.5%",
                                 display: "flex",
-                                flexDirection: "column",
-                              }}
-                            >
-                              <span>
-                                <TextTypography>{item.name}</TextTypography>
-                              </span>
-                              <span>
-                                <TextTypography>
-                                  {moment(item.updated_at).format("MMM Do ")}
-                                </TextTypography>
-                              </span>
-                            </div>
-                          </div>
-                          <span>
-                            <StyledTypography>{item.type}</StyledTypography>
-                            <StyledTypographyHeader>
-                              {item.about}
-                            </StyledTypographyHeader>
-                          </span>
-                          <div
-                            style={{
-                              height: "50px",
-                              background: "#949593",
-                              opacity: "73%",
-                              width: "114%",
-                              marginLeft: "-4.5%",
-                              display: "flex",
-                              marginTop: "5%",
-                              justifyContent: "flex-end",
-                              alignSelf: "flex-end",
-                              justifyItems: "flex-end",
-
-                              alignItems: "flex-end",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                width: "100%",
+                                marginTop: "5%",
+                                justifyContent: "flex-end",
                                 alignSelf: "flex-end",
+                                justifyItems: "flex-end",
 
-                                justifyContent: "space-evenly",
-                                alignItems: "center",
+                                alignItems: "flex-end",
                               }}
                             >
-                              <IconButton onClick={handleOpen}>
-                                <FavoriteBorderIcon
-                                  sx={{ color: buttoncolor }}
-                                />
-                              </IconButton>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "100%",
+                                  alignSelf: "flex-end",
 
-                              <StyledPrice> STARTING AT</StyledPrice>
-                              <StyledPriceValue>${item.price}</StyledPriceValue>
+                                  justifyContent: "space-evenly",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <StyledIconButton
+                                  key={item.services_id}
+                                  onClick={handleOpen}
+                                >
+                                  <FavoriteBorderIcon />
+                                </StyledIconButton>
+
+                                <StyledPrice> STARTING AT</StyledPrice>
+                                <StyledPriceValue>
+                                  ${item.price}
+                                </StyledPriceValue>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </StyledCard>
-                  </div>
-                )
-              )}
-              <LoginModal
-                OpenModalForm={open}
-                CloseModalForm={() => setOpen(false)}
-              />{" "}
-            </div>
+                      </StyledCard>
+                    </div>
+                  )
+                )}
+                <LoginModal
+                  OpenModalForm={open}
+                  CloseModalForm={() => setOpen(false)}
+                />{" "}
+              </div>
+            )}
           </Paper>
           <br></br>
           <br></br>

@@ -6,6 +6,7 @@ import {
   Box,
   Avatar,
   AppBar,
+  IconButton,
   TextField,
   Card,
   Link,
@@ -31,6 +32,16 @@ export const StyledTypography = styled(Typography)(
 export const StyledLink = styled(Link)(
   sx({
     "&:hover": {},
+  })
+);
+export const StyledIconButton = styled(IconButton)(
+  sx({
+    "&:active": {
+      color: "red",
+    },
+    "&:focus": {
+      color: "red",
+    },
   })
 );
 
