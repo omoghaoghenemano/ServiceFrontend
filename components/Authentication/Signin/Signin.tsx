@@ -21,9 +21,9 @@ import {
 } from "./styles";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Clientapi from "../../pages/api/client";
-import StateContext from "../../context/StateContext";
-import DispatchContext from "../../context/DispatchContext";
+import Clientapi from "../../../pages/api/client";
+import StateContext from "../../../context/StateContext";
+import DispatchContext from "../../../context/DispatchContext";
 import Cookies from "js-cookie";
 import ReCaptchaV2 from "react-google-recaptcha";
 

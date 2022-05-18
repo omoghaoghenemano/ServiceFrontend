@@ -8,7 +8,7 @@ import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { addArticle } from "../../store/actions/actionCreators";
 import { Dispatch } from "redux";
 
-import Signin from "../Signin";
+import Signin from "../Authentication/Signin/Signin";
 import CloseIcon from "@mui/icons-material/Close";
 // make login reusable
 const style = {
@@ -25,11 +25,13 @@ const style = {
 type Props = {
   OpenModalForm: any;
   CloseModalForm: any;
+  isSignup?: boolean;
 };
 
 export const LoginModal: React.FC<Props> = ({
   CloseModalForm,
   OpenModalForm,
+  isSignup,
 }) => {
   const { AuthState } = useContext<any>(StateContext);
   const { AuthDispatcher } = useContext<any>(DispatchContext);
@@ -70,11 +72,15 @@ export const LoginModal: React.FC<Props> = ({
           >
             <CloseIcon />
           </IconButton>
-          <Signin
-            saveUser={saveuser}
-            onSuccess={fetchuser}
-            CloseModalForm={CloseModalForm}
-          />
+          {isSignup ? (
+            <>heymano</>
+          ) : (
+            <Signin
+              saveUser={saveuser}
+              onSuccess={fetchuser}
+              CloseModalForm={CloseModalForm}
+            />
+          )}
         </Paper>
       </Box>
     </Modal>

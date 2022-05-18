@@ -47,21 +47,23 @@ export default function Banner({}: Props) {
     <>
       <br></br>
       <div className="maindiv">
-        <div style={{ position: "relative", marginTop: "50px" }}>
+        <div
+          style={{
+            position: "relative",
+            marginTop: "50px",
+            background:
+              "linear-gradient(164.22deg, #23395D 11.02%, rgba(16, 101, 240, 0) 112.14%) !important",
+          }}
+        >
           <div
             style={{
               width: "100%",
-              height: "300px",
-              background:
-                "linear-gradient(164.22deg, #23395D 11.02%, rgba(16, 101, 240, 0) 112.14%);",
-            }}
-          ></div>
-          <div
-            style={{
-              position: "absolute",
-              width: "100%",
-              bottom: "10px",
+
               display: "flex",
+              height: "300px",
+              justifyContent: "center",
+              background:
+                "linear-gradient(164.22deg, #23395D 11.02%, rgba(16, 101, 240, 0) 112.14%) ",
 
               alignItems: "center",
 

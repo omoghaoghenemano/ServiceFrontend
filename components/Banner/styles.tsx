@@ -14,6 +14,14 @@ import {
   experimental_sx as sx,
 } from "@mui/system";
 
+export const mainStyleDiv = styled("div")(
+  sx({
+    width: "100%",
+    height: "300px",
+    background:
+      "linear-gradient(164.22deg, #23395D 11.02%, rgba(16, 101, 240, 0) 112.14%) !important",
+  })
+);
 export const StyledButton = styled(Button)(
   sx({
     "width": "50%",
