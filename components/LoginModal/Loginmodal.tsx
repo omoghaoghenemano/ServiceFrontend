@@ -9,6 +9,7 @@ import { addArticle } from "../../store/actions/actionCreators";
 import { Dispatch } from "redux";
 
 import Signin from "../Authentication/Signin/Signin";
+import Signup from "../Authentication/Signup/Signup";
 import CloseIcon from "@mui/icons-material/Close";
 // make login reusable
 const style = {
@@ -73,7 +74,7 @@ export const LoginModal: React.FC<Props> = ({
             <CloseIcon />
           </IconButton>
           {isSignup ? (
-            <>heymano</>
+            <Signup />
           ) : (
             <Signin
               saveUser={saveuser}

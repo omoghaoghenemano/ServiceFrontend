@@ -16,7 +16,7 @@ import LatestServices from "../components/LatestServices";
 import TopCategories from "../components/TopCategories/TopCategories";
 import "react-loading-skeleton/dist/skeleton.css";
 import Featured from "../components/Featured/Featured";
-
+import Cookie from "../components/CookieManager/Cookie";
 const Home: NextPage = () => {
   const [categories, setCategories] = useState([]);
   const articles: readonly IArticle[] = useSelector(
@@ -40,6 +40,7 @@ const Home: NextPage = () => {
       {" "}
       <div>
         <Banner />
+        <Cookie />
 
         <AvailableServices services={categories} />
         <Featured />

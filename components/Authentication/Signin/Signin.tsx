@@ -28,6 +28,7 @@ import Cookies from "js-cookie";
 import ReCaptchaV2 from "react-google-recaptcha";
 
 import LoadingButton from "@mui/lab/LoadingButton";
+import { LoginModal } from "../../LoginModal/Loginmodal";
 
 type Props = {
   saveUser: (article: IArticle | any) => void;
@@ -44,6 +45,14 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
   const { AuthDispatcher } = useContext<any>(DispatchContext);
   const [recapcha, setRecapcha] = useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   function handleClick() {
     setLoading(true);
   }
@@ -88,6 +97,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
         });
     }
   };
+
   console.log("finding the recaptcha ", process.env.NEXT_PUBLIC_SITE_KEY);
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
@@ -102,7 +112,6 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
         >
           Log In
         </Typography>
-
         <CustomDivider />
         {!loginsucess && (
           <StyledBox sx={{ background: "red" }}>
@@ -115,14 +124,12 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
             </Typography>
           </StyledBox>
         )}
-
         <StyledTextField
           type="text"
           size="small"
           label="email"
           {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
         />
-
         <StyledTextField
           type="password"
           size="small"
@@ -130,7 +137,6 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
           label="password"
         />
         <br></br>
-
         <ReCaptchaV2
           sitekey="6LeotcQfAAAAAHVLOUkTTNL0tk0ic512fOIaVEPG"
           onChange={() => {
@@ -158,10 +164,21 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
         )}
         <StyledTypography>
           {"        Don't have an Account?"}
-          <Button variant="text" sx={{ textTransform: "none" }}>
+          <Button
+            variant="text"
+            sx={{ textTransform: "none" }}
+            onClick={() => {
+              handleOpen();
+            }}
+          >
             SignUp
           </Button>
         </StyledTypography>
+        <LoginModal
+          OpenModalForm={open}
+          isSignup={true}
+          CloseModalForm={handleClose}
+        />{" "}
         <div
           style={{
             display: "flex",
