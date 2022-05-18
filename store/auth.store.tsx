@@ -12,6 +12,7 @@ const initialAuthState = {
   user: null,
 
   category: !!catdata,
+  favorite: null,
   categorydata: null,
 };
 
@@ -46,7 +47,10 @@ const removeUser = (draft: any, payload: any) => {
   draft.user = initialAuthState.user;
   return draft;
 };
-
+const getfavorite = (draft: any, payload: any) => {
+  draft.user = initialAuthState.favorite;
+  return draft;
+};
 const AuthReducer = (draft: any, action: any) => {
   const actions: any = {
     login: () => {
@@ -58,6 +62,10 @@ const AuthReducer = (draft: any, action: any) => {
     addUser: () => {
       addUser(draft, action.payload);
     },
+    getfavorite: () => {
+      getfavorite(draft, action.payload);
+    },
+
     removeUser: () => {
       removeUser(draft, action.payload);
     },

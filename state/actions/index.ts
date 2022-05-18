@@ -28,4 +28,8 @@ interface MainServiceAction {
     type: ActionType.SERVICE,
     payload: any
 }
-export type Action = DepositAction | WithdrawAction | BankruptAction | UserAction | CategoryAction | ServiceAction | MainServiceAction;
+interface FavoriteAction {
+    type:ActionType.FAVORITE,
+    payload:any
+}
+export type Action = DepositAction | WithdrawAction | BankruptAction | UserAction | CategoryAction | ServiceAction | MainServiceAction | FavoriteAction;

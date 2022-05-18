@@ -131,7 +131,7 @@ export const StyledMainButton = styled(Button)(
     "fontFamily": "Avenir Light",
     "textTransform": "none",
     "background": "#F6F9F5",
-    "color": "#035772",
+    "color": "#152238",
     "fontSize": "13px",
     "&:hover": {
       background: "#035772",

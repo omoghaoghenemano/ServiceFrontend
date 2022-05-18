@@ -497,6 +497,7 @@ import {
 
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useRouter } from "next/router";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   StyledAppBar,
   StyledButton,
@@ -577,7 +578,7 @@ export default function Navbar() {
   console.log("checking the category state", state.categories);
   //button color is FCA301
 
-  const { depositMoney, storecategory, withdrawMoney, mainServices, bankrupt } =
+  const { depositMoney, storecategory, mainServices, getuserfavorite } =
     bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     if (categories.length === 0) {
@@ -607,8 +608,13 @@ export default function Navbar() {
         //checking dispatch for reducer
         depositMoney(user);
       });
+      Clientapi.get("api/user/favorite").then((res) => {
+        const favorite = res.data;
+        AuthDispatcher({ type: "getfavorite", payload: favorite });
+        getuserfavorite(favorite);
+      });
     }
-  }, [categories]);
+  }, [categories, AuthState.isLoggedIn]);
 
   let catvalue = state.categories?.slice(0, 14);
   console.log("this are the categories", categories);
@@ -735,7 +741,12 @@ export default function Navbar() {
     >
       <div className="navbar__container">
         <div className="navbar__mainwrapper">
-          <StyledTypography sx={{ fontFamily: "GeoticaW01-FourOpen" }}>
+          <StyledTypography
+            onClick={() => {
+              route.push("/");
+            }}
+            sx={{ fontFamily: "GeoticaW01-FourOpen", cursor: "pointer" }}
+          >
             GreatServices
           </StyledTypography>
         </div>
@@ -746,6 +757,14 @@ export default function Navbar() {
           </StyledMainButton>
           <IconButton sx={{ color: "#ffff" }}>
             <NotificationsIcon />
+          </IconButton>
+          <IconButton
+            onClick={() => {
+              route.push("/my-favorite");
+            }}
+            sx={{ color: "#ffff" }}
+          >
+            <FavoriteIcon />
           </IconButton>
           <div>
             {AuthState.user ? (

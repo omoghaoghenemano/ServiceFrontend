@@ -10,6 +10,15 @@ export const depositMoney = (amount: any) => {
         })
     }
 }
+export const getuserfavorite = (favorite: any) => {
+    return (dispatch:Dispatch<Action> ) => {
+        dispatch({
+            type: ActionType.FAVORITE,
+            payload:favorite
+        })
+    
+    } 
+}
 export const storecategory = (category: any) => {
     return (dispatch:Dispatch<Action> ) => {
         dispatch({

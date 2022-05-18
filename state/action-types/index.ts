@@ -5,7 +5,8 @@ export enum ActionType {
     USER = "user",
     CATEGORY = "category",
     SERVICEVIAID = "serviceviaid",
-    SERVICE = "services"
+    SERVICE = "services",
+    FAVORITE="favorites"
 
     
 }
