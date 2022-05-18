@@ -14,6 +14,7 @@ import AvailableServices from "../components/AvailableServices";
 import Testing from "./testing";
 import LatestServices from "../components/LatestServices";
 import TopCategories from "../components/TopCategories/TopCategories";
+import "react-loading-skeleton/dist/skeleton.css";
 import Featured from "../components/Featured/Featured";
 
 const Home: NextPage = () => {

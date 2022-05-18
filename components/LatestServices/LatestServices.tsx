@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
+
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { actionCreators } from "../../state";
 import { RootState } from "../../state/reducers";
 import Card from "@mui/material/Card";
@@ -13,6 +15,7 @@ import { Avatar, IconButton } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { LoginModal } from "../LoginModal/Loginmodal";
+
 import { useRouter } from "next/router";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -69,13 +72,14 @@ const LatestServices: React.FC<Props> = ({}) => {
       setButtoncolor(true);
     }
   };
+
   useEffect(() => {
-    if (state.mainservices.length < 0) {
+    if (state.mainservices === null || state.mainservices.length < 0) {
       setLoaded(true);
-    } else {
+    } else if (state.mainservices.length > 0) {
       setLoaded(false);
     }
-  }, [state.mainservices]);
+  });
 
   return (
     <div className="navbar__mycontainer">
@@ -91,7 +95,13 @@ const LatestServices: React.FC<Props> = ({}) => {
               </StyledCustomTypography>
             </StyledBox>
             {loaded ? (
-              <CustomLoader />
+              <Skeleton
+                count={8}
+                inline
+                height={300}
+                style={{ marginLeft: "5px", marginTop: "10px" }}
+                width={"250px"}
+              />
             ) : (
               <div className="flexitems__latestservices">
                 {state.mainservices.slice(0, 9)?.map(
