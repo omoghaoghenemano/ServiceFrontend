@@ -107,7 +107,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                   justifyContent: "center",
                   marginTop: "10px",
                 }}
-                width={"90%"}
+                width={"270px"}
               />
             ) : (
               <div className="flexitems__latestservices">
@@ -151,7 +151,11 @@ const LatestServices: React.FC<Props> = ({}) => {
                           >
                             <img
                               src={item.image}
-                              style={{ height: "200px", width: "100%" }}
+                              style={{
+                                height: "200px",
+                                width: "100%",
+                                objectFit: "cover",
+                              }}
                             ></img>
                           </div>
                           <div
@@ -219,7 +223,9 @@ const LatestServices: React.FC<Props> = ({}) => {
                                   key={item.services_id}
                                   onClick={handleOpen}
                                 >
-                                  <FavoriteBorderIcon />
+                                  <FavoriteBorderIcon
+                                    style={{ color: "white" }}
+                                  />
                                 </StyledIconButton>
 
                                 <StyledPrice> STARTING AT</StyledPrice>

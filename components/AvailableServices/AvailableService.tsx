@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import StateContext from "../../context/StateContext";
 import DispatchContext from "../../context/DispatchContext";
 import Paper from "@mui/material/Paper";
@@ -13,6 +13,7 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 import Card from "@mui/material/Card";
 import { RootState } from "../../state/reducers";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import {
   StyledLink,
@@ -58,6 +59,8 @@ const AvailableService = (props: Props) => {
   const { AuthDispatcher } = useContext<any>(DispatchContext);
   const dispatch: Dispatch<any> = useDispatch();
   const state = useSelector((state: RootState) => state.appstate);
+  const [loaded, setLoaded] = useState(true);
+
   function nextSlide() {
     setCurrent(current === length - 10 ? 0 : current + 1);
   }
@@ -76,6 +79,13 @@ const AvailableService = (props: Props) => {
   ) => {
     setCheckhover(false);
   };
+  useEffect(() => {
+    if (state.categories === null || state.categories.length < 0) {
+      setLoaded(true);
+    } else if (state.categories.length > 0) {
+      setLoaded(false);
+    }
+  });
 
   return (
     <div className="navbar__mycontainer">
@@ -90,56 +100,69 @@ const AvailableService = (props: Props) => {
                 Service categories
               </StyledCustomTypography>
             </StyledBox>
-            <div className="flexitems__avalableservice">
-              {state.categories?.map(
-                (
-                  item: {
-                    type:
-                      | boolean
-                      | React.ReactChild
-                      | React.ReactFragment
-                      | React.ReactPortal
-                      | null
-                      | undefined;
-                    categories_id: number;
-                  },
-                  i: string | number | any
-                ) => (
-                  <div
-                    key={Math.random()}
-                    style={{ marginLeft: "1%", position: "relative" }}
-                  >
-                    <StyledCard elevation={0}>
-                      <StyledLink /* href={"/categories?list=" + item?.categories_id} */
-                        sx={{ textDecoration: "none", color: "#000" }}
-                        onClick={() => {
-                          route.push(
-                            "/categories?services=" + item?.categories_id
-                          );
-                        }}
-                      >
-                        {" "}
-                        <img
-                          src={serviceimages[i]}
-                          style={{
-                            width: "200px",
-                            borderRadius: "13px",
-                            height: "200px",
-                            cursor: "pointer",
-                            objectFit: "cover",
+            {loaded ? (
+              <Skeleton
+                count={6}
+                inline
+                height={120}
+                containerClassName="flexitems__avalableservice"
+                style={{
+                  marginLeft: "2px",
+                }}
+                width={"270px"}
+              />
+            ) : (
+              <div className="flexitems__avalableservice">
+                {state.categories?.map(
+                  (
+                    item: {
+                      type:
+                        | boolean
+                        | React.ReactChild
+                        | React.ReactFragment
+                        | React.ReactPortal
+                        | null
+                        | undefined;
+                      categories_id: number;
+                    },
+                    i: string | number | any
+                  ) => (
+                    <div
+                      key={Math.random()}
+                      style={{ marginLeft: "1%", position: "relative" }}
+                    >
+                      <StyledCard elevation={0}>
+                        <StyledLink /* href={"/categories?list=" + item?.categories_id} */
+                          sx={{ textDecoration: "none", color: "#000" }}
+                          onClick={() => {
+                            route.push(
+                              "/categories?services=" + item?.categories_id
+                            );
                           }}
-                        />
-                        <Typography
-                          style={{ fontFamily: "serif", fontSize: "0.9rem" }}
                         >
-                          {item.type}
-                        </Typography>
-                      </StyledLink>
-                    </StyledCard>
-                  </div>
-                )
-              )}
-            </div>
+                          {" "}
+                          <img
+                            src={serviceimages[i]}
+                            style={{
+                              width: "200px",
+                              borderRadius: "13px",
+                              height: "200px",
+                              cursor: "pointer",
+                              objectFit: "cover",
+                            }}
+                          />
+                          <Typography
+                            style={{ fontFamily: "serif", fontSize: "0.9rem" }}
+                          >
+                            {item.type}
+                          </Typography>
+                        </StyledLink>
+                      </StyledCard>
+                    </div>
+                  )
+                )}
+              </div>
+            )}
           </Paper>
         </div>
       </div>

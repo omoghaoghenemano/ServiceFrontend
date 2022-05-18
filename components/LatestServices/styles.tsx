@@ -25,7 +25,7 @@ export const StyledTypography = styled(Typography)(
     fontSize: "12px",
     fontFamily: "san-serif",
     marginLeft: "15%",
-    color: "rgb(3, 87, 114)",
+    color: "#152238",
   })
 );
 
