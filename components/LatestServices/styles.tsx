@@ -51,10 +51,10 @@ export const StyledCard = styled(Card)(
 
     "display": "flex",
 
-    "justifyContent": "flex-start",
+    "justifyContent": "space-between",
 
-    "border": "#949593 5px",
-    "opacity": "78%",
+    "border": "#949593 1px",
+
     "borderRadius": " 3px",
     "height": "100%",
 
@@ -65,13 +65,6 @@ export const StyledCard = styled(Card)(
 
       lg: "250px",
       xl: "270px",
-    },
-
-    "borderStyle": "solid",
-    "marginLeft": {
-      sm: "2%",
-      lg: "3%",
-      xl: "2%",
     },
 
     "background": "#F6F9F5",
@@ -117,7 +110,7 @@ export const StyledButton = styled(Button)(
 );
 export const StyledPriceValue = styled(Typography)(
   sx({
-    color: "#FF4040",
+    color: "#FCA301",
     fontFamily: "Avenir Light",
     fontSize: "25px",
     textShadow: "rgba(0, 0, 0, 0.298039) 0px 5px 0px",

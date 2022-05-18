@@ -95,7 +95,7 @@ const Signin: React.FC<Props> = ({ saveUser, CloseModalForm, onSuccess }) => {
         <Typography
           style={{
             fontSize: "1.4rem",
-            color: "#035772",
+            color: "#152238",
             fontWeight: "bold",
             marginTop: "30px",
           }}

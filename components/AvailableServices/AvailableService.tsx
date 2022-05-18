@@ -126,6 +126,7 @@ const AvailableService = (props: Props) => {
                             borderRadius: "13px",
                             height: "200px",
                             cursor: "pointer",
+                            objectFit: "cover",
                           }}
                         />
                         <Typography

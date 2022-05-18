@@ -191,8 +191,8 @@ const LatestServices: React.FC<Props> = ({}) => {
                             <div
                               style={{
                                 height: "50px",
-                                background: "#7DAAB9",
-                                opacity: "90%",
+                                background: "#152238",
+
                                 width: "114%",
                                 marginLeft: "-4.5%",
                                 display: "flex",
@@ -208,6 +208,7 @@ const LatestServices: React.FC<Props> = ({}) => {
                                 style={{
                                   display: "flex",
                                   width: "100%",
+
                                   alignSelf: "flex-end",
 
                                   justifyContent: "space-evenly",

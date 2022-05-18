@@ -20,13 +20,13 @@ import {
 
 export const StyledButton = styled(Button)(
   sx({
-    width: "35%",
+    "width": "35%",
 
-    color: "white",
-    borderRadius: "13px",
-    textTransform: "none",
-    boxShadow: "  0px 1px 0px 1px #888888",
-    background: "	#4267B2",
+    "color": "white",
+    "borderRadius": "13px",
+    "textTransform": "none",
+    "boxShadow": "  0px 1px 0px 1px #888888",
+    "background": "	#4267B2",
     "&:hover": {
       background: "blue",
     },
@@ -34,14 +34,14 @@ export const StyledButton = styled(Button)(
 );
 export const StyledButtonGoogle = styled(Button)(
   sx({
-    width: "35%",
+    "width": "35%",
 
-    color: "black",
-    borderRadius: "13px",
-    textTransform: "none",
-    background: "whitesmoke",
+    "color": "black",
+    "borderRadius": "13px",
+    "textTransform": "none",
+    "background": "whitesmoke",
 
-    boxShadow: "  0px 1px 0px 1px #888888",
+    "boxShadow": "  0px 1px 0px 1px #888888",
     "&:hover": {
       background: "white",
     },
@@ -72,13 +72,13 @@ export const StyledBox = styled(Box)(
 );
 export const StyleCheckoutButton = styled(Button)(
   sx({
-    width: "80%",
-    color: "white",
-    marginTop: "30px",
-    borderRadius: "13px",
-    textTransform: "none",
-    background: "#035772",
-    borderShadow: " 0px 0px 0px 10px grey",
+    "width": "80%",
+    "color": "white",
+    "marginTop": "30px",
+    "borderRadius": "13px",
+    "textTransform": "none",
+    "background": "#152238",
+    "borderShadow": " 0px 0px 0px 10px grey",
 
     "&:hover": {
       background: "#035772",

@@ -13,13 +13,13 @@
 }
 
 @mixin atLarge {
-  @media (min-width: 1350px) {
+  @media (min-width: 1618px) {
     @content;
   }
 }
 
 @mixin atLargeMax {
-  @media (max-width: 1455px) {
+  @media (max-width: 1620px) {
     @content;
   }
 }

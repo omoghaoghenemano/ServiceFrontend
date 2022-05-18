@@ -15,6 +15,7 @@
     display: grid;
     row-gap: 20px;
     grid-template-columns: auto auto auto;
+    justify-content: space-around;
 
     overflow-x: scroll;
     @include atSmallMax {
@@ -31,8 +32,9 @@
     }
 
     @include atLarge {
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto auto auto;
       width: 100%;
+      gap: 5px;
     }
 
     @include atLargeMax {
