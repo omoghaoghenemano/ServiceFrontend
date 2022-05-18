@@ -34,6 +34,7 @@ const displayCategories = (draft: any) => {
 const logout = (draft: any) => {
   console.log("<<<<>>>>>>>>>> Logging out ");
   draft.isLoggedIn = false;
+  draft.favorite = null;
   draft.user = initialAuthState.user;
   return draft;
 };
