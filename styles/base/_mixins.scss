@@ -13,7 +13,7 @@
 }
 
 @mixin atLarge {
-  @media (min-width: 1280px) {
+  @media (min-width: 1350px) {
     @content;
   }
 }

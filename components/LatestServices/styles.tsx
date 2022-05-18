@@ -136,8 +136,8 @@ export const StyledPrice = styled(Typography)(
 );
 export const StyledBox = styled(Box)(
   sx({
-    background: "#949593",
-    opacity: "78%",
+    background: "#152238",
+
     width: "100%",
     marginTop: "3%",
   })
@@ -146,5 +146,6 @@ export const StyledCustomTypography = styled(Typography)(
   sx({
     fontSize: "30px",
     fontFamily: "caudex",
+    color: "#ffff",
   })
 );

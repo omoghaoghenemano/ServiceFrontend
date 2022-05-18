@@ -174,8 +174,8 @@ const LatestServices: React.FC<Props> = ({}) => {
                             <div
                               style={{
                                 height: "50px",
-                                background: "#949593",
-                                opacity: "73%",
+                                background: "#7DAAB9",
+                                opacity: "90%",
                                 width: "114%",
                                 marginLeft: "-4.5%",
                                 display: "flex",

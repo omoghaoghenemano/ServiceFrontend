@@ -1,20 +1,28 @@
-.footer{
-    background: green;
+.footer {
+  background: $color-footer;
 
+  width: 100%;
+  &__container {
+    display: flex;
     width: 100%;
-    &__container {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        justify-items: center;
-        
-  
-     }
-     &__child {
-         display: flex;
-         justify-content: space-around;
-         width: 100%;
-         padding: 10px;
-         background: $color-footer;
-     }
+    justify-content: center;
+    justify-items: center;
+  }
+  &__child {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px;
+    background: $color-footer;
+  }
+  &__stripbackground {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    background: $color-stripbackground;
+    justify-items: center;
+  }
+  &__footeritem {
+    display: flex;
+  }
 }

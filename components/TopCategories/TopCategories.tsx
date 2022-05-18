@@ -13,10 +13,6 @@ import { StyledHeader } from "../Categories/styles";
 export default function TopCategories() {
   return (
     <div className="navbar__mycontainer">
-      <StyledBox>
-        <StyledTypography>Top Category</StyledTypography>
-      </StyledBox>
-
       <div className="navbar__catwrapper">
         <StyledDiv>
           <div>
@@ -35,9 +31,10 @@ export default function TopCategories() {
                   borderTopRightRadius: "250px",
                   height: "300px",
                   width: "100%",
+                  objectFit: "cover",
                 }}
               />
-              <div style={{ background: "#EEEEF5" }}>
+              <div style={{ background: "#152238" }}>
                 <StyledHeaderTypo>Remodel</StyledHeaderTypo>
                 <StyledTypographySub>
                   Use this space to tell people more about what you do or a
@@ -48,9 +45,10 @@ export default function TopCategories() {
                     display: "flex",
                     justifyContent: "end",
                     marginRight: "4%",
+                    marginBottom: "2%",
                   }}
                 >
-                  <StyledIconButton sx={{ background: "black" }}>
+                  <StyledIconButton sx={{ background: "#ffff" }}>
                     <ArrowForwardIcon
                       sx={{
                         color: "white",
@@ -79,9 +77,10 @@ export default function TopCategories() {
                   borderTopRightRadius: "250px",
                   height: "300px",
                   width: "100%",
+                  objectFit: "cover",
                 }}
               />
-              <div style={{ background: "#EEEEF5" }}>
+              <div style={{ background: "#152238" }}>
                 <StyledHeaderTypo>ReShape</StyledHeaderTypo>
                 <StyledTypographySub>
                   Use this space to tell people more about what you do or a
@@ -92,9 +91,10 @@ export default function TopCategories() {
                     display: "flex",
                     justifyContent: "end",
                     marginRight: "4%",
+                    marginBottom: "2%",
                   }}
                 >
-                  <StyledIconButton sx={{ background: "black" }}>
+                  <StyledIconButton sx={{ background: "#FCA301" }}>
                     <ArrowForwardIcon
                       sx={{
                         color: "white",
@@ -123,9 +123,10 @@ export default function TopCategories() {
                   borderTopRightRadius: "250px",
                   height: "300px",
                   width: "100%",
+                  objectFit: "cover",
                 }}
               />
-              <div style={{ background: "#EEEEF5" }}>
+              <div style={{ background: "#152238" }}>
                 <StyledHeaderTypo>Redesign</StyledHeaderTypo>
                 <StyledTypographySub>
                   Use this space to tell people more about what you do or a
@@ -136,9 +137,10 @@ export default function TopCategories() {
                     display: "flex",
                     justifyContent: "end",
                     marginRight: "4%",
+                    marginBottom: "2%",
                   }}
                 >
-                  <StyledIconButton sx={{ background: "black" }}>
+                  <StyledIconButton sx={{ background: "#FCA301" }}>
                     <ArrowForwardIcon
                       sx={{
                         color: "white",

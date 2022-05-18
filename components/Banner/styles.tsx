@@ -16,12 +16,12 @@ import {
 
 export const StyledButton = styled(Button)(
   sx({
-    width: "50%",
-    color: "white",
-    fontFamily: "serif",
-    textTransform: "none",
-    marginLeft: "10px",
-    background: "#F68B1E",
+    "width": "50%",
+    "color": "white",
+    "fontFamily": "serif",
+    "textTransform": "none",
+    "marginLeft": "10px",
+    "background": "#F68B1E",
     "&:hover": {
       background: "#FFA500",
     },
@@ -46,14 +46,14 @@ export const SubTypography = styled(Typography)(
 );
 export const StyledTextField = styled(TextField)(
   sx({
-    minWidth: "30%",
-    border: "none",
-    borderStyle: "none",
+    "minWidth": "30%",
+    "border": "none",
+    "borderStyle": "none",
 
-    background: "#C5C7C4",
-    borderRadius: "20px",
+    "background": "#ffff",
+    "borderRadius": "20px",
 
-    outline: 0,
+    "outline": 0,
     "& fieldset": {
       borderRadius: "20px",
     },
@@ -70,20 +70,20 @@ export const StyledDiv = styled("div")(
 );
 export const StyledDivButton = styled(Button)(
   sx({
-    border: "#1D67CD",
-    borderRadius: "60px",
+    "border": "#1D67CD",
+    "borderRadius": "60px",
 
-    borderShadow: "1px #000000",
-    background: "white",
-    color: "black",
-    opacity: "40%",
+    "borderShadow": "1px #000000",
+    "background": "#ffff",
+    "color": "black",
+    "opacity": "40%",
 
-    textDecorationColor: "whitesmoke",
+    "textDecorationColor": "whitesmoke",
 
-    width: "30%",
-    fontFamily: "serif",
+    "width": "30%",
+    "fontFamily": "serif",
 
-    textTransform: "none",
+    "textTransform": "none",
     "&:hover": {
       background: "#689ADE",
     },

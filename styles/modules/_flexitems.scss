@@ -20,8 +20,23 @@
     @include atSmallMax {
       display: none;
     }
+    @include atMedium {
+      grid-template-columns: auto auto auto;
+      width: 100%;
+    }
+
+    @include atMediumMax {
+      grid-template-columns: auto auto auto;
+      width: 100%;
+    }
+
     @include atLarge {
-      grid-template-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto;
+      width: 100%;
+    }
+
+    @include atLargeMax {
+      grid-template-columns: auto auto auto;
       width: 100%;
     }
   }

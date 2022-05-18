@@ -4,7 +4,7 @@ import { Divider, Typography } from "@mui/material";
 
 export default function Featured() {
   return (
-    <div style={{ background: "#C5C7C4", marginTop: "1%", height: "100px" }}>
+    <div style={{ background: "#23395d", marginTop: "1%", height: "100px" }}>
       <div className="navbar__mycontainer">
         <div className="navbar__catwrapper">
           <StyledDiv>

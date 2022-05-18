@@ -19,14 +19,15 @@ import {
 
 export const StyledBox = styled(Box)(
   sx({
-    background: "#949593",
-    opacity: "78%",
+    background: "#152238",
+
     width: "80%",
   })
 );
 export const StyledTypography = styled(Typography)(
   sx({
     fontSize: "30px",
+    color: "#ffff",
     fontFamily: "caudex",
   })
 );
@@ -44,18 +45,20 @@ export const StyledHeaderTypo = styled(Typography)(
     fontSize: "24px",
     fontFamily: "Helvetica Bold",
     textAlign: "center",
+    color: "#ffff",
   })
 );
 export const StyledTypographySub = styled(Typography)(
   sx({
     fontFamily: "Helvetica Light",
-
+    color: "#ffff",
     fontSize: "14px",
   })
 );
 export const StyledIconButton = styled(IconButton)(
   sx({
-    background: "black",
+    "background": "black",
+
     "&:hover": {
       background: "black",
     },

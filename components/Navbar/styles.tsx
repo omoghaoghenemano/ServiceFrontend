@@ -17,7 +17,7 @@ import {
 
 export const StyledTypography = styled(Typography)(
   sx({
-    color: "#091405",
+    color: "#fffff",
 
     fontFamily: "GeoticaW01-FourOpen",
     fontSize: "28px",
@@ -38,8 +38,8 @@ export const StyledAppBar = styled(AppBar)(
     justifyContent: "center",
 
     display: "flex",
-    background: "#C3E5F0",
-    opacity: "98%",
+    background: "#152238",
+    opacity: "100%",
 
     width: "100%",
   })
@@ -47,11 +47,11 @@ export const StyledAppBar = styled(AppBar)(
 //BUTTON MAIN COLOR IS #F68B1E
 export const StyledSearchSubmitButton = styled(Button)(
   sx({
-    color: "white",
-    textTransform: "none",
-    height: "40px",
+    "color": "white",
+    "textTransform": "none",
+    "height": "40px",
 
-    background: "#F68B1E",
+    "background": "#F68B1E",
     "&:hover": {
       background: "#F68B1E",
     },
@@ -64,17 +64,17 @@ export const StyledTextField = styled(TextField)(
 );
 export const StyledButton = styled(Button)(
   sx({
-    color: "#035772",
+    color: "#ffff",
     textTransform: "none",
   })
 );
 export const Styledpaper = styled(Paper)(
   sx({
-    height: 500,
-    width: 300,
-    position: "relative",
+    "height": 500,
+    "width": 300,
+    "position": "relative",
 
-    borderRadius: "10px",
+    "borderRadius": "10px",
     "&:hover": {
       elevation: "19%",
       height: 400,
@@ -124,15 +124,15 @@ export const StyledDiv = styled("div")(
 );
 export const StyledMainButton = styled(Button)(
   sx({
-    border: "1px #035772 ",
-    height: "40px",
-    borderStyle: "solid",
-    borderRadius: "20px",
-    fontFamily: "Avenir Light",
-    textTransform: "none",
-    background: "#F6F9F5",
-    color: "#035772",
-    fontSize: "13px",
+    "border": "1px #035772 ",
+    "height": "40px",
+    "borderStyle": "solid",
+    "borderRadius": "20px",
+    "fontFamily": "Avenir Light",
+    "textTransform": "none",
+    "background": "#F6F9F5",
+    "color": "#035772",
+    "fontSize": "13px",
     "&:hover": {
       background: "#035772",
       color: "white",

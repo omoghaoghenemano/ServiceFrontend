@@ -35,8 +35,8 @@ export const StyledLink = styled(Link)(
 
 export const StyledCard = styled(Card)(
   sx({
-    cursor: "pointer",
-    borderRadius: "10px",
+    "cursor": "pointer",
+    "borderRadius": "10px",
 
     "&:hover": {
       boxShadow: " 0px 2px 12px -1px #565454;",
@@ -45,8 +45,8 @@ export const StyledCard = styled(Card)(
 );
 export const StyledBox = styled(Box)(
   sx({
-    background: "#949593",
-    opacity: "78%",
+    background: "#152238",
+
     width: "100%",
     marginTop: "3%",
   })
@@ -55,5 +55,6 @@ export const StyledCustomTypography = styled(Typography)(
   sx({
     fontSize: "30px",
     fontFamily: "caudex",
+    color: "#ffff",
   })
 );

@@ -34,14 +34,14 @@ export const StyledTypography = styled(Typography)(
   sx({
     fontFamily: "EB Garamond",
     fontSize: "24px",
-    color: "#091405",
+    color: "#ffff",
   })
 );
 
 export const StyledDivider = styled(Divider)(
   sx({
     width: "1px",
-    border: "black 1px",
+    border: "#ffff 1px",
     opacity: "100%",
     borderStyle: "solid ",
     marginLeft: "10%",

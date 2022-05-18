@@ -575,6 +575,7 @@ export default function Navbar() {
   const state = useSelector((state: RootState) => state.appstate);
   console.log("confirmation of the state ", state);
   console.log("checking the category state", state.categories);
+  //button color is FCA301
 
   const { depositMoney, storecategory, withdrawMoney, mainServices, bankrupt } =
     bindActionCreators(actionCreators, dispatch);
@@ -743,7 +744,7 @@ export default function Navbar() {
             Post a Service{" "}
             <KeyboardArrowDown sx={{ transform: "rotate(270deg)" }} />
           </StyledMainButton>
-          <IconButton sx={{ color: "#035772" }}>
+          <IconButton sx={{ color: "#ffff" }}>
             <NotificationsIcon />
           </IconButton>
           <div>
