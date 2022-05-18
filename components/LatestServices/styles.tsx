@@ -47,37 +47,37 @@ export const StyledIconButton = styled(IconButton)(
 
 export const StyledCard = styled(Card)(
   sx({
-    cursor: "pointer",
+    "cursor": "pointer",
 
-    display: "flex",
+    "display": "flex",
 
-    justifyContent: "flex-start",
+    "justifyContent": "flex-start",
 
-    border: "#949593 5px",
-    opacity: "78%",
-    borderRadius: " 3px",
-    height: "100%",
+    "border": "#949593 5px",
+    "opacity": "78%",
+    "borderRadius": " 3px",
+    "height": "100%",
 
-    width: {
+    "width": {
       xs: "200px",
 
       sm: "230px",
 
       lg: "250px",
-      xl: "300px",
+      xl: "270px",
     },
 
-    borderStyle: "solid",
-    marginLeft: {
+    "borderStyle": "solid",
+    "marginLeft": {
       sm: "2%",
       lg: "3%",
-      xl: "7%",
+      xl: "2%",
     },
 
-    background: "#F6F9F5",
+    "background": "#F6F9F5",
 
-    justifyItems: "flex-end",
-    alignItems: "flex-end",
+    "justifyItems": "flex-end",
+    "alignItems": "flex-end",
 
     "&:hover": {
       boxShadow: " 0px 2px 12px -1px #565454;",
@@ -105,11 +105,11 @@ export const StyledTypographyHeader = styled(Typography)(
 );
 export const StyledButton = styled(Button)(
   sx({
-    background: "#F68B1E",
-    color: "white",
-    textTransform: "none",
-    width: "255px",
-    maxwidth: "10px",
+    "background": "#F68B1E",
+    "color": "white",
+    "textTransform": "none",
+    "width": "255px",
+    "maxwidth": "10px",
     "&:hover": {
       background: "#F68B1E",
     },
