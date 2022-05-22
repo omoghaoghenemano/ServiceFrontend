@@ -6,9 +6,9 @@ type Props = {};
 
 const Profile = (props: Props) => {
   return (
-    <div>
+    <Layout>
       <Userprofile />
-    </div>
+    </Layout>
   );
 };
 export default Profile;

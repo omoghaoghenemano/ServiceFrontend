@@ -61,6 +61,7 @@ const AvailableService = (props: Props) => {
   const state = useSelector((state: RootState) => state.appstate);
   const [loaded, setLoaded] = useState(true);
 
+
   function nextSlide() {
     setCurrent(current === length - 10 ? 0 : current + 1);
   }

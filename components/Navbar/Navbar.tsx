@@ -577,6 +577,13 @@ export default function Navbar() {
   console.log("confirmation of the state ", state);
   console.log("checking the category state", state.categories);
   //button color is FCA301
+  const UserFavorite = () => {
+    Clientapi.get("api/user/favorite").then((res) => {
+      const favorite = res.data;
+      AuthDispatcher({ type: "getfavorite", payload: favorite });
+      getuserfavorite(favorite);
+    });
+  };
 
   const { depositMoney, storecategory, mainServices, getuserfavorite } =
     bindActionCreators(actionCreators, dispatch);
@@ -605,16 +612,12 @@ export default function Navbar() {
         const user = response.data;
         AuthDispatcher({ type: "addUser", payload: user });
         console.log(AuthState.user);
+
         //checking dispatch for reducer
         depositMoney(user);
       });
-      Clientapi.get("api/user/favorite").then((res) => {
-        const favorite = res.data;
-        AuthDispatcher({ type: "getfavorite", payload: favorite });
-        getuserfavorite(favorite);
-      });
     }
-  }, [categories, AuthState.isLoggedIn]);
+  }, [categories]);
 
   let catvalue = state.categories?.slice(0, 14);
   console.log("this are the categories", categories);
@@ -799,7 +802,13 @@ export default function Navbar() {
                         "aria-labelledby": "basic-button",
                       }}
                     >
-                      <MenuItem onClick={handleClose}>Profile</MenuItem>
+                      <MenuItem
+                        onClick={() => {
+                          route.push("/profile");
+                        }}
+                      >
+                        Profile
+                      </MenuItem>
                       <MenuItem onClick={handleClose}>My account</MenuItem>
                       <MenuItem onClick={HandleLogout}>Logout</MenuItem>
                     </Menu>
